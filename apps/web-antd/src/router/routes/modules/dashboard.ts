@@ -13,7 +13,7 @@ const routes: RouteRecordRaw[] = [
     path: '/dashboard',
     children: [
       {
-        name: 'Analytics',
+        name: 'Analytics123',
         path: '/analytics',
         component: () => import('#/views/dashboard/analytics/index.vue'),
         meta: {
