@@ -3,9 +3,9 @@
     <div class="container mx-auto py-12">
       <!-- 页面标题 -->
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold tracking-tight mb-2">成功案例</h2>
+        <h2 class="text-3xl font-bold tracking-tight mb-2">{{ t('cases.title') }}</h2>
         <p class="text-muted-foreground max-w-2xl mx-auto">
-          探索我们的客户如何通过Sphere支付解决方案实现业务增长
+          {{ t('cases.subtitle') }}
         </p>
       </div>
 
@@ -22,7 +22,7 @@
           ]"
           @click="activeFilter = filter.value"
         >
-          {{ filter.label }}
+          {{ t(`cases.filters.${filter.value}`) }}
         </button>
       </div>
 
@@ -30,13 +30,13 @@
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="caseItem in filteredCases"
-          :key="caseItem.title"
+          :key="caseItem.id"
           class="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md"
         >
           <div class="aspect-[4/3] overflow-hidden">
             <img
               :src="caseItem.image"
-              :alt="caseItem.title"
+              :alt="t(`cases.items.${caseItem.id}.title`)"
               class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
@@ -45,10 +45,10 @@
               <div class="p-1.5 rounded-md bg-primary/10 text-primary">
                 <component :is="caseItem.icon" class="size-4" />
               </div>
-              <span class="text-sm font-medium text-muted-foreground">{{ caseItem.industry }}</span>
+              <span class="text-sm font-medium text-muted-foreground">{{ t(`cases.items.${caseItem.id}.industry`) }}</span>
             </div>
-            <h3 class="text-xl font-semibold mb-2">{{ caseItem.title }}</h3>
-            <p class="text-muted-foreground mb-4">{{ caseItem.description }}</p>
+            <h3 class="text-xl font-semibold mb-2">{{ t(`cases.items.${caseItem.id}.title`) }}</h3>
+            <p class="text-muted-foreground mb-4">{{ t(`cases.items.${caseItem.id}.description`) }}</p>
             <div class="space-y-2">
               <div v-for="(result, index) in caseItem.results" :key="index" class="flex items-center gap-2">
                 <svg
@@ -63,7 +63,7 @@
                   <path d="M5 12h14" />
                   <path d="m12 5 7 7-7 7" />
                 </svg>
-                <span class="text-sm">{{ result }}</span>
+                <span class="text-sm">{{ t(`cases.items.${caseItem.id}.results.${index}`) }}</span>
               </div>
             </div>
           </div>
@@ -72,15 +72,15 @@
 
       <!-- 联系我们 -->
       <div class="mt-16 text-center">
-        <h3 class="text-2xl font-semibold mb-4">准备好开始您的成功故事了吗？</h3>
+        <h3 class="text-2xl font-semibold mb-4">{{ t('cases.contact.title') }}</h3>
         <p class="text-muted-foreground mb-6 max-w-2xl mx-auto">
-          我们的团队随时准备帮助您实现业务增长目标。立即联系我们，了解如何为您的业务定制支付解决方案。
+          {{ t('cases.contact.description') }}
         </p>
         <a
           href="/contact"
           class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-8"
         >
-          联系我们
+          {{ t('cases.contact.button') }}
         </a>
       </div>
     </div>
@@ -89,6 +89,9 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface Filter {
   value: string
@@ -96,109 +99,65 @@ interface Filter {
 }
 
 interface CaseItem {
-  title: string
-  description: string
-  industry: string
+  id: string
   category: string
   image: string
   icon: string
-  results: string[]
+  results: number
 }
 
 const activeFilter = ref<string>('all')
 
 const filters: Filter[] = [
-  { value: 'all', label: '全部案例' },
-  { value: 'ecommerce', label: '电子商务' },
-  { value: 'finance', label: '金融服务' },
-  { value: 'travel', label: '旅游酒店' },
-  { value: 'enterprise', label: '企业服务' },
+  { value: 'all', label: 'all' },
+  { value: 'ecommerce', label: 'ecommerce' },
+  { value: 'finance', label: 'finance' },
+  { value: 'travel', label: 'travel' },
+  { value: 'enterprise', label: 'enterprise' },
 ]
 
 const cases: CaseItem[] = [
   {
-    title: '全球电商平台',
-    description: '通过我们的支付解决方案，实现了跨境交易量增长300%',
-    industry: '电子商务',
+    id: 'globalEcommerce',
     category: 'ecommerce',
     image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'ShoppingBag',
-    results: [
-      '支付成功率提升至98%',
-      '支持50+国家本地支付方式',
-      '月交易额突破1亿美元',
-      '客户满意度提升40%'
-    ]
+    results: 4
   },
   {
-    title: '国际银行',
-    description: '成功部署跨境支付系统，提升客户体验和运营效率',
-    industry: '金融服务',
+    id: 'internationalBank',
     category: 'finance',
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2022&q=80',
     icon: 'Landmark',
-    results: [
-      '跨境支付处理时间缩短70%',
-      '系统可用性达到99.99%',
-      '客户投诉率降低60%',
-      '运营成本降低30%'
-    ]
+    results: 4
   },
   {
-    title: '连锁酒店集团',
-    description: '整合全球支付系统，提升预订体验和收入',
-    industry: '旅游酒店',
+    id: 'hotelChain',
     category: 'travel',
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'Hotel',
-    results: [
-      '预订转化率提升45%',
-      '支持20+种货币结算',
-      '客户满意度提升35%',
-      '收入增长25%'
-    ]
+    results: 4
   },
   {
-    title: '跨国企业',
-    description: '实现全球资金管理和支付自动化',
-    industry: '企业服务',
+    id: 'multinational',
     category: 'enterprise',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'Building',
-    results: [
-      '支付处理效率提升80%',
-      '运营成本降低40%',
-      '资金周转率提升50%',
-      '合规风险降低60%'
-    ]
+    results: 4
   },
   {
-    title: '跨境电商平台',
-    description: '通过本地化支付解决方案拓展新兴市场',
-    industry: '电子商务',
+    id: 'crossBorderEcommerce',
     category: 'ecommerce',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'ShoppingBag',
-    results: [
-      '新兴市场收入增长200%',
-      '本地支付方式覆盖率达95%',
-      '客户满意度提升50%',
-      '支付失败率降低70%'
-    ]
+    results: 4
   },
   {
-    title: '国际旅行社',
-    description: '整合多币种支付系统，提升预订体验',
-    industry: '旅游酒店',
+    id: 'travelAgency',
     category: 'travel',
     image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
     icon: 'Globe',
-    results: [
-      '预订转化率提升60%',
-      '支持30+种货币结算',
-      '客户满意度提升45%',
-      '收入增长35%'
-    ]
+    results: 4
   }
 ]
 
@@ -253,7 +212,7 @@ const Hotel = {
 const Building = {
   template: `
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+      <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
       <path d="M9 22v-4h6v4" />
       <path d="M8 6h.01" />
       <path d="M16 6h.01" />
@@ -272,8 +231,8 @@ const Globe = {
   template: `
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="10" />
-      <line x1="2" y1="12" x2="22" y2="12" />
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      <path d="M2 12h20" />
     </svg>
   `,
 }

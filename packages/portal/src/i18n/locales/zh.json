@@ -1,0 +1,357 @@
+{
+  "common": {
+    "home": "首页",
+    "solutions": "解决方案",
+    "cases": "客户案例",
+    "about": "关于我们",
+    "login": "登录",
+    "register": "注册",
+    "language": "语言",
+    "footer": {
+      "rights": "© 2024 Sphere. 保留所有权利。",
+      "privacy": "隐私政策",
+      "terms": "服务条款"
+    }
+  },
+  "home": {
+    "title": "全球支付解决方案",
+    "subtitle": "安全、快速、可靠的支付服务",
+    "hero": {
+      "title": "下一代支付解决方案",
+      "description": "为您的业务提供安全、高效、智能的支付解决方案。我们的技术让支付变得更简单、更快速、更可靠。",
+      "cta": {
+        "learn_more": "了解更多",
+        "contact_us": "联系我们"
+      }
+    },
+    "image": {
+      "alt": "现代支付终端界面",
+      "card": {
+        "title": "实时交易",
+        "value": "99.99%",
+        "description": "系统可用性"
+      }
+    },
+    "features": {
+      "fast": {
+        "title": "闪电支付",
+        "description": "毫秒级交易处理，让支付更快速"
+      },
+      "secure": {
+        "title": "安全可靠",
+        "description": "银行级安全防护，保障交易安全"
+      },
+      "smart": {
+        "title": "智能风控",
+        "description": "AI驱动的风险控制系统"
+      },
+      "analytics": {
+        "title": "数据分析",
+        "description": "实时数据分析和可视化"
+      }
+    },
+    "cta": "立即开始",
+    "learnMore": "了解更多"
+  },
+  "login": {
+    "title": "登录您的账户",
+    "registerLink": "注册新账户",
+    "or": "或",
+    "form": {
+      "email": {
+        "label": "邮箱地址",
+        "placeholder": "请输入邮箱地址"
+      },
+      "password": {
+        "label": "密码",
+        "placeholder": "请输入密码"
+      },
+      "rememberMe": "记住我",
+      "forgotPassword": "忘记密码？",
+      "submit": "登录"
+    },
+    "errors": {
+      "failed": "登录失败，请检查您的邮箱和密码"
+    }
+  },
+  "solutions": {
+    "title": "行业解决方案",
+    "subtitle": "为不同行业提供专业的支付解决方案",
+    "tabs": {
+      "all": "全部",
+      "ecommerce": "电子商务",
+      "finance": "金融服务",
+      "travel": "旅游酒店",
+      "enterprise": "企业服务"
+    },
+    "solutions": {
+      "ecommerce": {
+        "title": "电商支付解决方案",
+        "description": "为电商平台提供安全、便捷的支付服务，支持多种支付方式，提升用户购物体验。",
+        "features": [
+          "支持多种支付方式",
+          "实时交易处理",
+          "安全支付保障",
+          "数据分析报表"
+        ]
+      },
+      "finance": {
+        "title": "金融支付解决方案",
+        "description": "为金融机构提供专业的支付服务，满足各类金融场景的支付需求。",
+        "features": [
+          "大额交易处理",
+          "资金清算服务",
+          "风险控制系统",
+          "合规监管支持"
+        ]
+      },
+      "travel": {
+        "title": "旅游支付解决方案",
+        "description": "为旅游行业提供便捷的支付服务，支持多币种结算，提升预订体验。",
+        "features": [
+          "多币种支持",
+          "跨境支付服务",
+          "预订系统集成",
+          "退款处理"
+        ]
+      },
+      "enterprise": {
+        "title": "企业支付解决方案",
+        "description": "为企业提供全面的支付服务，支持B2B交易，提升企业运营效率。",
+        "features": [
+          "B2B支付支持",
+          "企业账户管理",
+          "批量支付处理",
+          "财务系统对接"
+        ]
+      },
+      "digital": {
+        "title": "数字支付解决方案",
+        "description": "为数字内容平台提供便捷的支付服务，支持订阅和单次购买。",
+        "features": [
+          "订阅支付支持",
+          "内容付费集成",
+          "会员系统对接",
+          "自动续费管理"
+        ]
+      },
+      "b2b": {
+        "title": "B2B支付解决方案",
+        "description": "为企业间交易提供专业的支付服务，支持大额交易和账期管理。",
+        "features": [
+          "大额交易处理",
+          "账期管理",
+          "发票管理",
+          "供应链金融"
+        ]
+      }
+    },
+    "contact": {
+      "title": "需要定制化解决方案？",
+      "description": "我们的专业团队将为您提供最适合的支付解决方案，助力您的业务发展。",
+      "cta": "联系我们"
+    }
+  },
+  "cases": {
+    "title": "成功案例",
+    "subtitle": "探索我们的客户如何通过Sphere支付解决方案实现业务增长",
+    "filters": {
+      "all": "全部案例",
+      "ecommerce": "电子商务",
+      "finance": "金融服务",
+      "travel": "旅游酒店",
+      "enterprise": "企业服务"
+    },
+    "items": {
+      "globalEcommerce": {
+        "title": "全球电商平台",
+        "description": "通过我们的支付解决方案，实现了跨境交易量增长300%",
+        "industry": "电子商务",
+        "results": [
+          "支付成功率提升至98%",
+          "支持50+国家本地支付方式",
+          "月交易额突破1亿美元",
+          "客户满意度提升40%"
+        ]
+      },
+      "internationalBank": {
+        "title": "国际银行",
+        "description": "成功部署跨境支付系统，提升客户体验和运营效率",
+        "industry": "金融服务",
+        "results": [
+          "跨境支付处理时间缩短70%",
+          "系统可用性达到99.99%",
+          "客户投诉率降低60%",
+          "运营成本降低30%"
+        ]
+      },
+      "hotelChain": {
+        "title": "连锁酒店集团",
+        "description": "整合全球支付系统，提升预订体验和收入",
+        "industry": "旅游酒店",
+        "results": [
+          "预订转化率提升45%",
+          "支持20+种货币结算",
+          "客户满意度提升35%",
+          "收入增长25%"
+        ]
+      },
+      "multinational": {
+        "title": "跨国企业",
+        "description": "实现全球资金管理和支付自动化",
+        "industry": "企业服务",
+        "results": [
+          "支付处理效率提升80%",
+          "运营成本降低40%",
+          "资金周转率提升50%",
+          "合规风险降低60%"
+        ]
+      },
+      "crossBorderEcommerce": {
+        "title": "跨境电商平台",
+        "description": "通过本地化支付解决方案拓展新兴市场",
+        "industry": "电子商务",
+        "results": [
+          "新兴市场收入增长200%",
+          "本地支付方式覆盖率达95%",
+          "客户满意度提升50%",
+          "支付失败率降低70%"
+        ]
+      },
+      "travelAgency": {
+        "title": "国际旅行社",
+        "description": "整合多币种支付系统，提升预订体验",
+        "industry": "旅游酒店",
+        "results": [
+          "预订转化率提升60%",
+          "支持30+种货币结算",
+          "客户满意度提升45%",
+          "收入增长35%"
+        ]
+      }
+    },
+    "contact": {
+      "title": "准备好开始您的成功故事了吗？",
+      "description": "我们的团队随时准备帮助您实现业务增长目标。立即联系我们，了解如何为您的业务定制支付解决方案。",
+      "button": "联系我们"
+    }
+  },
+  "about": {
+    "title": "关于 Sphere",
+    "description": "我们致力于为全球企业提供安全、高效、便捷的支付解决方案，助力企业实现全球化发展。",
+    "mission": {
+      "title": "我们的使命",
+      "description": "通过创新的支付技术，打破全球支付壁垒，让跨境交易变得简单、安全、高效。我们致力于为企业提供全方位的支付解决方案，助力企业实现全球化发展。"
+    },
+    "vision": {
+      "title": "我们的愿景",
+      "description": "成为全球领先的支付解决方案提供商，通过技术创新和优质服务，让全球企业都能享受到便捷、安全、高效的支付体验。"
+    },
+    "values": {
+      "title": "核心价值观",
+      "items": {
+        "innovation": {
+          "title": "创新",
+          "description": "持续创新是我们的核心竞争力，我们不断探索新技术，为客户提供更好的支付体验。"
+        },
+        "professional": {
+          "title": "专业",
+          "description": "我们拥有一支专业的团队，具备丰富的支付行业经验，为客户提供专业的解决方案。"
+        },
+        "responsibility": {
+          "title": "责任",
+          "description": "我们始终以客户为中心，对客户负责，对社会负责，致力于创造更大的价值。"
+        }
+      }
+    },
+    "team": {
+      "title": "我们的团队",
+      "members": {
+        "member1": {
+          "name": "张三",
+          "position": "首席执行官",
+          "description": "拥有15年支付行业经验，曾在多家知名支付公司担任高管职务。"
+        },
+        "member2": {
+          "name": "李四",
+          "position": "技术总监",
+          "description": "专注于支付技术研发，带领团队开发了多个创新支付解决方案。"
+        },
+        "member3": {
+          "name": "王五",
+          "position": "产品总监",
+          "description": "深耕支付产品设计，致力于提供最佳用户体验。"
+        }
+      }
+    },
+    "contact": {
+      "title": "联系我们",
+      "description": "无论您有任何问题或需求，我们的团队随时准备为您提供专业的支持和服务。选择最适合您的方式与我们取得联系。",
+      "phone": {
+        "title": "电话支持",
+        "hours": "周一至周五 9:00-18:00",
+        "number": "400-888-8888"
+      },
+      "email": {
+        "title": "邮件支持",
+        "response": "24小时内回复",
+        "address": "support@sphere.com"
+      },
+      "address": {
+        "title": "公司地址",
+        "welcome": "欢迎访问",
+        "location": "上海市浦东新区陆家嘴金融贸易区"
+      },
+      "form": {
+        "title": "发送消息",
+        "name": {
+          "label": "姓名",
+          "placeholder": "请输入您的姓名"
+        },
+        "email": {
+          "label": "邮箱",
+          "placeholder": "请输入您的邮箱"
+        },
+        "message": {
+          "label": "消息内容",
+          "placeholder": "请输入您想咨询的内容"
+        },
+        "submit": "发送消息"
+      }
+    }
+  },
+  "register": {
+    "title": "注册新账户",
+    "or": "或",
+    "loginLink": "登录已有账户",
+    "form": {
+      "name": {
+        "label": "姓名",
+        "placeholder": "请输入姓名"
+      },
+      "email": {
+        "label": "邮箱地址",
+        "placeholder": "请输入邮箱地址"
+      },
+      "password": {
+        "label": "密码",
+        "placeholder": "请输入密码"
+      },
+      "confirmPassword": {
+        "label": "确认密码",
+        "placeholder": "请再次输入密码"
+      },
+      "terms": {
+        "text": "我同意",
+        "terms": "服务条款",
+        "and": "和",
+        "privacy": "隐私政策"
+      },
+      "submit": "注册"
+    },
+    "errors": {
+      "passwordMismatch": "两次输入的密码不一致",
+      "failed": "注册失败，请稍后重试"
+    }
+  }
+} 

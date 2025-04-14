@@ -5,9 +5,9 @@
       <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/5" />
       <div class="container relative mx-auto py-24">
         <div class="max-w-3xl">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">关于 Sphere</h1>
+          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">{{ t('about.title') }}</h1>
           <p class="mt-6 text-lg text-muted-foreground">
-            我们致力于为全球企业提供安全、高效、便捷的支付解决方案，助力企业实现全球化发展。
+            {{ t('about.description') }}
           </p>
         </div>
       </div>
@@ -34,10 +34,10 @@
                 <path d="M12 2a10 10 0 0 0-10 10" />
               </svg>
             </div>
-            <h2 class="text-2xl font-semibold">我们的使命</h2>
+            <h2 class="text-2xl font-semibold">{{ t('about.mission.title') }}</h2>
           </div>
           <p class="text-muted-foreground">
-            通过创新的支付技术，打破全球支付壁垒，让跨境交易变得简单、安全、高效。我们致力于为企业提供全方位的支付解决方案，助力企业实现全球化发展。
+            {{ t('about.mission.description') }}
           </p>
         </div>
         <div class="space-y-6">
@@ -58,10 +58,10 @@
                 <path d="M12 2a10 10 0 0 0-10 10" />
               </svg>
             </div>
-            <h2 class="text-2xl font-semibold">我们的愿景</h2>
+            <h2 class="text-2xl font-semibold">{{ t('about.vision.title') }}</h2>
           </div>
           <p class="text-muted-foreground">
-            成为全球领先的支付解决方案提供商，通过技术创新和优质服务，让全球企业都能享受到便捷、安全、高效的支付体验。
+            {{ t('about.vision.description') }}
           </p>
         </div>
       </div>
@@ -70,20 +70,20 @@
     <!-- 核心价值观 -->
     <div class="bg-muted/50">
       <div class="container mx-auto py-16">
-        <h2 class="text-3xl font-bold text-center mb-12">核心价值观</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">{{ t('about.values.title') }}</h2>
         <div class="grid gap-8 md:grid-cols-3">
           <div
-            v-for="value in values"
-            :key="value.title"
+            v-for="(value, key) in values"
+            :key="key"
             class="rounded-lg border bg-card p-6 text-card-foreground shadow-sm"
           >
             <div class="flex items-center gap-3 mb-4">
               <div class="p-2 rounded-md bg-primary/10 text-primary">
                 <component :is="value.icon" class="size-5" />
               </div>
-              <h3 class="text-xl font-semibold">{{ value.title }}</h3>
+              <h3 class="text-xl font-semibold">{{ t(`about.values.${key}.title`) }}</h3>
             </div>
-            <p class="text-muted-foreground">{{ value.description }}</p>
+            <p class="text-muted-foreground">{{ t(`about.values.${key}.description`) }}</p>
           </div>
         </div>
       </div>
@@ -91,24 +91,24 @@
 
     <!-- 团队介绍 -->
     <div class="container mx-auto py-16">
-      <h2 class="text-3xl font-bold text-center mb-12">我们的团队</h2>
+      <h2 class="text-3xl font-bold text-center mb-12">{{ t('about.team.title') }}</h2>
       <div class="grid gap-8 md:grid-cols-3">
         <div
-          v-for="member in team"
-          :key="member.name"
+          v-for="(member, key) in team"
+          :key="key"
           class="group relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm"
         >
           <div class="aspect-square overflow-hidden">
             <img
               :src="member.image"
-              :alt="member.name"
+              :alt="t(`about.team.${key}.name`)"
               class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-semibold">{{ member.name }}</h3>
-            <p class="text-sm text-muted-foreground mb-4">{{ member.position }}</p>
-            <p class="text-muted-foreground">{{ member.description }}</p>
+            <h3 class="text-xl font-semibold">{{ t(`about.team.${key}.name`) }}</h3>
+            <p class="text-sm text-muted-foreground mb-4">{{ t(`about.team.${key}.position`) }}</p>
+            <p class="text-muted-foreground">{{ t(`about.team.${key}.description`) }}</p>
           </div>
         </div>
       </div>
@@ -121,9 +121,9 @@
           <!-- 联系信息 -->
           <div class="space-y-8">
             <div>
-              <h2 class="text-3xl font-bold mb-4">联系我们</h2>
+              <h2 class="text-3xl font-bold mb-4">{{ t('about.contact.title') }}</h2>
               <p class="text-muted-foreground max-w-2xl">
-                无论您有任何问题或需求，我们的团队随时准备为您提供专业的支持和服务。选择最适合您的方式与我们取得联系。
+                {{ t('about.contact.description') }}
               </p>
             </div>
             
@@ -135,9 +135,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold">电话支持</h3>
-                  <p class="text-muted-foreground">周一至周五 9:00-18:00</p>
-                  <p class="text-primary font-medium">400-888-8888</p>
+                  <h3 class="font-semibold">{{ t('about.contact.phone.title') }}</h3>
+                  <p class="text-muted-foreground">{{ t('about.contact.phone.hours') }}</p>
+                  <p class="text-primary font-medium">{{ t('about.contact.phone.number') }}</p>
                 </div>
               </div>
 
@@ -149,9 +149,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold">邮件支持</h3>
-                  <p class="text-muted-foreground">24小时内回复</p>
-                  <p class="text-primary font-medium">support@sphere.com</p>
+                  <h3 class="font-semibold">{{ t('about.contact.email.title') }}</h3>
+                  <p class="text-muted-foreground">{{ t('about.contact.email.response') }}</p>
+                  <p class="text-primary font-medium">{{ t('about.contact.email.address') }}</p>
                 </div>
               </div>
 
@@ -163,9 +163,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold">公司地址</h3>
-                  <p class="text-muted-foreground">欢迎访问</p>
-                  <p class="text-primary font-medium">上海市浦东新区陆家嘴金融贸易区</p>
+                  <h3 class="font-semibold">{{ t('about.contact.address.title') }}</h3>
+                  <p class="text-muted-foreground">{{ t('about.contact.address.welcome') }}</p>
+                  <p class="text-primary font-medium">{{ t('about.contact.address.location') }}</p>
                 </div>
               </div>
             </div>
@@ -173,34 +173,34 @@
 
           <!-- 联系表单 -->
           <div class="rounded-xl border bg-card p-8">
-            <h3 class="text-2xl font-semibold mb-6">发送消息</h3>
+            <h3 class="text-2xl font-semibold mb-6">{{ t('about.contact.form.title') }}</h3>
             <form class="space-y-6">
               <div class="space-y-2">
-                <label class="text-sm font-medium" for="name">姓名</label>
+                <label class="text-sm font-medium" for="name">{{ t('about.contact.form.name.label') }}</label>
                 <input
                   id="name"
                   type="text"
                   class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  placeholder="请输入您的姓名"
+                  :placeholder="t('about.contact.form.name.placeholder')"
                 />
               </div>
               
               <div class="space-y-2">
-                <label class="text-sm font-medium" for="email">邮箱</label>
+                <label class="text-sm font-medium" for="email">{{ t('about.contact.form.email.label') }}</label>
                 <input
                   id="email"
                   type="email"
                   class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  placeholder="请输入您的邮箱"
+                  :placeholder="t('about.contact.form.email.placeholder')"
                 />
               </div>
 
               <div class="space-y-2">
-                <label class="text-sm font-medium" for="message">消息内容</label>
+                <label class="text-sm font-medium" for="message">{{ t('about.contact.form.message.label') }}</label>
                 <textarea
                   id="message"
                   class="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  placeholder="请输入您想咨询的内容"
+                  :placeholder="t('about.contact.form.message.placeholder')"
                 ></textarea>
               </div>
 
@@ -208,7 +208,7 @@
                 type="submit"
                 class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-8 w-full"
               >
-                发送消息
+                {{ t('about.contact.form.submit') }}
               </button>
             </form>
           </div>
@@ -220,6 +220,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface Value {
   title: string
@@ -234,57 +237,37 @@ interface TeamMember {
   image: string
 }
 
-const values: Value[] = [
-  {
-    title: '创新',
-    description: '持续创新是我们的核心竞争力，我们不断探索新技术，为客户提供更好的支付体验。',
+const values = {
+  innovation: {
     icon: 'Lightbulb',
   },
-  {
-    title: '专业',
-    description: '我们拥有一支专业的团队，具备丰富的支付行业经验，为客户提供专业的解决方案。',
+  professional: {
     icon: 'Award',
   },
-  {
-    title: '责任',
-    description: '我们始终以客户为中心，对客户负责，对社会负责，致力于创造更大的价值。',
-    icon: 'Heart',
+  responsibility: {
+    icon: 'Shield',
   },
-]
+}
 
-const team: TeamMember[] = [
-  {
-    name: '张明',
-    position: '创始人 & CEO',
-    description: '拥有15年支付行业经验，曾任职于多家知名支付公司，对支付行业有深刻的理解。',
+const team = {
+  member1: {
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
-  {
-    name: '李华',
-    position: '技术总监',
-    description: '专注于支付系统架构设计，带领团队开发了多个核心支付系统，技术实力雄厚。',
+  member2: {
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
-  {
-    name: '王芳',
-    position: '产品总监',
-    description: '负责产品规划和设计，深入了解客户需求，打造了多个成功的支付产品。',
+  member3: {
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
-]
+}
 
 // 图标组件
 const Lightbulb = {
   template: `
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 2v4" />
-      <path d="M12 18v4" />
-      <path d="M4.93 4.93l2.83 2.83" />
-      <path d="M16.24 16.24l2.83 2.83" />
-      <path d="M2 12h4" />
-      <path d="M18 12h4" />
-      <path d="M4.93 19.07l2.83-2.83" />
-      <path d="M16.24 7.76l2.83-2.83" />
+      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+      <path d="M9 18h6" />
+      <path d="M10 22h4" />
     </svg>
   `,
 }
@@ -298,10 +281,10 @@ const Award = {
   `,
 }
 
-const Heart = {
+const Shield = {
   template: `
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
     </svg>
   `,
 }

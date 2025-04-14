@@ -1,0 +1,145 @@
+{
+  "common": {
+    "home": "Beranda",
+    "solutions": "Solusi",
+    "cases": "Kasus",
+    "about": "Tentang Kami",
+    "login": "Masuk",
+    "register": "Daftar",
+    "language": "Bahasa",
+    "footer": {
+      "rights": "© 2024 Sphere. Semua hak dilindungi.",
+      "privacy": "Kebijakan Privasi",
+      "terms": "Ketentuan Layanan"
+    }
+  },
+  "home": {
+    "title": "Solusi Pembayaran Global",
+    "subtitle": "Layanan Pembayaran yang Aman, Cepat, dan Andal",
+    "hero": {
+      "title": "Solusi Pembayaran Generasi Berikutnya",
+      "description": "Menyediakan solusi pembayaran yang aman, efisien, dan cerdas untuk bisnis Anda. Teknologi kami membuat pembayaran lebih sederhana, lebih cepat, dan lebih andal.",
+      "cta": {
+        "learn_more": "Pelajari Lebih Lanjut",
+        "contact_us": "Hubungi Kami"
+      }
+    },
+    "image": {
+      "alt": "Antarmuka terminal pembayaran modern",
+      "card": {
+        "title": "Transaksi Waktu Nyata",
+        "value": "99.99%",
+        "description": "Ketersediaan Sistem"
+      }
+    },
+    "features": {
+      "fast": {
+        "title": "Pembayaran Kilat",
+        "description": "Pemrosesan transaksi tingkat milidetik untuk pembayaran lebih cepat"
+      },
+      "secure": {
+        "title": "Aman & Andal",
+        "description": "Perlindungan keamanan tingkat bank menjamin keamanan transaksi"
+      },
+      "smart": {
+        "title": "Kontrol Risiko Cerdas",
+        "description": "Sistem kontrol risiko berbasis kecerdasan buatan"
+      },
+      "analytics": {
+        "title": "Analisis Data",
+        "description": "Analisis dan visualisasi data waktu nyata"
+      }
+    },
+    "cta": "Mulai Sekarang",
+    "learnMore": "Pelajari Lebih Lanjut"
+  },
+  "solutions": {
+    "title": "Solusi Kami",
+    "subtitle": "Solusi Pembayaran Komprehensif untuk Bisnis Anda"
+  },
+  "cases": {
+    "title": "Kisah Sukses",
+    "subtitle": "Jelajahi Kisah Sukses Pelanggan Kami"
+  },
+  "about": {
+    "title": "Tentang Kami",
+    "subtitle": "Membangun Masa Depan Pembayaran Global",
+    "description": "Kami berdedikasi untuk menyediakan solusi pembayaran yang aman, efisien, dan nyaman bagi bisnis global, membantu mereka mencapai pertumbuhan internasional.",
+    "mission": {
+      "title": "Misi Kami",
+      "description": "Melalui teknologi pembayaran inovatif, kami mendobrak hambatan pembayaran global, membuat transaksi lintas batas menjadi sederhana, aman, dan efisien. Kami berkomitmen untuk menyediakan solusi pembayaran komprehensif bagi bisnis untuk mencapai perkembangan global."
+    },
+    "vision": {
+      "title": "Visi Kami",
+      "description": "Menjadi penyedia solusi pembayaran global terkemuka, memungkinkan bisnis di seluruh dunia untuk menikmati pengalaman pembayaran yang nyaman, aman, dan efisien melalui inovasi teknologi dan layanan berkualitas."
+    },
+    "values": {
+      "title": "Nilai Inti",
+      "innovation": {
+        "title": "Inovasi",
+        "description": "Inovasi berkelanjutan adalah daya saing inti kami. Kami terus mengeksplorasi teknologi baru untuk memberikan pengalaman pembayaran yang lebih baik bagi pelanggan kami."
+      },
+      "professional": {
+        "title": "Profesionalisme",
+        "description": "Kami memiliki tim profesional dengan pengalaman luas di industri pembayaran, menyediakan solusi ahli bagi pelanggan kami."
+      },
+      "responsibility": {
+        "title": "Tanggung Jawab",
+        "description": "Kami selalu mengutamakan pelanggan, bertanggung jawab kepada pelanggan dan masyarakat, berkomitmen untuk menciptakan nilai yang lebih besar."
+      }
+    },
+    "team": {
+      "title": "Tim Kami",
+      "member1": {
+        "name": "John Smith",
+        "position": "Chief Executive Officer",
+        "description": "Dengan pengalaman 15 tahun di industri pembayaran, John telah memegang posisi eksekutif di beberapa perusahaan pembayaran terkenal."
+      },
+      "member2": {
+        "name": "Michael Johnson",
+        "position": "Direktur Teknis",
+        "description": "Fokus pada pengembangan teknologi pembayaran, Michael telah memimpin tim untuk mengembangkan beberapa solusi pembayaran inovatif."
+      },
+      "member3": {
+        "name": "Emily Williams",
+        "position": "Direktur Produk",
+        "description": "Terlibat dalam desain produk pembayaran, Emily berdedikasi untuk memberikan pengalaman pengguna terbaik."
+      }
+    },
+    "contact": {
+      "title": "Hubungi Kami",
+      "description": "Apakah Anda memiliki pertanyaan atau kebutuhan, tim kami selalu siap memberikan dukungan dan layanan profesional. Pilih cara yang paling sesuai untuk menghubungi kami.",
+      "phone": {
+        "title": "Dukungan Telepon",
+        "hours": "Senin hingga Jumat 9:00-18:00",
+        "number": "400-888-8888"
+      },
+      "email": {
+        "title": "Dukungan Email",
+        "response": "Respons dalam 24 jam",
+        "address": "support@sphere.com"
+      },
+      "address": {
+        "title": "Alamat Perusahaan",
+        "welcome": "Selamat berkunjung",
+        "location": "Lujiazui Financial Trade Zone, Pudong New Area, Shanghai"
+      },
+      "form": {
+        "title": "Kirim Pesan",
+        "name": {
+          "label": "Nama",
+          "placeholder": "Masukkan nama Anda"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Masukkan email Anda"
+        },
+        "message": {
+          "label": "Pesan",
+          "placeholder": "Masukkan pertanyaan Anda"
+        },
+        "submit": "Kirim Pesan"
+      }
+    }
+  }
+} 
