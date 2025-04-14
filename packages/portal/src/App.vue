@@ -1,12 +1,13 @@
 <template>
-  <div class="min-h-screen bg-background">
-    <Navbar />
-    <main class="flex-1">
-      <router-view />
-    </main>
-  </div>
+  <BaseLayout>
+    <router-view v-slot="{ Component }">
+      <transition name="router-view" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </BaseLayout>
 </template>
 
 <script setup lang="ts">
-import Navbar from './components/Navbar.vue'
+import BaseLayout from '@/layouts/BaseLayout.vue'
 </script> 

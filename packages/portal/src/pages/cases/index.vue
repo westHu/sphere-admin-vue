@@ -121,7 +121,7 @@ const cases: CaseItem[] = [
     description: '通过我们的支付解决方案，实现了跨境交易量增长300%',
     industry: '电子商务',
     category: 'ecommerce',
-    image: 'https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'ShoppingBag',
     results: [
       '支付成功率提升至98%',
@@ -177,7 +177,7 @@ const cases: CaseItem[] = [
     description: '通过本地化支付解决方案拓展新兴市场',
     industry: '电子商务',
     category: 'ecommerce',
-    image: 'https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     icon: 'ShoppingBag',
     results: [
       '新兴市场收入增长200%',
@@ -191,7 +191,7 @@ const cases: CaseItem[] = [
     description: '整合多币种支付系统，提升预订体验',
     industry: '旅游酒店',
     category: 'travel',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
     icon: 'Globe',
     results: [
       '预订转化率提升60%',

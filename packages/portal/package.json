@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "@sphere/shared": "workspace:*",
-    "vue": "^3.4.0"
+    "vue": "^3.4.0",
+    "@vueuse/core": "^10.7.0",
+    "framer-motion": "^11.0.0",
+    "lucide-vue-next": "^0.300.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

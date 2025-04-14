@@ -1,34 +1,55 @@
 <template>
   <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-    <div class="container flex h-16 items-center">
-      <div class="mr-4 flex">
-        <a class="mr-6 flex items-center space-x-2" href="/">
-          <span class="font-bold">Sphere</span>
+    <nav class="container h-16 flex items-center">
+      <div class="mr-4 flex items-center space-x-2">
+        <a href="/" class="flex items-center space-x-2">
+          <div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
+            <span class="text-lg font-bold text-primary-foreground">S</span>
+          </div>
+          <span class="hidden font-bold sm:inline-block">Sphere</span>
         </a>
+      </div>
+      
+      <div class="flex-1 flex items-center justify-between">
         <nav class="flex items-center space-x-6 text-sm font-medium">
           <a
             v-for="item in navItems"
             :key="item.href"
             :href="item.href"
-            class="transition-colors hover:text-foreground/80 text-foreground/60"
+            class="relative text-muted-foreground transition-colors hover:text-foreground"
           >
             {{ item.title }}
+            <span
+              v-if="item.href === currentPath"
+              class="absolute -bottom-[21px] left-0 h-[2px] w-full bg-foreground"
+            />
           </a>
         </nav>
+
+        <div class="flex items-center space-x-4">
+          <ThemeToggle />
+          <a
+            href="/login"
+            class="btn"
+          >
+            登录
+          </a>
+        </div>
       </div>
-      <div class="flex flex-1 items-center justify-end space-x-4">
-        <a
-          href="/login"
-          class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4"
-        >
-          登录
-        </a>
-      </div>
-    </div>
+    </nav>
   </header>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import ThemeToggle from './ThemeToggle.vue'
+
+const currentPath = ref('/')
+
+onMounted(() => {
+  currentPath.value = window.location.pathname
+})
+
 const navItems = [
   {
     title: '首页',
@@ -45,10 +66,6 @@ const navItems = [
   {
     title: '关于我们',
     href: '/about',
-  },
-  {
-    title: '联系我们',
-    href: '/contact',
   },
 ]
 </script> 

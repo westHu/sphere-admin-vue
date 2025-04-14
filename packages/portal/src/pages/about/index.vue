@@ -117,17 +117,101 @@
     <!-- 联系我们 -->
     <div class="bg-muted/50">
       <div class="container mx-auto py-16">
-        <div class="text-center">
-          <h2 class="text-3xl font-bold mb-4">加入我们</h2>
-          <p class="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            我们正在寻找志同道合的伙伴，一起打造全球领先的支付解决方案。如果您对支付行业充满热情，欢迎加入我们的团队。
-          </p>
-          <a
-            href="/careers"
-            class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-8"
-          >
-            查看职位
-          </a>
+        <div class="grid gap-12 lg:grid-cols-2">
+          <!-- 联系信息 -->
+          <div class="space-y-8">
+            <div>
+              <h2 class="text-3xl font-bold mb-4">联系我们</h2>
+              <p class="text-muted-foreground max-w-2xl">
+                无论您有任何问题或需求，我们的团队随时准备为您提供专业的支持和服务。选择最适合您的方式与我们取得联系。
+              </p>
+            </div>
+            
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="p-2 rounded-md bg-primary/10 text-primary">
+                  <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold">电话支持</h3>
+                  <p class="text-muted-foreground">周一至周五 9:00-18:00</p>
+                  <p class="text-primary font-medium">400-888-8888</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="p-2 rounded-md bg-primary/10 text-primary">
+                  <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <path d="m22 6-10 7L2 6" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold">邮件支持</h3>
+                  <p class="text-muted-foreground">24小时内回复</p>
+                  <p class="text-primary font-medium">support@sphere.com</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="p-2 rounded-md bg-primary/10 text-primary">
+                  <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold">公司地址</h3>
+                  <p class="text-muted-foreground">欢迎访问</p>
+                  <p class="text-primary font-medium">上海市浦东新区陆家嘴金融贸易区</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 联系表单 -->
+          <div class="rounded-xl border bg-card p-8">
+            <h3 class="text-2xl font-semibold mb-6">发送消息</h3>
+            <form class="space-y-6">
+              <div class="space-y-2">
+                <label class="text-sm font-medium" for="name">姓名</label>
+                <input
+                  id="name"
+                  type="text"
+                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  placeholder="请输入您的姓名"
+                />
+              </div>
+              
+              <div class="space-y-2">
+                <label class="text-sm font-medium" for="email">邮箱</label>
+                <input
+                  id="email"
+                  type="email"
+                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  placeholder="请输入您的邮箱"
+                />
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-sm font-medium" for="message">消息内容</label>
+                <textarea
+                  id="message"
+                  class="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  placeholder="请输入您想咨询的内容"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-8 w-full"
+              >
+                发送消息
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -173,19 +257,19 @@ const team: TeamMember[] = [
     name: '张明',
     position: '创始人 & CEO',
     description: '拥有15年支付行业经验，曾任职于多家知名支付公司，对支付行业有深刻的理解。',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
   {
     name: '李华',
     position: '技术总监',
     description: '专注于支付系统架构设计，带领团队开发了多个核心支付系统，技术实力雄厚。',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
   {
     name: '王芳',
     position: '产品总监',
     description: '负责产品规划和设计，深入了解客户需求，打造了多个成功的支付产品。',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   },
 ]
 
