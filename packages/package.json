@@ -8,7 +8,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sphere/shared": "workspace:*",
     "@vueuse/core": "^10.11.1",
     "framer-motion": "^11.0.0",
     "lucide-vue-next": "^0.300.0",
