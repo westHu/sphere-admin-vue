@@ -1,5 +1,5 @@
 <template>
-  <div class="relative min-h-screen bg-background font-sans antialiased">
+  <div class="relative min-h-screen bg-background font-sans antialiased portal-only">
     <div class="relative flex min-h-screen flex-col">
       <Navbar />
       <main class="flex-1">

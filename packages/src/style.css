@@ -87,7 +87,7 @@
 /* 页面过渡动画 */
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .page-enter-from {
@@ -103,23 +103,25 @@
 /* 路由视图过渡动画 */
 .router-view-enter-active,
 .router-view-leave-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.2s ease-out;
+  position: absolute;
+  width: 100%;
 }
 
 .router-view-enter-from {
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateX(20px);
 }
 
 .router-view-leave-to {
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(-20px);
 }
 
 /* 淡入淡出动画 */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .fade-enter-from,
@@ -130,7 +132,7 @@
 /* 缩放动画 */
 .scale-enter-active,
 .scale-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .scale-enter-from,
@@ -142,7 +144,7 @@
 /* 滑动动画 */
 .slide-enter-active,
 .slide-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .slide-enter-from {
@@ -153,4 +155,86 @@
 .slide-leave-to {
   opacity: 0;
   transform: translateX(-100%);
+}
+
+/* 路由过渡状态 */
+.router-transition {
+  cursor: progress;
+  pointer-events: none;
+}
+
+/* 为商户后台内部路由设置更平滑的过渡 */
+body[data-route^="/merchant"] .router-view-enter-active,
+body[data-route^="/merchant"] .router-view-leave-active {
+  transition: all 0.15s ease-out;
+}
+
+body[data-route^="/merchant"] .router-view-enter-from {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+body[data-route^="/merchant"] .router-view-leave-to {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+/* 优化重叠问题 */
+.router-view-enter-active,
+.router-view-leave-active {
+  pointer-events: none;
+}
+
+/* 增强布局隔离，避免闪烁 */
+.portal-only {
+  display: none !important;
+}
+
+.merchant-only {
+  display: none !important;
+}
+
+/* 根据数据属性显示对应布局 */
+body[data-layout="portal"] .portal-only {
+  display: block !important;
+}
+
+body[data-layout="merchant"] .merchant-only {
+  display: block !important;
+}
+
+/* 解决flex布局元素的显示问题 */
+body[data-layout="portal"] .portal-only.flex,
+body[data-layout="portal"] .portal-only[class*="flex-"] {
+  display: flex !important;
+}
+
+body[data-layout="merchant"] .merchant-only.flex,
+body[data-layout="merchant"] .merchant-only[class*="flex-"] {
+  display: flex !important;
+}
+
+/* 解决inline元素的显示问题 */
+body[data-layout="portal"] .portal-only.inline,
+body[data-layout="portal"] .portal-only[class*="inline-"] {
+  display: inline !important;
+}
+
+body[data-layout="merchant"] .merchant-only.inline,
+body[data-layout="merchant"] .merchant-only[class*="inline-"] {
+  display: inline !important;
+}
+
+/* 预加载优化 */
+body::before {
+  content: "";
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: transparent;
 } 
