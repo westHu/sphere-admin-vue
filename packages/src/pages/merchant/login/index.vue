@@ -169,7 +169,7 @@ const handleLogin = async () => {
   // 重置错误消息
   errorMessage.value = ''
   
-  // 表单验证
+  // 表单验证 - 只检查是否填写了内容
   if (!form.value.username.trim() || !form.value.password.trim()) {
     errorMessage.value = t('merchant.login.form_invalid')
     return
@@ -178,32 +178,19 @@ const handleLogin = async () => {
   loading.value = true
   
   try {
-    // 模拟登录请求
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    // 模拟登录请求的延迟
+    await new Promise(resolve => setTimeout(resolve, 800))
     
-    // 检查用户名和密码（这里仅做演示）
-    if (form.value.username === 'admin' && form.value.password === 'password') {
-      // 登录成功，保存token
-      token.value = nanoid()
-      
-      // 根据登录页面类型跳转到不同页面
-      if (isMerchantLogin.value) {
-        router.push('/merchant/dashboard')
-      } else {
-        router.push('/')
-      }
-    } else {
-      // 登录失败
-      errorMessage.value = isMerchantLogin.value
-        ? t('merchant.login.invalid_credentials')
-        : t('login.errors.failed')
-    }
+    // 登录成功，生成并保存token
+    const tokenValue = nanoid()
+    token.value = tokenValue
+    localStorage.setItem('token', tokenValue)
+    
+    // 跳转到商户仪表盘
+    router.push('/merchant/dashboard')
   } catch (error) {
-    // 处理错误
-    errorMessage.value = isMerchantLogin.value
-      ? t('merchant.login.login_error')
-      : t('login.errors.failed')
-    console.error('登录错误:', error)
+    // 处理错误 (实际上不会进入这个分支，但保留以防将来需要)
+    console.error('登录过程中发生错误:', error)
   } finally {
     loading.value = false
   }

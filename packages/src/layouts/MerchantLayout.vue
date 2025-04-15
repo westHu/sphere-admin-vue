@@ -1,34 +1,41 @@
 <template>
-  <div class="h-screen flex overflow-hidden bg-gray-100">
-    <!-- 侧边栏 -->
-    <div class="hidden md:flex md:flex-shrink-0">
-      <div class="flex flex-col w-64 border-r border-gray-200 bg-white">
-        <div class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
-          <!-- 商户LOGO -->
-          <div class="flex items-center flex-shrink-0 px-4">
+  <div class="min-h-screen bg-background text-foreground">
+    <!-- 移动端侧边栏 -->
+    <div v-if="sidebarOpen" class="fixed inset-0 flex z-40 md:hidden">
+      <div class="fixed inset-0 bg-black/50" @click="sidebarOpen = false"></div>
+      <div class="relative flex-1 flex flex-col max-w-xs w-full bg-background border-r">
+        <div class="flex items-center justify-between h-16 px-4 border-b">
+          <div class="flex items-center">
             <div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
               <span class="text-lg font-bold text-primary-foreground">S</span>
             </div>
             <span class="ml-2 font-bold">Sphere 商户中心</span>
           </div>
-          
-          <!-- 导航菜单 -->
-          <nav class="mt-5 flex-1 px-2 space-y-1">
+          <button class="p-2 rounded-md text-muted-foreground hover:text-foreground" @click="sidebarOpen = false">
+            <span class="sr-only">{{ t('merchant.common.close_sidebar') }}</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        
+        <div class="flex-1 h-0 overflow-y-auto">
+          <nav class="p-4 space-y-1">
             <a 
               v-for="(item, index) in navItems" 
               :key="index"
               :href="item.path"
               :class="[
                 isActive(item.path) 
-                  ? 'bg-primary/10 text-primary' 
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                  ? 'bg-primary/15 text-primary font-semibold' 
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+                'group flex items-center px-4 py-3 text-sm font-medium rounded-md transition-colors'
               ]"
             >
               <component 
                 :is="item.icon" 
                 class="mr-3 flex-shrink-0 h-5 w-5" 
-                :class="isActive(item.path) ? 'text-primary' : 'text-gray-400 group-hover:text-gray-500'"
+                :class="isActive(item.path) ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'"
                 aria-hidden="true" 
               />
               {{ item.name }}
@@ -37,85 +44,83 @@
         </div>
         
         <!-- 用户信息 -->
-        <div class="flex-shrink-0 flex border-t border-gray-200 p-4">
-          <a href="#" class="flex-shrink-0 group block">
-            <div class="flex items-center">
-              <div>
-                <div class="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-xs">
-                  {{ userInitials }}
-                </div>
-              </div>
-              <div class="ml-3">
-                <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">
-                  {{ userName }}
-                </p>
-                <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">
-                  {{ t('merchant.common.logout') }}
-                </p>
-              </div>
-            </div>
-          </a>
+        <div class="flex items-center p-4 border-t bg-muted/30">
+          <div class="h-9 w-9 rounded-full bg-primary/20 flex items-center justify-center text-sm">
+            {{ userInitials }}
+          </div>
+          <div class="ml-3 flex-1">
+            <p class="text-sm font-medium truncate">{{ userName }}</p>
+            <button class="text-xs text-muted-foreground hover:text-foreground transition-colors" @click="logout">
+              {{ t('merchant.common.logout') }}
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    
-    <!-- 主内容区 -->
-    <div class="flex flex-col w-0 flex-1 overflow-hidden">
+
+    <!-- 主布局 -->
+    <div class="flex flex-col h-screen">
       <!-- 顶部导航栏 -->
-      <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
-        <button 
-          type="button" 
-          class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary md:hidden"
-          @click="sidebarOpen = true"
-        >
-          <span class="sr-only">{{ t('merchant.common.open_sidebar') }}</span>
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-        
-        <div class="flex-1 px-4 flex justify-between">
-          <div class="flex-1 flex items-center">
-            <h1 class="text-lg font-medium">{{ pageTitle }}</h1>
+      <header class="flex h-16 items-center border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div class="container flex items-center justify-between">
+          <!-- 移动端菜单按钮 -->
+          <button 
+            class="p-2 rounded-md md:hidden" 
+            @click="sidebarOpen = true"
+          >
+            <span class="sr-only">{{ t('merchant.common.open_sidebar') }}</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          
+          <!-- 商户中心标题 -->
+          <div class="flex items-center">
+            <div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
+              <span class="text-lg font-bold text-primary-foreground">S</span>
+            </div>
+            <span class="ml-2 font-bold">Sphere 商户中心</span>
           </div>
-          <div class="ml-4 flex items-center md:ml-6">
-            <!-- 通知 -->
-            <button class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500">
+          
+          <!-- 右侧工具栏 -->
+          <div class="flex items-center space-x-4">
+            <!-- 主题切换按钮 -->
+            <ThemeToggle />
+            
+            <!-- 通知按钮 -->
+            <button class="p-1 rounded-full text-muted-foreground hover:text-foreground">
               <span class="sr-only">{{ t('merchant.common.view_notifications') }}</span>
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
               </svg>
             </button>
             
             <!-- 用户下拉菜单 -->
-            <div class="ml-3 relative">
-              <div>
-                <button 
-                  type="button" 
-                  class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-                  @click="userMenuOpen = !userMenuOpen"
-                >
-                  <span class="sr-only">{{ t('merchant.common.open_user_menu') }}</span>
-                  <div class="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-xs">
-                    {{ userInitials }}
-                  </div>
-                </button>
-              </div>
+            <div class="relative">
+              <button 
+                class="flex items-center rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                @click="userMenuOpen = !userMenuOpen"
+              >
+                <span class="sr-only">{{ t('merchant.common.open_user_menu') }}</span>
+                <div class="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-xs">
+                  {{ userInitials }}
+                </div>
+              </button>
               
               <div 
                 v-if="userMenuOpen" 
-                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
+                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-popover border ring-1 ring-black ring-opacity-5 z-50"
               >
                 <a 
                   href="/merchant/settings" 
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  class="block px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                   @click="userMenuOpen = false"
                 >
                   {{ t('merchant.common.settings') }}
                 </a>
                 <a 
                   href="#" 
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  class="block px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                   @click="logout"
                 >
                   {{ t('merchant.common.logout') }}
@@ -124,83 +129,78 @@
             </div>
           </div>
         </div>
-      </div>
+      </header>
       
-      <!-- 移动端侧边栏 -->
-      <div 
-        v-if="sidebarOpen" 
-        class="fixed inset-0 flex z-40 md:hidden"
-      >
-        <div 
-          class="fixed inset-0 bg-gray-600 bg-opacity-75"
-          @click="sidebarOpen = false"
-        ></div>
-        
-        <div class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
-          <div class="flex items-center justify-between px-4">
-            <div class="flex items-center">
-              <div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-                <span class="text-lg font-bold text-primary-foreground">S</span>
-              </div>
-              <span class="ml-2 font-bold">Sphere 商户中心</span>
-            </div>
-            <button
-              type="button"
-              class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              @click="sidebarOpen = false"
+      <div class="flex flex-1 overflow-hidden">
+        <!-- 侧边栏导航 - 桌面端 -->
+        <aside class="hidden md:flex md:flex-col md:w-64 border-r bg-background">
+          <!-- 侧边栏标题已移除，不再显示商户中心标题 -->
+          
+          <div class="flex-1 overflow-y-auto p-4 space-y-1">
+            <a 
+              v-for="(item, index) in navItems" 
+              :key="index"
+              :href="item.path"
+              :class="[
+                isActive(item.path) 
+                  ? 'bg-primary/15 text-primary font-semibold' 
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+                'group flex items-center px-4 py-3 text-sm font-medium rounded-md transition-colors'
+              ]"
             >
-              <span class="sr-only">{{ t('merchant.common.close_sidebar') }}</span>
-              <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+              <component 
+                :is="item.icon" 
+                class="mr-3 flex-shrink-0 h-5 w-5" 
+                :class="isActive(item.path) ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'"
+                aria-hidden="true" 
+              />
+              {{ item.name }}
+            </a>
           </div>
           
-          <div class="mt-5 flex-1 h-0 overflow-y-auto">
-            <nav class="px-2 space-y-1">
-              <a 
-                v-for="(item, index) in navItems" 
-                :key="index"
-                :href="item.path"
-                :class="[
-                  isActive(item.path) 
-                    ? 'bg-primary/10 text-primary' 
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                  'group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                ]"
-              >
-                <component 
-                  :is="item.icon" 
-                  class="mr-4 flex-shrink-0 h-6 w-6" 
-                  :class="isActive(item.path) ? 'text-primary' : 'text-gray-400 group-hover:text-gray-500'"
-                  aria-hidden="true" 
-                />
-                {{ item.name }}
-              </a>
-            </nav>
+          <!-- 用户信息 -->
+          <div class="flex items-center p-4 border-t bg-muted/30">
+            <div class="h-9 w-9 rounded-full bg-primary/20 flex items-center justify-center text-sm">
+              {{ userInitials }}
+            </div>
+            <div class="ml-3 flex-1">
+              <p class="text-sm font-medium truncate">{{ userName }}</p>
+              <button class="text-xs text-muted-foreground hover:text-foreground transition-colors" @click="logout">
+                {{ t('merchant.common.logout') }}
+              </button>
+            </div>
           </div>
-        </div>
+        </aside>
+        
+        <!-- 主内容区 -->
+        <main class="flex-1 overflow-y-auto bg-muted/30">
+          <div class="container py-6">
+            <div class="mb-6 hidden md:block">
+              <h1 class="text-xl font-medium">{{ pageTitle }}</h1>
+              <div class="h-0.5 w-8 bg-primary mt-1.5"></div>
+            </div>
+            <router-view v-slot="{ Component }">
+              <transition name="fade" mode="out-in">
+                <component :is="Component" />
+              </transition>
+            </router-view>
+          </div>
+        </main>
       </div>
-      
-      <!-- 页面内容区 -->
-      <main class="flex-1 relative overflow-y-auto focus:outline-none">
-        <div class="py-6">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <router-view />
-          </div>
-        </div>
-      </main>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, defineComponent, h } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { useStorage } from '@vueuse/core'
+import ThemeToggle from '../components/ThemeToggle.vue'
 
 const { t } = useI18n()
 const route = useRoute()
+const router = useRouter()
 
 // 状态管理
 const sidebarOpen = ref(false)
@@ -216,7 +216,7 @@ const userInitials = computed(() => {
 const pageTitle = computed(() => {
   const path = route.path
   const navItem = navItems.find(item => path === item.path || path.startsWith(item.path + '/'))
-  return navItem ? navItem.name : '仪表盘'
+  return navItem ? navItem.name : t('merchant.nav.dashboard')
 })
 
 // 判断路由是否激活
@@ -315,7 +315,7 @@ const Settings = defineComponent({
 const navItems = [
   {
     name: t('merchant.nav.dashboard'),
-    path: '/merchant',
+    path: '/merchant/dashboard',
     icon: Dashboard
   },
   {
@@ -340,9 +340,18 @@ const navItems = [
   }
 ]
 
+// 获取token
+const token = useStorage('token', '')
+
 // 注销
 const logout = () => {
-  localStorage.removeItem('token')
-  window.location.href = '/merchant/login'
+  token.value = ''
+  router.push('/merchant/login')
 }
-</script> 
+</script>
+
+<style scoped>
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+</style> 

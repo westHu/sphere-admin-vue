@@ -38,6 +38,11 @@ const router = createRouter({
           meta: { requiresAuth: true }
         },
         {
+          path: 'dashboard',
+          component: () => import('../pages/merchant/dashboard/index.vue'),
+          meta: { requiresAuth: true }
+        },
+        {
           path: 'orders',
           component: () => import('../pages/merchant/orders/index.vue'),
           meta: { requiresAuth: true }
@@ -74,9 +79,8 @@ const router = createRouter({
 
 // 路由守卫
 router.beforeEach((to, from, next) => {
-  // 使用useStorage获取token，与登录页面保持一致
-  const token = useStorage('token', '')
-  const isAuthenticated = token.value
+  // 从localStorage获取token，避免SSR不一致问题
+  const isAuthenticated = localStorage.getItem('token')
   
   if (to.meta.requiresAuth && !isAuthenticated) {
     // 所有需要认证的路由都重定向到商户登录页面
