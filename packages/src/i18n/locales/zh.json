@@ -353,5 +353,52 @@
       "passwordMismatch": "两次输入的密码不一致",
       "failed": "注册失败，请稍后重试"
     }
+  },
+  "merchant": {
+    "common": {
+      "logout": "退出登录",
+      "settings": "设置",
+      "open_sidebar": "打开侧边栏",
+      "close_sidebar": "关闭侧边栏",
+      "open_user_menu": "打开用户菜单",
+      "view_notifications": "查看通知"
+    },
+    "nav": {
+      "dashboard": "仪表盘",
+      "orders": "订单管理",
+      "products": "产品管理",
+      "customers": "客户管理",
+      "settings": "系统设置"
+    },
+    "login": {
+      "title": "商户后台登录",
+      "subtitle": "登录您的商户账户开始管理您的业务",
+      "username": "用户名",
+      "password": "密码",
+      "remember_me": "记住我",
+      "forgot_password": "忘记密码?",
+      "sign_in": "登录",
+      "register_account": "注册商户账户",
+      "invalid_credentials": "用户名或密码错误",
+      "login_error": "登录失败，请稍后重试"
+    },
+    "dashboard": {
+      "title": "仪表盘",
+      "total_orders": "订单总数",
+      "revenue": "销售额",
+      "customers": "客户数",
+      "products": "产品数",
+      "increased_by": "增长",
+      "recent_orders": "最近订单",
+      "view_all": "查看全部",
+      "order_id": "订单号",
+      "customer": "客户",
+      "date": "日期",
+      "amount": "金额",
+      "status": "状态",
+      "status_completed": "已完成",
+      "status_processing": "处理中",
+      "status_cancelled": "已取消"
+    }
   }
 } 
