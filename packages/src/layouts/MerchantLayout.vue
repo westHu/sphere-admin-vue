@@ -173,15 +173,17 @@
         </aside>
         
         <!-- 主内容区 -->
-        <main class="flex-1 overflow-y-auto bg-muted/30">
+        <main class="flex-1 overflow-y-auto bg-muted/30 relative">
           <div class="container py-6">
             <div class="mb-6 hidden md:block">
               <h1 class="text-xl font-medium">{{ pageTitle }}</h1>
               <div class="h-0.5 w-8 bg-primary mt-1.5"></div>
             </div>
             <router-view v-slot="{ Component }">
-              <transition name="fade" mode="out-in">
-                <component :is="Component" />
+              <transition name="fade" mode="out-in" @before-leave="beforeLeave" @enter="enter">
+                <keep-alive>
+                  <component :is="Component" />
+                </keep-alive>
               </transition>
             </router-view>
           </div>
@@ -192,7 +194,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineComponent, h } from 'vue'
+import { ref, computed, defineComponent, h, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useStorage } from '@vueuse/core'
@@ -347,6 +349,20 @@ const token = useStorage('token', '')
 const logout = () => {
   token.value = ''
   router.push('/merchant/login')
+}
+
+// 平滑过渡处理
+const beforeLeave = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
+const enter = () => {
+  nextTick(() => {
+    // 确保DOM更新后再执行
+  })
 }
 </script>
 

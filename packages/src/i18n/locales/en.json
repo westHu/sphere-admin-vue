@@ -2,22 +2,23 @@
   "common": {
     "home": "Home",
     "solutions": "Solutions",
-    "cases": "Cases",
-    "about": "About",
+    "cases": "Case Studies",
+    "about": "About Us",
     "login": "Login",
     "register": "Register",
     "language": "Language",
+    "placeholder": "Page under development, stay tuned",
     "footer": {
-      "rights": "© 2024 Sphere. All rights reserved.",
+      "rights": "© 2024 Sphere. All Rights Reserved.",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
     }
   },
   "home": {
     "title": "Global Payment Solutions",
-    "subtitle": "Secure, Fast, and Reliable Payment Services",
+    "subtitle": "Secure, Fast, Reliable Payment Services",
     "hero": {
-      "title": "Next Generation Payment Solution",
+      "title": "Next Generation Payment Solutions",
       "description": "Providing secure, efficient, and intelligent payment solutions for your business. Our technology makes payments simpler, faster, and more reliable.",
       "cta": {
         "learn_more": "Learn More",
@@ -35,15 +36,15 @@
     "features": {
       "fast": {
         "title": "Lightning Fast",
-        "description": "Millisecond-level transaction processing for faster payments"
+        "description": "Millisecond transaction processing for faster payments"
       },
       "secure": {
         "title": "Secure & Reliable",
-        "description": "Bank-level security protection ensuring transaction safety"
+        "description": "Bank-grade security protection ensures transaction safety"
       },
       "smart": {
         "title": "Smart Risk Control",
-        "description": "AI-driven risk control system"
+        "description": "AI-powered risk control system"
       },
       "analytics": {
         "title": "Data Analytics",
@@ -54,236 +55,239 @@
     "learnMore": "Learn More"
   },
   "login": {
-    "title": "Sign in to your account",
-    "registerLink": "Create a new account",
+    "title": "Login to Your Account",
+    "registerLink": "Create new account",
     "or": "or",
     "form": {
       "email": {
-        "label": "Email address",
-        "placeholder": "Enter your email"
+        "label": "Email Address",
+        "placeholder": "Enter your email address"
       },
       "password": {
         "label": "Password",
         "placeholder": "Enter your password"
       },
       "rememberMe": "Remember me",
-      "forgotPassword": "Forgot your password?",
-      "submit": "Sign in"
+      "forgotPassword": "Forgot password?",
+      "submit": "Login"
     },
     "errors": {
       "failed": "Login failed, please check your email and password"
     }
   },
   "solutions": {
-    "title": "Global Payment Solutions",
-    "subtitle": "We provide comprehensive international payment solutions to meet the needs of different industries and help businesses expand globally",
+    "title": "Industry Solutions",
+    "subtitle": "Professional payment solutions for different industries",
     "tabs": {
-      "all": "All Industries",
-      "ecommerce": "E-commerce",
+      "all": "All",
+      "ecommerce": "E-Commerce",
       "finance": "Financial Services",
       "travel": "Travel & Hospitality",
       "enterprise": "Enterprise Services"
     },
-    "contact": {
-      "title": "Need a Custom Solution?",
-      "description": "Our team of payment experts can provide tailored international payment solutions based on your business needs",
-      "cta": "Contact Our Solutions Team"
-    },
     "solutions": {
       "ecommerce": {
-        "title": "E-commerce Payments",
-        "description": "Providing seamless payment experiences for global e-commerce platforms with multi-currency settlement and local payment methods",
+        "title": "E-Commerce Payment Solutions",
+        "description": "Provide secure and convenient payment services for e-commerce platforms, supporting multiple payment methods to enhance user shopping experience.",
         "features": [
-          "Support for 200+ countries and regions",
-          "One-click shopping cart integration",
-          "Smart risk control system",
-          "Automated cross-border refunds"
+          "Support for multiple payment methods",
+          "Real-time transaction processing",
+          "Secure payment guarantee",
+          "Data analysis reports"
         ]
       },
       "finance": {
-        "title": "Financial Institution Solutions",
-        "description": "Providing secure and compliant cross-border payment infrastructure for banks and financial institutions",
+        "title": "Financial Payment Solutions",
+        "description": "Provide professional payment services for financial institutions to meet payment needs in various financial scenarios.",
         "features": [
-          "Real-time cross-border clearing",
-          "Compliance monitoring & reporting",
-          "API banking service integration",
-          "Inter-institution settlement network"
+          "Large transaction processing",
+          "Fund clearing services",
+          "Risk control system",
+          "Compliance monitoring support"
         ]
       },
       "travel": {
-        "title": "Travel & Hospitality Payments",
-        "description": "Multi-currency booking and payment solutions for global travel businesses",
+        "title": "Travel Payment Solutions",
+        "description": "Provide convenient payment services for the travel industry, supporting multi-currency settlement to enhance booking experience.",
         "features": [
-          "Dynamic currency conversion",
-          "Multi-language payment interface",
-          "Pre-authorization & installments",
-          "Global refund processing"
+          "Multi-currency support",
+          "Cross-border payment service",
+          "Booking system integration",
+          "Refund processing"
         ]
       },
       "enterprise": {
-        "title": "Enterprise Cross-border Payments",
-        "description": "Efficient global fund management and payment solutions for multinational corporations",
+        "title": "Enterprise Payment Solutions",
+        "description": "Provide comprehensive payment services for enterprises, supporting B2B transactions to improve operational efficiency.",
         "features": [
-          "Batch cross-border transfers",
-          "Automated vendor payments",
-          "Foreign exchange risk management",
-          "Global account management"
+          "B2B payment support",
+          "Enterprise account management",
+          "Batch payment processing",
+          "Financial system integration"
         ]
       },
       "digital": {
-        "title": "Digital Content & Subscriptions",
-        "description": "Global collection and settlement solutions for content creators and subscription services",
+        "title": "Digital Payment Solutions",
+        "description": "Provide convenient payment services for digital content platforms, supporting subscription and one-time purchases.",
         "features": [
-          "Subscription billing management",
-          "Global tax compliance",
-          "Multi-tier distribution settlement",
-          "Smart anti-fraud system"
+          "Subscription payment support",
+          "Content payment integration",
+          "Membership system integration",
+          "Automatic renewal management"
         ]
       },
       "b2b": {
-        "title": "B2B Cross-border Transactions",
-        "description": "Secure and efficient international payment and settlement services for B2B trade",
+        "title": "B2B Payment Solutions",
+        "description": "Provide professional payment services for inter-enterprise transactions, supporting large transactions and account period management.",
         "features": [
-          "Trade finance solutions",
-          "L/C & guarantee services",
-          "Supply chain finance",
-          "Cross-border invoice management"
+          "Large transaction processing",
+          "Account period management",
+          "Invoice management",
+          "Supply chain finance"
         ]
       }
+    },
+    "contact": {
+      "title": "Need a customized solution?",
+      "description": "Our professional team will provide you with the most suitable payment solution to help your business grow.",
+      "cta": "Contact Us"
     }
   },
   "cases": {
     "title": "Success Stories",
-    "subtitle": "Discover how our clients achieve business growth with Sphere payment solutions",
+    "subtitle": "Explore how our customers achieved business growth through Sphere payment solutions",
     "filters": {
       "all": "All Cases",
-      "ecommerce": "E-commerce",
+      "ecommerce": "E-Commerce",
       "finance": "Financial Services",
       "travel": "Travel & Hospitality",
       "enterprise": "Enterprise Services"
     },
     "items": {
       "globalEcommerce": {
-        "title": "Global E-commerce Platform",
-        "description": "Achieved 300% growth in cross-border transactions with our payment solution",
-        "industry": "E-commerce",
+        "title": "Global E-Commerce Platform",
+        "description": "Achieved 300% growth in cross-border transaction volume through our payment solutions",
+        "industry": "E-Commerce",
         "results": [
           "Payment success rate increased to 98%",
-          "Support for 50+ local payment methods",
-          "Monthly transaction volume exceeded $100M",
-          "Customer satisfaction improved by 40%"
+          "Support for local payment methods in 50+ countries",
+          "Monthly transaction volume exceeding $100 million",
+          "Customer satisfaction increased by 40%"
         ]
       },
       "internationalBank": {
         "title": "International Bank",
-        "description": "Successfully deployed cross-border payment system, enhancing customer experience and operational efficiency",
+        "description": "Successfully deployed cross-border payment system, improving customer experience and operational efficiency",
         "industry": "Financial Services",
         "results": [
           "Cross-border payment processing time reduced by 70%",
           "System availability reached 99.99%",
-          "Customer complaint rate decreased by 60%",
-          "Operational costs reduced by 30%"
+          "Customer complaint rate reduced by 60%",
+          "Operating costs reduced by 30%"
         ]
       },
       "hotelChain": {
-        "title": "Hotel Chain Group",
-        "description": "Integrated global payment system to enhance booking experience and revenue",
+        "title": "Hotel Chain",
+        "description": "Integrated global payment system, enhancing booking experience and revenue",
         "industry": "Travel & Hospitality",
         "results": [
           "Booking conversion rate increased by 45%",
-          "Support for 20+ currency settlements",
-          "Customer satisfaction improved by 35%",
-          "Revenue growth of 25%"
+          "Support for settlement in 20+ currencies",
+          "Customer satisfaction increased by 35%",
+          "Revenue increased by 25%"
         ]
       },
       "multinational": {
-        "title": "Multinational Corporation",
+        "title": "Multinational Enterprise",
         "description": "Achieved global fund management and payment automation",
         "industry": "Enterprise Services",
         "results": [
-          "Payment processing efficiency improved by 80%",
-          "Operational costs reduced by 40%",
+          "Payment processing efficiency increased by 80%",
+          "Operating costs reduced by 40%",
           "Fund turnover rate increased by 50%",
-          "Compliance risks reduced by 60%"
+          "Compliance risk reduced by 60%"
         ]
       },
       "crossBorderEcommerce": {
         "title": "Cross-border E-commerce Platform",
-        "description": "Expanded into emerging markets with localized payment solutions",
-        "industry": "E-commerce",
+        "description": "Expanded into emerging markets through localized payment solutions",
+        "industry": "E-Commerce",
         "results": [
-          "Emerging market revenue growth of 200%",
-          "Local payment method coverage reached 95%",
-          "Customer satisfaction improved by 50%",
+          "Revenue in emerging markets increased by 200%",
+          "Local payment methods coverage reached 95%",
+          "Customer satisfaction increased by 50%",
           "Payment failure rate reduced by 70%"
         ]
       },
       "travelAgency": {
         "title": "International Travel Agency",
-        "description": "Integrated multi-currency payment system to enhance booking experience",
+        "description": "Integrated multi-currency payment system, enhancing booking experience",
         "industry": "Travel & Hospitality",
         "results": [
           "Booking conversion rate increased by 60%",
-          "Support for 30+ currency settlements",
-          "Customer satisfaction improved by 45%",
-          "Revenue growth of 35%"
+          "Support for settlement in 30+ currencies",
+          "Customer satisfaction increased by 45%",
+          "Revenue increased by 35%"
         ]
       }
     },
     "contact": {
-      "title": "Ready to Start Your Success Story?",
-      "description": "Our team is ready to help you achieve your business growth goals. Contact us now to learn how we can customize payment solutions for your business.",
+      "title": "Ready to start your success story?",
+      "description": "Our team is ready to help you achieve your business growth goals. Contact us now to learn how we can tailor payment solutions for your business.",
       "button": "Contact Us"
     }
   },
   "about": {
-    "title": "About Us",
-    "subtitle": "Building the Future of Global Payments",
-    "description": "We are dedicated to providing secure, efficient, and convenient payment solutions for global businesses, helping them achieve global growth.",
+    "title": "About Sphere",
+    "description": "We are committed to providing secure, efficient, and convenient payment solutions for global enterprises, helping them achieve global development.",
     "mission": {
       "title": "Our Mission",
-      "description": "Through innovative payment technology, we break down global payment barriers, making cross-border transactions simple, secure, and efficient. We are committed to providing comprehensive payment solutions for businesses to achieve global development."
+      "description": "Breaking down global payment barriers through innovative payment technology, making cross-border transactions simple, secure, and efficient. We are committed to providing comprehensive payment solutions for enterprises to help them achieve global development."
     },
     "vision": {
       "title": "Our Vision",
-      "description": "To become a leading global payment solution provider, enabling businesses worldwide to enjoy convenient, secure, and efficient payment experiences through technological innovation and quality service."
+      "description": "To become a global leading payment solution provider, allowing enterprises worldwide to enjoy convenient, secure, and efficient payment experiences through technological innovation and quality service."
     },
     "values": {
       "title": "Core Values",
-      "innovation": {
-        "title": "Innovation",
-        "description": "Continuous innovation is our core competitiveness. We constantly explore new technologies to provide better payment experiences for our customers."
-      },
-      "professional": {
-        "title": "Professionalism",
-        "description": "We have a professional team with extensive experience in the payment industry, providing expert solutions for our customers."
-      },
-      "responsibility": {
-        "title": "Responsibility",
-        "description": "We are always customer-centric, responsible to our customers and society, committed to creating greater value."
+      "items": {
+        "innovation": {
+          "title": "Innovation",
+          "description": "Continuous innovation is our core competitiveness. We constantly explore new technologies to provide better payment experiences for our customers."
+        },
+        "professional": {
+          "title": "Professional",
+          "description": "We have a professional team with rich experience in the payment industry, providing professional solutions for our customers."
+        },
+        "responsibility": {
+          "title": "Responsibility",
+          "description": "We always put our customers first, being responsible to our customers and society, committed to creating greater value."
+        }
       }
     },
     "team": {
       "title": "Our Team",
-      "member1": {
-        "name": "John Smith",
-        "position": "Chief Executive Officer",
-        "description": "With 15 years of experience in the payment industry, John has held executive positions in several well-known payment companies."
-      },
-      "member2": {
-        "name": "Michael Johnson",
-        "position": "Technical Director",
-        "description": "Focused on payment technology development, Michael has led teams to develop multiple innovative payment solutions."
-      },
-      "member3": {
-        "name": "Emily Williams",
-        "position": "Product Director",
-        "description": "Deeply engaged in payment product design, Emily is dedicated to providing the best user experience."
+      "members": {
+        "member1": {
+          "name": "John Doe",
+          "position": "Chief Executive Officer",
+          "description": "15 years of experience in the payment industry, has held executive positions in several well-known payment companies."
+        },
+        "member2": {
+          "name": "Jane Smith",
+          "position": "Chief Technology Officer",
+          "description": "Focused on payment technology development, leading the team to develop multiple innovative payment solutions."
+        },
+        "member3": {
+          "name": "David Johnson",
+          "position": "Product Director",
+          "description": "Deeply engaged in payment product design, committed to providing the best user experience."
+        }
       }
     },
     "contact": {
       "title": "Contact Us",
-      "description": "Whether you have any questions or needs, our team is always ready to provide professional support and service. Choose the most suitable way to get in touch with us.",
+      "description": "No matter what questions or needs you have, our team is ready to provide professional support and services. Choose the way that suits you best to get in touch with us.",
       "phone": {
         "title": "Phone Support",
         "hours": "Monday to Friday 9:00-18:00",
@@ -349,6 +353,102 @@
     "errors": {
       "passwordMismatch": "Passwords do not match",
       "failed": "Registration failed, please try again"
+    }
+  },
+  "admin": {
+    "common": {
+      "logout": "Logout",
+      "settings": "Settings",
+      "open_sidebar": "Open Sidebar",
+      "close_sidebar": "Close Sidebar",
+      "view_notifications": "View Notifications",
+      "open_user_menu": "Open User Menu"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "merchants": "Merchants",
+      "orders": "Orders",
+      "settlement": "Settlement",
+      "system": "System"
+    },
+    "login": {
+      "title": "Admin Login",
+      "subtitle": "Login to your admin account",
+      "username": "Username",
+      "password": "Password",
+      "remember_me": "Remember me",
+      "forgot_password": "Forgot password?",
+      "sign_in": "Sign In",
+      "invalid_credentials": "Invalid username or password",
+      "login_error": "Login failed, please try again later",
+      "form_invalid": "Please fill in both username and password"
+    },
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "welcome_back": "Welcome back, view the latest data and performance of your platform.",
+      "total_merchants": "Total Merchants",
+      "total_orders": "Total Orders",
+      "total_revenue": "Total Revenue",
+      "pending_tickets": "Pending Tickets",
+      "increased_by": "Increased by",
+      "sales_trend": "Sales Trend",
+      "recent_orders": "Recent Orders",
+      "view_all": "View All",
+      "order_id": "Order ID",
+      "merchant": "Merchant",
+      "amount": "Amount",
+      "status": "Status",
+      "time": "Time"
+    },
+    "system": {
+      "title": "System Management",
+      "description": "Manage system settings and configurations",
+      "tabs": {
+        "user_management": "User Management",
+        "role_permission": "Role & Permissions",
+        "system_parameters": "System Parameters",
+        "operation_logs": "Operation Logs"
+      },
+      "user_management": "User Management",
+      "add_user": "Add User",
+      "user_id": "User ID",
+      "username": "Username",
+      "name": "Name",
+      "role": "Role",
+      "created_at": "Created At",
+      "status": "Status",
+      "actions": "Actions",
+      "edit": "Edit",
+      "delete": "Delete",
+      "role_management": "Role Management",
+      "add_role": "Add Role",
+      "role_name": "Role Name",
+      "description": "Description",
+      "user_count": "User Count",
+      "set_permissions": "Set Permissions",
+      "settings": "System Settings",
+      "save_settings": "Save Settings",
+      "basic_settings": "Basic Settings",
+      "platform_name": "Platform Name",
+      "platform_description": "Platform Description",
+      "contact_email": "Contact Email",
+      "payment_settings": "Payment Settings",
+      "default_fee_rate": "Default Fee Rate (%)",
+      "default_settlement_cycle": "Default Settlement Cycle (days)",
+      "enable_auto_settlement": "Enable Auto Settlement",
+      "operation_logs": "Operation Logs",
+      "all_types": "All Types",
+      "login": "Login",
+      "logout": "Logout",
+      "create": "Create",
+      "update": "Update",
+      "export_logs": "Export Logs",
+      "operation_id": "Operation ID",
+      "operator": "Operator",
+      "ip_address": "IP Address",
+      "operation_type": "Operation Type",
+      "operation_content": "Operation Content",
+      "operation_time": "Operation Time"
     }
   }
 } 

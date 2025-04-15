@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
@@ -23,9 +24,29 @@ try {
 // 设置i18n的默认语言
 i18n.global.locale.value = defaultLocale
 
+// 创建应用
 const app = createApp(App)
 
+// 全局路由切换处理
+router.beforeEach((to, from, next) => {
+  // 添加路由切换指示器（可选）
+  document.body.classList.add('router-transition')
+  next()
+})
+
+router.afterEach(() => {
+  // 延迟移除过渡类，确保动画完成
+  setTimeout(() => {
+    document.body.classList.remove('router-transition')
+  }, 200)
+})
+
+// 全局错误处理
+app.config.errorHandler = (err, vm, info) => {
+  console.error(err, info)
+}
+
+// 挂载应用
 app.use(router)
 app.use(i18n)
-
 app.mount('#app') 

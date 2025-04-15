@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-6">
     <div>
-      <h2 class="text-xl font-semibold">系统管理</h2>
-      <p class="text-sm text-muted-foreground">管理系统设置和配置</p>
+      <h2 class="text-xl font-semibold">{{ t('admin.system.title') }}</h2>
+      <p class="text-sm text-muted-foreground">{{ t('admin.system.description') }}</p>
     </div>
 
     <!-- 系统管理选项卡 -->
@@ -27,21 +27,21 @@
     <!-- 用户管理面板 -->
     <div v-if="activeTab === 0" class="space-y-4">
       <div class="flex justify-between items-center">
-        <h3 class="text-lg font-medium">用户管理</h3>
-        <button class="btn">添加用户</button>
+        <h3 class="text-lg font-medium">{{ t('admin.system.user_management') }}</h3>
+        <button class="btn">{{ t('admin.system.add_user') }}</button>
       </div>
       <div class="rounded-lg border bg-card shadow-sm">
         <div class="overflow-x-auto">
           <table class="w-full border-collapse">
             <thead>
               <tr class="border-b">
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">用户 ID</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">用户名</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">姓名</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">角色</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">创建时间</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">状态</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">操作</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.user_id') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.username') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.name') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.role') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.created_at') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.status') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.actions') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -57,10 +57,10 @@
                 <td class="px-4 py-3 text-sm">
                   <div class="flex items-center space-x-2">
                     <button class="text-xs px-2 py-1 rounded bg-primary text-primary-foreground hover:bg-primary/90">
-                      编辑
+                      {{ t('admin.system.edit') }}
                     </button>
                     <button class="text-xs px-2 py-1 rounded bg-destructive text-destructive-foreground hover:bg-destructive/90">
-                      删除
+                      {{ t('admin.system.delete') }}
                     </button>
                   </div>
                 </td>
@@ -74,19 +74,19 @@
     <!-- 角色权限面板 -->
     <div v-if="activeTab === 1" class="space-y-4">
       <div class="flex justify-between items-center">
-        <h3 class="text-lg font-medium">角色权限管理</h3>
-        <button class="btn">添加角色</button>
+        <h3 class="text-lg font-medium">{{ t('admin.system.role_management') }}</h3>
+        <button class="btn">{{ t('admin.system.add_role') }}</button>
       </div>
       <div class="rounded-lg border bg-card shadow-sm">
         <div class="overflow-x-auto">
           <table class="w-full border-collapse">
             <thead>
               <tr class="border-b">
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">角色名称</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">描述</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">用户数量</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">创建时间</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">操作</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.role_name') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.description') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.user_count') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.created_at') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.actions') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -98,13 +98,13 @@
                 <td class="px-4 py-3 text-sm">
                   <div class="flex items-center space-x-2">
                     <button class="text-xs px-2 py-1 rounded bg-muted hover:bg-muted/80">
-                      权限设置
+                      {{ t('admin.system.set_permissions') }}
                     </button>
                     <button class="text-xs px-2 py-1 rounded bg-primary text-primary-foreground hover:bg-primary/90">
-                      编辑
+                      {{ t('admin.system.edit') }}
                     </button>
                     <button class="text-xs px-2 py-1 rounded bg-destructive text-destructive-foreground hover:bg-destructive/90">
-                      删除
+                      {{ t('admin.system.delete') }}
                     </button>
                   </div>
                 </td>
@@ -118,42 +118,42 @@
     <!-- 系统参数设置面板 -->
     <div v-if="activeTab === 2" class="space-y-4">
       <div class="flex justify-between items-center">
-        <h3 class="text-lg font-medium">系统参数设置</h3>
-        <button class="btn">保存设置</button>
+        <h3 class="text-lg font-medium">{{ t('admin.system.settings') }}</h3>
+        <button class="btn">{{ t('admin.system.save_settings') }}</button>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="rounded-lg border bg-card shadow-sm p-6 space-y-4">
-          <h4 class="font-medium">基本设置</h4>
+          <h4 class="font-medium">{{ t('admin.system.basic_settings') }}</h4>
           <div class="space-y-4">
             <div class="space-y-2">
-              <label for="siteName" class="text-sm font-medium">平台名称</label>
+              <label for="siteName" class="text-sm font-medium">{{ t('admin.system.platform_name') }}</label>
               <input id="siteName" type="text" class="input w-full" value="Sphere 支付平台" />
             </div>
             <div class="space-y-2">
-              <label for="siteDesc" class="text-sm font-medium">平台描述</label>
+              <label for="siteDesc" class="text-sm font-medium">{{ t('admin.system.platform_description') }}</label>
               <textarea id="siteDesc" class="input w-full h-20">Sphere 支付平台是一个全面的支付解决方案，为各类商户提供安全、便捷的支付服务。</textarea>
             </div>
             <div class="space-y-2">
-              <label for="contact" class="text-sm font-medium">联系邮箱</label>
+              <label for="contact" class="text-sm font-medium">{{ t('admin.system.contact_email') }}</label>
               <input id="contact" type="email" class="input w-full" value="support@sphere.com" />
             </div>
           </div>
         </div>
 
         <div class="rounded-lg border bg-card shadow-sm p-6 space-y-4">
-          <h4 class="font-medium">支付设置</h4>
+          <h4 class="font-medium">{{ t('admin.system.payment_settings') }}</h4>
           <div class="space-y-4">
             <div class="space-y-2">
-              <label for="feeRate" class="text-sm font-medium">默认手续费率(%)</label>
+              <label for="feeRate" class="text-sm font-medium">{{ t('admin.system.default_fee_rate') }}</label>
               <input id="feeRate" type="number" step="0.01" class="input w-full" value="0.5" />
             </div>
             <div class="space-y-2">
-              <label for="settlementCycle" class="text-sm font-medium">默认结算周期(天)</label>
+              <label for="settlementCycle" class="text-sm font-medium">{{ t('admin.system.default_settlement_cycle') }}</label>
               <input id="settlementCycle" type="number" class="input w-full" value="7" />
             </div>
             <div class="flex items-center space-x-2 pt-2">
               <input id="autoSettlement" type="checkbox" class="h-4 w-4" checked />
-              <label for="autoSettlement" class="text-sm font-medium">启用自动结算</label>
+              <label for="autoSettlement" class="text-sm font-medium">{{ t('admin.system.enable_auto_settlement') }}</label>
             </div>
           </div>
         </div>
@@ -163,17 +163,17 @@
     <!-- 操作日志面板 -->
     <div v-if="activeTab === 3" class="space-y-4">
       <div class="flex justify-between items-center">
-        <h3 class="text-lg font-medium">操作日志</h3>
+        <h3 class="text-lg font-medium">{{ t('admin.system.operation_logs') }}</h3>
         <div class="flex gap-2">
           <select class="input">
-            <option value="">所有类型</option>
-            <option value="login">登录</option>
-            <option value="logout">登出</option>
-            <option value="create">创建</option>
-            <option value="update">更新</option>
-            <option value="delete">删除</option>
+            <option value="">{{ t('admin.system.all_types') }}</option>
+            <option value="login">{{ t('admin.system.login') }}</option>
+            <option value="logout">{{ t('admin.system.logout') }}</option>
+            <option value="create">{{ t('admin.system.create') }}</option>
+            <option value="update">{{ t('admin.system.update') }}</option>
+            <option value="delete">{{ t('admin.system.delete') }}</option>
           </select>
-          <button class="btn">导出日志</button>
+          <button class="btn">{{ t('admin.system.export_logs') }}</button>
         </div>
       </div>
       <div class="rounded-lg border bg-card shadow-sm">
@@ -181,13 +181,13 @@
           <table class="w-full border-collapse">
             <thead>
               <tr class="border-b">
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">操作ID</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">操作人</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">IP地址</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">操作类型</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">操作内容</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">操作时间</th>
-                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">状态</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.operation_id') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.operator') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.ip_address') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.operation_type') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.operation_content') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.operation_time') }}</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-muted-foreground">{{ t('admin.system.status') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -212,16 +212,19 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // 当前激活的标签页索引
 const activeTab = ref(0)
 
 // 标签页配置
 const tabs = [
-  { name: '用户管理' },
-  { name: '角色权限' },
-  { name: '系统参数' },
-  { name: '操作日志' }
+  { name: t('admin.system.tabs.user_management') },
+  { name: t('admin.system.tabs.role_permission') },
+  { name: t('admin.system.tabs.system_parameters') },
+  { name: t('admin.system.tabs.operation_logs') }
 ]
 
 // 模拟用户数据

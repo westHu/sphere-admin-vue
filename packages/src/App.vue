@@ -1,6 +1,6 @@
 <template>
   <RouterView v-slot="{ Component, route }">
-    <template v-if="route.meta.layout === 'portal' || !route.path.startsWith('/merchant')">
+    <template v-if="route.meta.layout === 'portal' || (!route.path.startsWith('/merchant') && !route.path.startsWith('/admin'))">
       <BaseLayout :key="'portal-' + route.path">
         <transition name="fade" mode="out-in">
           <component :is="Component" :key="route.path" />
@@ -25,6 +25,8 @@ const route = useRoute()
 const setBodyAttributes = (path: string): void => {
   if (path.startsWith('/merchant')) {
     document.body.setAttribute('data-layout', 'merchant')
+  } else if (path.startsWith('/admin')) {
+    document.body.setAttribute('data-layout', 'admin')
   } else {
     document.body.setAttribute('data-layout', 'portal')
   }
@@ -47,6 +49,10 @@ body[data-layout="merchant"] .portal-only {
 }
 
 body[data-layout="portal"] .merchant-only {
+  display: none !important;
+}
+
+body[data-layout="admin"] .portal-only {
   display: none !important;
 }
 </style> 

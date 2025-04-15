@@ -2,23 +2,24 @@
   "common": {
     "home": "Beranda",
     "solutions": "Solusi",
-    "cases": "Kasus",
+    "cases": "Studi Kasus",
     "about": "Tentang Kami",
     "login": "Masuk",
     "register": "Daftar",
     "language": "Bahasa",
+    "placeholder": "Halaman dalam pengembangan, harap tunggu",
     "footer": {
-      "rights": "© 2024 Sphere. Semua hak dilindungi.",
+      "rights": "© 2024 Sphere. Hak Cipta Dilindungi.",
       "privacy": "Kebijakan Privasi",
       "terms": "Ketentuan Layanan"
     }
   },
   "home": {
     "title": "Solusi Pembayaran Global",
-    "subtitle": "Layanan Pembayaran yang Aman, Cepat, dan Andal",
+    "subtitle": "Layanan Pembayaran yang Aman, Cepat dan Dapat Diandalkan",
     "hero": {
       "title": "Solusi Pembayaran Generasi Berikutnya",
-      "description": "Menyediakan solusi pembayaran yang aman, efisien, dan cerdas untuk bisnis Anda. Teknologi kami membuat pembayaran lebih sederhana, lebih cepat, dan lebih andal.",
+      "description": "Menyediakan solusi pembayaran yang aman, efisien, dan cerdas untuk bisnis Anda. Teknologi kami membuat pembayaran lebih sederhana, cepat, dan andal.",
       "cta": {
         "learn_more": "Pelajari Lebih Lanjut",
         "contact_us": "Hubungi Kami"
@@ -53,9 +54,37 @@
     "cta": "Mulai Sekarang",
     "learnMore": "Pelajari Lebih Lanjut"
   },
+  "login": {
+    "title": "Masuk ke Akun Anda",
+    "registerLink": "Buat akun baru",
+    "or": "atau",
+    "form": {
+      "email": {
+        "label": "Alamat Email",
+        "placeholder": "Masukkan alamat email"
+      },
+      "password": {
+        "label": "Kata Sandi",
+        "placeholder": "Masukkan kata sandi"
+      },
+      "rememberMe": "Ingat saya",
+      "forgotPassword": "Lupa kata sandi?",
+      "submit": "Masuk"
+    },
+    "errors": {
+      "failed": "Masuk gagal, silakan periksa email dan kata sandi Anda"
+    }
+  },
   "solutions": {
-    "title": "Solusi Kami",
-    "subtitle": "Solusi Pembayaran Komprehensif untuk Bisnis Anda"
+    "title": "Solusi Industri",
+    "subtitle": "Solusi pembayaran profesional untuk berbagai industri",
+    "tabs": {
+      "all": "Semua",
+      "ecommerce": "E-Commerce",
+      "finance": "Layanan Keuangan",
+      "travel": "Travel & Perhotelan",
+      "enterprise": "Layanan Perusahaan"
+    }
   },
   "cases": {
     "title": "Kisah Sukses",
@@ -140,6 +169,52 @@
         },
         "submit": "Kirim Pesan"
       }
+    }
+  },
+  "admin": {
+    "common": {
+      "logout": "Keluar",
+      "settings": "Pengaturan",
+      "open_sidebar": "Buka Sidebar",
+      "close_sidebar": "Tutup Sidebar",
+      "view_notifications": "Lihat Notifikasi",
+      "open_user_menu": "Buka Menu Pengguna"
+    },
+    "nav": {
+      "dashboard": "Dasbor",
+      "merchants": "Pedagang",
+      "orders": "Pesanan",
+      "settlement": "Penyelesaian",
+      "system": "Sistem"
+    },
+    "login": {
+      "title": "Login Admin",
+      "subtitle": "Masuk ke akun admin Anda",
+      "username": "Nama Pengguna",
+      "password": "Kata Sandi",
+      "remember_me": "Ingat saya",
+      "forgot_password": "Lupa kata sandi?",
+      "sign_in": "Masuk",
+      "invalid_credentials": "Nama pengguna atau kata sandi tidak valid",
+      "login_error": "Login gagal, silakan coba lagi nanti",
+      "form_invalid": "Silakan isi nama pengguna dan kata sandi"
+    },
+    "dashboard": {
+      "title": "Dasbor Admin",
+      "welcome_back": "Selamat datang kembali, lihat data dan kinerja terbaru platform Anda.",
+      "total_merchants": "Total Pedagang",
+      "total_orders": "Total Pesanan",
+      "total_revenue": "Total Pendapatan",
+      "pending_tickets": "Tiket Tertunda",
+      "increased_by": "Meningkat sebesar",
+      "sales_trend": "Tren Penjualan",
+      "recent_orders": "Pesanan Terbaru",
+      "view_all": "Lihat Semua",
+      "order_id": "ID Pesanan",
+      "merchant": "Pedagang",
+      "amount": "Jumlah",
+      "status": "Status",
+      "time": "Waktu"
     }
   }
 } 
