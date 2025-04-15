@@ -102,7 +102,7 @@ const props = withDefaults(defineProps<HeroProps>(), {
   actions: () => [
     {
       text: '立即开始',
-      href: '/register',
+      href: '/merchant/register',
       variant: 'default',
     },
     {

@@ -1,18 +1,19 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
-      <div>
-        <div class="mx-auto h-12 w-12 rounded-full bg-primary flex items-center justify-center">
-          <span class="text-lg font-bold text-primary-foreground">S</span>
+  <div class="min-h-screen flex flex-col justify-start items-center bg-gray-50 px-4 sm:px-6 lg:px-8 pt-20">
+    <div class="max-w-md w-full bg-white rounded-lg shadow-md p-8 space-y-6">
+      <div class="flex flex-col items-center">
+        <div class="h-16 w-16 rounded-full bg-primary flex items-center justify-center mb-4">
+          <span class="text-2xl font-bold text-primary-foreground">S</span>
         </div>
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          {{ t('merchant.login.title') }}
+        <h2 class="text-center text-3xl font-extrabold text-gray-900">
+          {{ pageTitle }}
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-          {{ t('merchant.login.subtitle') }}
+          {{ pageSubtitle }}
         </p>
       </div>
-      <form class="mt-8 space-y-6" @submit.prevent="handleLogin">
+      
+      <form class="space-y-6" @submit.prevent="handleLogin">
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
             <label for="username" class="sr-only">{{ t('merchant.login.username') }}</label>
@@ -64,7 +65,7 @@
         <div>
           <button
             type="submit"
-            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
             :disabled="loading"
           >
             <span v-if="loading" class="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -83,9 +84,9 @@
         </div>
       </form>
       
-      <div class="text-center mt-4">
-        <a href="/merchant/register" class="font-medium text-primary hover:text-primary/80">
-          {{ t('merchant.login.register_account') }}
+      <div class="text-center pt-2">
+        <a :href="registerLink" class="font-medium text-primary hover:text-primary/80">
+          {{ registerText }}
         </a>
       </div>
       
@@ -103,17 +104,51 @@
         </div>
       </div>
     </div>
+    
+    <p class="mt-6 text-center text-sm text-gray-600">
+      &copy; 2025 Sphere. {{ t('common.footer.rights') }}
+    </p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { nanoid } from 'nanoid'
+import { useStorage } from '@vueuse/core'
 
 const { t } = useI18n()
 const router = useRouter()
+const route = useRoute()
+
+// 判断是否为商户登录
+const isMerchantLogin = computed(() => route.path.includes('/merchant'))
+
+// 根据登录页面类型显示不同的标题
+const pageTitle = computed(() => {
+  return isMerchantLogin.value
+    ? t('merchant.login.title')
+    : t('login.title')
+})
+
+const pageSubtitle = computed(() => {
+  return isMerchantLogin.value
+    ? t('merchant.login.subtitle')
+    : t('login.or')
+})
+
+// 获取注册链接
+const registerLink = computed(() => {
+  return '/merchant/register'
+})
+
+// 获取注册文本
+const registerText = computed(() => {
+  return isMerchantLogin.value
+    ? t('merchant.login.register_account')
+    : t('login.registerLink')
+})
 
 // 表单数据
 const form = ref({
@@ -121,6 +156,9 @@ const form = ref({
   password: '',
   remember: false
 })
+
+// 使用VueUse的useStorage来持久化token
+const token = useStorage('token', '')
 
 // 状态
 const loading = ref(false)
@@ -130,6 +168,13 @@ const errorMessage = ref('')
 const handleLogin = async () => {
   // 重置错误消息
   errorMessage.value = ''
+  
+  // 表单验证
+  if (!form.value.username.trim() || !form.value.password.trim()) {
+    errorMessage.value = t('merchant.login.form_invalid')
+    return
+  }
+  
   loading.value = true
   
   try {
@@ -139,19 +184,26 @@ const handleLogin = async () => {
     // 检查用户名和密码（这里仅做演示）
     if (form.value.username === 'admin' && form.value.password === 'password') {
       // 登录成功，保存token
-      const token = nanoid()
-      localStorage.setItem('token', token)
+      token.value = nanoid()
       
-      // 跳转到商户后台
-      router.push('/merchant')
+      // 根据登录页面类型跳转到不同页面
+      if (isMerchantLogin.value) {
+        router.push('/merchant/dashboard')
+      } else {
+        router.push('/')
+      }
     } else {
       // 登录失败
-      errorMessage.value = t('merchant.login.invalid_credentials')
+      errorMessage.value = isMerchantLogin.value
+        ? t('merchant.login.invalid_credentials')
+        : t('login.errors.failed')
     }
   } catch (error) {
     // 处理错误
-    errorMessage.value = t('merchant.login.login_error')
-    console.error('Login error:', error)
+    errorMessage.value = isMerchantLogin.value
+      ? t('merchant.login.login_error')
+      : t('login.errors.failed')
+    console.error('登录错误:', error)
   } finally {
     loading.value = false
   }

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useStorage } from '@vueuse/core'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,16 +23,6 @@ const router = createRouter({
     {
       path: '/about',
       component: () => import('../pages/portal/about/index.vue'),
-      meta: { requiresAuth: false }
-    },
-    {
-      path: '/login',
-      component: () => import('../pages/portal/login/index.vue'),
-      meta: { requiresAuth: false }
-    },
-    {
-      path: '/register',
-      component: () => import('../pages/portal/register/index.vue'),
       meta: { requiresAuth: false }
     },
     
@@ -72,21 +63,24 @@ const router = createRouter({
       path: '/merchant/login',
       component: () => import('../pages/merchant/login/index.vue'),
       meta: { requiresAuth: false }
+    },
+    {
+      path: '/merchant/register',
+      component: () => import('../pages/merchant/register/index.vue'),
+      meta: { requiresAuth: false }
     }
   ]
 })
 
 // 路由守卫
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('token')
+  // 使用useStorage获取token，与登录页面保持一致
+  const token = useStorage('token', '')
+  const isAuthenticated = token.value
   
   if (to.meta.requiresAuth && !isAuthenticated) {
-    // 根据路径判断重定向到哪个登录页面
-    if (to.path.startsWith('/merchant')) {
-      next('/merchant/login')
-    } else {
-      next('/login')
-    }
+    // 所有需要认证的路由都重定向到商户登录页面
+    next('/merchant/login')
   } else {
     next()
   }

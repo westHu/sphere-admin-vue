@@ -154,7 +154,7 @@ const props = withDefaults(defineProps<Props>(), {
       ],
       buttonText: '立即开通',
       buttonVariant: 'outline',
-      buttonHref: '/register',
+      buttonHref: '/merchant/register',
     },
     {
       title: '企业全球收款',
@@ -178,7 +178,7 @@ const props = withDefaults(defineProps<Props>(), {
       isPopular: true,
       buttonText: '开始使用',
       buttonVariant: 'default',
-      buttonHref: '/register',
+      buttonHref: '/merchant/register',
     },
     {
       title: '定制支付方案',
