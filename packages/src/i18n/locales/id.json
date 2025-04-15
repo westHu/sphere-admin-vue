@@ -180,6 +180,13 @@
       "view_notifications": "Lihat Notifikasi",
       "open_user_menu": "Buka Menu Pengguna"
     },
+    "logout": {
+      "confirm_title": "Konfirmasi Keluar",
+      "confirm_message": "Apakah Anda yakin ingin keluar dari sistem admin?",
+      "confirm_button": "Keluar",
+      "cancel_button": "Batal",
+      "success_message": "Berhasil keluar"
+    },
     "nav": {
       "dashboard": "Dasbor",
       "merchants": "Pedagang",

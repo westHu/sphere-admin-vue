@@ -364,6 +364,13 @@
       "view_notifications": "View Notifications",
       "open_user_menu": "Open User Menu"
     },
+    "logout": {
+      "confirm_title": "Confirm Logout",
+      "confirm_message": "Are you sure you want to logout from the admin system?",
+      "confirm_button": "Logout",
+      "cancel_button": "Cancel",
+      "success_message": "Successfully logged out"
+    },
     "nav": {
       "dashboard": "Dashboard",
       "merchants": "Merchants",

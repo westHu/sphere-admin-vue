@@ -50,7 +50,7 @@
           </div>
           <div class="ml-3 flex-1">
             <p class="text-sm font-medium truncate">{{ userName }}</p>
-            <button class="text-xs text-muted-foreground hover:text-foreground transition-colors" @click="logout">
+            <button class="text-xs text-muted-foreground hover:text-foreground transition-colors" @click="handleLogout">
               {{ t('admin.common.logout') }}
             </button>
           </div>
@@ -118,13 +118,12 @@
                 >
                   {{ t('admin.common.settings') }}
                 </a>
-                <a 
-                  href="#" 
-                  class="block px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
-                  @click="logout"
+                <button 
+                  class="block w-full text-left px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                  @click="handleLogout"
                 >
                   {{ t('admin.common.logout') }}
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -165,7 +164,7 @@
             </div>
             <div class="ml-3 flex-1">
               <p class="text-sm font-medium truncate">{{ userName }}</p>
-              <button class="text-xs text-muted-foreground hover:text-foreground transition-colors" @click="logout">
+              <button class="text-xs text-muted-foreground hover:text-foreground transition-colors" @click="handleLogout">
                 {{ t('admin.common.logout') }}
               </button>
             </div>
@@ -190,6 +189,16 @@
         </main>
       </div>
     </div>
+    
+    <!-- 确认对话框 -->
+    <ConfirmDialog
+      ref="logoutConfirmDialog"
+      :title="t('admin.logout.confirm_title')"
+      :message="t('admin.logout.confirm_message')"
+      :confirm-text="t('admin.logout.confirm_button')"
+      :cancel-text="t('admin.logout.cancel_button')"
+      @confirm="performLogout"
+    />
   </div>
 </template>
 
@@ -199,6 +208,8 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useStorage } from '@vueuse/core'
 import ThemeToggle from '../components/ThemeToggle.vue'
+import ConfirmDialog from '../components/ConfirmDialog.vue'
+import { toast } from '../utils/toast'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -207,6 +218,7 @@ const router = useRouter()
 // 状态管理
 const sidebarOpen = ref(false)
 const userMenuOpen = ref(false)
+const logoutConfirmDialog = ref<{open: () => void; close: () => void} | null>(null)
 
 // 用户信息
 const userName = ref('管理员')
@@ -345,10 +357,35 @@ const navItems = [
 // 获取token
 const token = useStorage('admin_token', '')
 
-// 注销
-const logout = () => {
+// 注销处理
+const handleLogout = () => {
+  // 关闭用户菜单
+  userMenuOpen.value = false
+  
+  // 显示确认对话框
+  logoutConfirmDialog.value?.open()
+}
+
+// 确认后执行真正的登出
+const performLogout = () => {
+  // 清除用户相关数据
   token.value = ''
+  localStorage.removeItem('admin_user_info')
+  localStorage.removeItem('admin_permissions')
+  
+  // 显示退出成功提示
+  toast.success(t('admin.logout.success_message'), {
+    position: 'top-right',
+    duration: 2000
+  })
+  
+  // 跳转到登录页
   router.push('/admin/login')
+}
+
+// 简化注销函数，供其他地方调用
+const logout = () => {
+  handleLogout()
 }
 
 // 平滑过渡处理

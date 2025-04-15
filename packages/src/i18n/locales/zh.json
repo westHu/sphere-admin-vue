@@ -430,6 +430,13 @@
       "view_notifications": "查看通知",
       "open_user_menu": "打开用户菜单"
     },
+    "logout": {
+      "confirm_title": "确认退出",
+      "confirm_message": "您确定要退出管理系统吗？",
+      "confirm_button": "确认退出",
+      "cancel_button": "取消",
+      "success_message": "已成功退出系统"
+    },
     "nav": {
       "dashboard": "仪表盘",
       "merchants": "商户管理",
