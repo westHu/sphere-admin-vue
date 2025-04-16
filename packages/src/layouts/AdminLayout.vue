@@ -84,6 +84,55 @@
           
           <!-- 右侧工具栏 -->
           <div class="flex items-center space-x-4">
+            <!-- 语言切换按钮 -->
+            <div class="relative">
+              <button
+                class="flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-foreground"
+                @click="isLanguageMenuOpen = !isLanguageMenuOpen"
+              >
+                <span>{{ currentLanguage }}</span>
+                <svg
+                  class="size-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              
+              <!-- 语言选择菜单 -->
+              <Transition
+                enter-active-class="transition ease-out duration-200"
+                enter-from-class="opacity-0 translate-y-1"
+                enter-to-class="opacity-100 translate-y-0"
+                leave-active-class="transition ease-in duration-150"
+                leave-from-class="opacity-100 translate-y-0"
+                leave-to-class="opacity-0 translate-y-1"
+              >
+                <div
+                  v-if="isLanguageMenuOpen"
+                  class="absolute right-0 mt-2 w-32 rounded-md border bg-popover py-1 shadow-md z-50"
+                  @click.stop
+                >
+                  <button
+                    v-for="lang in languages"
+                    :key="lang.code"
+                    class="w-full px-4 py-2 text-left text-sm hover:bg-accent hover:text-accent-foreground"
+                    :class="{ 'bg-accent text-accent-foreground': lang.code === locale }"
+                    @click="changeLanguage(lang.code)"
+                  >
+                    {{ lang.name }}
+                  </button>
+                </div>
+              </Transition>
+            </div>
+            
             <!-- 主题切换按钮 -->
             <ThemeToggle />
             
@@ -203,22 +252,53 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineComponent, h, nextTick } from 'vue'
+import { ref, computed, defineComponent, h, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useStorage } from '@vueuse/core'
 import ThemeToggle from '../components/ThemeToggle.vue'
 import ConfirmDialog from '../components/ConfirmDialog.vue'
 import { toast } from '../utils/toast'
+import { setLocale } from '../i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
 // 状态管理
 const sidebarOpen = ref(false)
 const userMenuOpen = ref(false)
+const isLanguageMenuOpen = ref(false)
 const logoutConfirmDialog = ref<{open: () => void; close: () => void} | null>(null)
+
+// 语言设置
+const languages = [
+  { code: 'en', name: 'English' },
+  { code: 'zh', name: '中文' },
+  { code: 'id', name: 'Indonesia' }
+]
+
+const currentLanguage = computed(() => {
+  return languages.find(lang => lang.code === locale.value)?.name || 'English'
+})
+
+const changeLanguage = (lang: string) => {
+  console.log('AdminLayout - 切换语言:', lang, '当前语言:', locale.value)
+  try {
+    // 使用i18n模块提供的setLocale函数
+    const success = setLocale(lang)
+    if (success) {
+      console.log('AdminLayout - 语言切换成功')
+      isLanguageMenuOpen.value = false
+      // 刷新页面确保所有翻译正确应用
+      window.location.reload()
+    } else {
+      console.error('AdminLayout - 语言切换失败')
+    }
+  } catch (error) {
+    console.error('AdminLayout - 切换语言出错:', error)
+  }
+}
 
 // 用户信息
 const userName = ref('管理员')
@@ -229,7 +309,7 @@ const userInitials = computed(() => {
 // 页面标题
 const pageTitle = computed(() => {
   const path = route.path
-  const navItem = navItems.find(item => path === item.path || path.startsWith(item.path + '/'))
+  const navItem = navItems.value.find(item => path === item.path || path.startsWith(item.path + '/'))
   return navItem ? navItem.name : t('admin.nav.dashboard')
 })
 
@@ -326,7 +406,7 @@ const Cog = defineComponent({
 })
 
 // 导航菜单
-const navItems = [
+const navItems = computed(() => [
   {
     name: t('admin.nav.dashboard'),
     path: '/admin/dashboard',
@@ -352,7 +432,7 @@ const navItems = [
     path: '/admin/system',
     icon: Cog
   }
-]
+])
 
 // 获取token
 const token = useStorage('admin_token', '')

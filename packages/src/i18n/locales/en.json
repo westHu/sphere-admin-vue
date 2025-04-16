@@ -457,5 +457,77 @@
       "operation_content": "Operation Content",
       "operation_time": "Operation Time"
     }
+  },
+  "merchant": {
+    "common": {
+      "logout": "Logout",
+      "settings": "Settings",
+      "open_sidebar": "Open Sidebar",
+      "close_sidebar": "Close Sidebar",
+      "view_notifications": "View Notifications",
+      "open_user_menu": "Open User Menu"
+    },
+    "logout": {
+      "confirm_message": "Are you sure you want to logout?",
+      "confirm_button": "Logout",
+      "cancel_button": "Cancel",
+      "success_message": "Successfully logged out"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "orders": "Order Management",
+      "products": "Product Management",
+      "customers": "Customer Management",
+      "settings": "System Settings"
+    },
+    "login": {
+      "title": "Merchant Login",
+      "subtitle": "Login to your merchant account",
+      "username": "Username",
+      "password": "Password",
+      "remember_me": "Remember me",
+      "forgot_password": "Forgot password?",
+      "sign_in": "Sign In",
+      "register_account": "Create new account",
+      "invalid_credentials": "Invalid username or password",
+      "login_error": "Login failed, please try again later",
+      "form_invalid": "Please fill in both username and password"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome_back": "Welcome back, view the latest data and performance of your store.",
+      "total_orders": "Total Orders",
+      "revenue": "Revenue",
+      "customers": "Total Customers",
+      "products": "Total Products",
+      "increased_by": "Increased by",
+      "recent_orders": "Recent Orders",
+      "view_all": "View All",
+      "order_id": "Order ID",
+      "customer": "Customer",
+      "date": "Date",
+      "amount": "Amount",
+      "status": "Status",
+      "status_completed": "Completed",
+      "status_processing": "Processing",
+      "status_cancelled": "Cancelled",
+      "status_pending": "Pending",
+      "order_status": "Order Status",
+      "new_orders": "New Orders",
+      "processing": "Processing",
+      "packaged": "Packaged",
+      "shipping": "Shipping",
+      "completed": "Completed",
+      "today": "Today",
+      "sales_trend": "Sales Trend",
+      "last_6_months": "Sales data for the last 6 months",
+      "monthly": "Monthly",
+      "quick_actions": "Quick Actions",
+      "add_product": "Add Product",
+      "create_order": "Create Order",
+      "manage_customers": "Manage Customers",
+      "view_reports": "View Reports",
+      "view_transactions": "View Recent Transactions"
+    }
   }
 } 

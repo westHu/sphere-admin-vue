@@ -131,6 +131,7 @@
 import { ref, onMounted, computed, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import ThemeToggle from './ThemeToggle.vue'
+import { setLocale, supportedLocales } from '../i18n'
 
 const { locale, t } = useI18n({
   inheritLocale: true,
@@ -152,8 +153,8 @@ const currentLanguage = computed(() => {
 })
 
 const changeLanguage = (lang: string) => {
-  locale.value = lang
-  localStorage.setItem('locale', lang)
+  console.log('Navbar - 切换语言:', lang, '当前语言:', locale.value)
+  setLocale(lang)
   isLanguageMenuOpen.value = false
   // 刷新页面确保所有翻译正确应用
   window.location.reload()
@@ -163,12 +164,13 @@ onMounted(() => {
   currentPath.value = window.location.pathname
   // 从 localStorage 获取语言设置，如果没有则使用英文
   const savedLocale = localStorage.getItem('locale')
-  if (savedLocale && languages.some(lang => lang.code === savedLocale)) {
+  if (savedLocale && supportedLocales.includes(savedLocale)) {
     locale.value = savedLocale
+    console.log('Navbar - 使用已存储的语言:', savedLocale)
   } else {
     // 如果没有保存过语言设置，使用英文并保存到localStorage
-    locale.value = 'en'
-    localStorage.setItem('locale', 'en')
+    setLocale('en')
+    console.log('Navbar - 设置默认语言为英文')
   }
 })
 

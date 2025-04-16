@@ -223,5 +223,77 @@
       "status": "Status",
       "time": "Waktu"
     }
+  },
+  "merchant": {
+    "common": {
+      "logout": "Keluar",
+      "settings": "Pengaturan",
+      "open_sidebar": "Buka Sidebar",
+      "close_sidebar": "Tutup Sidebar",
+      "view_notifications": "Lihat Notifikasi",
+      "open_user_menu": "Buka Menu Pengguna"
+    },
+    "logout": {
+      "confirm_message": "Apakah Anda yakin ingin keluar?",
+      "confirm_button": "Keluar",
+      "cancel_button": "Batal",
+      "success_message": "Berhasil keluar"
+    },
+    "nav": {
+      "dashboard": "Dasbor",
+      "orders": "Manajemen Pesanan",
+      "products": "Manajemen Produk",
+      "customers": "Manajemen Pelanggan",
+      "settings": "Pengaturan Sistem"
+    },
+    "login": {
+      "title": "Login Pedagang",
+      "subtitle": "Masuk ke akun pedagang Anda",
+      "username": "Nama Pengguna",
+      "password": "Kata Sandi",
+      "remember_me": "Ingat saya",
+      "forgot_password": "Lupa kata sandi?",
+      "sign_in": "Masuk",
+      "register_account": "Daftar akun baru",
+      "invalid_credentials": "Nama pengguna atau kata sandi tidak valid",
+      "login_error": "Login gagal, silakan coba lagi nanti",
+      "form_invalid": "Silakan isi nama pengguna dan kata sandi"
+    },
+    "dashboard": {
+      "title": "Dasbor",
+      "welcome_back": "Selamat datang kembali, lihat data dan kinerja terbaru toko Anda.",
+      "total_orders": "Total Pesanan",
+      "revenue": "Pendapatan",
+      "customers": "Total Pelanggan",
+      "products": "Total Produk",
+      "increased_by": "Meningkat",
+      "recent_orders": "Pesanan Terbaru",
+      "view_all": "Lihat Semua",
+      "order_id": "ID Pesanan",
+      "customer": "Pelanggan",
+      "date": "Tanggal",
+      "amount": "Jumlah",
+      "status": "Status",
+      "status_completed": "Selesai",
+      "status_processing": "Diproses",
+      "status_cancelled": "Dibatalkan",
+      "status_pending": "Tertunda",
+      "order_status": "Status Pesanan",
+      "new_orders": "Pesanan Baru",
+      "processing": "Diproses",
+      "packaged": "Dikemas",
+      "shipping": "Pengiriman",
+      "completed": "Selesai",
+      "today": "Hari Ini",
+      "sales_trend": "Tren Penjualan",
+      "last_6_months": "Data penjualan 6 bulan terakhir",
+      "monthly": "Bulanan",
+      "quick_actions": "Tindakan Cepat",
+      "add_product": "Tambah Produk",
+      "create_order": "Buat Pesanan",
+      "manage_customers": "Kelola Pelanggan",
+      "view_reports": "Lihat Laporan",
+      "view_transactions": "Lihat Transaksi Terbaru"
+    }
   }
 } 

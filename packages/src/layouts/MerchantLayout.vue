@@ -194,19 +194,29 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineComponent, h, nextTick } from 'vue'
+import { ref, computed, defineComponent, h, nextTick, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useStorage } from '@vueuse/core'
 import ThemeToggle from '../components/ThemeToggle.vue'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
 // 状态管理
 const sidebarOpen = ref(false)
 const userMenuOpen = ref(false)
+
+// 退出登录
+const logout = () => {
+  if (confirm(t('merchant.logout.confirm_message'))) {
+    // 清除登录状态
+    localStorage.removeItem('token')
+    // 重定向到登录页
+    window.location.href = '/merchant/login'
+  }
+}
 
 // 用户信息
 const userName = ref('张三')
@@ -217,7 +227,7 @@ const userInitials = computed(() => {
 // 页面标题
 const pageTitle = computed(() => {
   const path = route.path
-  const navItem = navItems.find(item => path === item.path || path.startsWith(item.path + '/'))
+  const navItem = navItems.value.find(item => path === item.path || path.startsWith(item.path + '/'))
   return navItem ? navItem.name : t('merchant.nav.dashboard')
 })
 
@@ -313,8 +323,8 @@ const Settings = defineComponent({
   ])
 })
 
-// 导航菜单
-const navItems = [
+// 导航菜单 - 使用计算属性以便在语言变化时自动更新
+const navItems = computed(() => [
   {
     name: t('merchant.nav.dashboard'),
     path: '/merchant/dashboard',
@@ -340,16 +350,7 @@ const navItems = [
     path: '/merchant/settings',
     icon: Settings
   }
-]
-
-// 获取token
-const token = useStorage('token', '')
-
-// 注销
-const logout = () => {
-  token.value = ''
-  router.push('/merchant/login')
-}
+])
 
 // 平滑过渡处理
 const beforeLeave = () => {

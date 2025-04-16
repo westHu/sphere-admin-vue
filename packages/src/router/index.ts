@@ -49,6 +49,11 @@ const router = createRouter({
           meta: { requiresAuth: true, layout: 'merchant' }
         },
         {
+          path: 'debug',
+          component: () => import('../pages/merchant/debug.vue'),
+          meta: { requiresAuth: false, layout: 'merchant' }
+        },
+        {
           path: 'orders',
           component: () => import('../pages/merchant/orders/index.vue'),
           meta: { requiresAuth: true, layout: 'merchant' }

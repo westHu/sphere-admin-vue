@@ -5,23 +5,36 @@
         <div class="h-12 w-12 rounded-full bg-primary flex items-center justify-center">
           <span class="text-2xl font-bold text-primary-foreground">S</span>
         </div>
-        <h1 class="text-2xl font-bold">管理员登录</h1>
+        <h1 class="text-2xl font-bold">{{ t('admin.login.title') }}</h1>
         <p class="text-sm text-muted-foreground">
-          请输入您的账号信息
+          {{ t('admin.login.subtitle') }}
         </p>
+        
+        <!-- 语言切换 -->
+        <div class="mt-4 flex justify-center space-x-2">
+          <button
+            v-for="lang in languages"
+            :key="lang.code"
+            @click="changeLanguage(lang.code)"
+            class="px-2 py-1 text-xs rounded-md"
+            :class="locale === lang.code ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+          >
+            {{ lang.name }}
+          </button>
+        </div>
       </div>
 
       <form @submit.prevent="handleLogin">
         <div class="space-y-4">
           <div class="space-y-2">
             <label for="username" class="text-sm font-medium">
-              用户名
+              {{ t('admin.login.username') }}
             </label>
             <input
               id="username"
               v-model="username"
               type="text"
-              placeholder="请输入管理员用户名"
+              :placeholder="t('admin.login.username')"
               class="input w-full"
               :class="{ 'border-destructive': errors.username }"
               required
@@ -33,13 +46,13 @@
 
           <div class="space-y-2">
             <label for="password" class="text-sm font-medium">
-              密码
+              {{ t('admin.login.password') }}
             </label>
             <input
               id="password"
               v-model="password"
               type="password"
-              placeholder="请输入密码"
+              :placeholder="t('admin.login.password')"
               class="input w-full"
               :class="{ 'border-destructive': errors.password }"
               required
@@ -58,11 +71,11 @@
                 class="h-4 w-4 rounded border-input bg-background"
               />
               <label for="remember" class="text-sm">
-                记住我
+                {{ t('admin.login.remember_me') }}
               </label>
             </div>
             <a href="#" class="text-sm text-primary">
-              忘记密码?
+              {{ t('admin.login.forgot_password') }}
             </a>
           </div>
 
@@ -71,8 +84,8 @@
             class="btn w-full"
             :disabled="isSubmitting"
           >
-            <span v-if="isSubmitting">登录中...</span>
-            <span v-else>登录</span>
+            <span v-if="isSubmitting">{{ t('admin.login.sign_in') }}...</span>
+            <span v-else>{{ t('admin.login.sign_in') }}</span>
           </button>
         </div>
       </form>
@@ -81,11 +94,43 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStorage } from '@vueuse/core'
+import { useI18n } from 'vue-i18n'
+import { setLocale, supportedLocales } from '../../../i18n'
 
+const { t, locale } = useI18n()
 const router = useRouter()
+
+// 支持的语言列表
+const languages = [
+  { code: 'en', name: 'English' },
+  { code: 'zh', name: '中文' },
+  { code: 'id', name: 'Indonesia' }
+]
+
+// 默认设置为英文
+onMounted(() => {
+  // 检查是否有存储的语言设置
+  const storedLocale = localStorage.getItem('locale')
+  if (!storedLocale || !supportedLocales.includes(storedLocale)) {
+    // 如果没有存储的语言设置或者不是支持的语言，则设置为英文
+    setLocale('en')
+    console.log('管理员登录页面 - 默认设置语言为英文')
+  } else {
+    console.log('管理员登录页面 - 使用已存储的语言:', storedLocale)
+  }
+})
+
+// 切换语言
+const changeLanguage = (lang: string) => {
+  console.log('管理员登录页面 - 切换语言:', lang)
+  setLocale(lang)
+  // 不刷新页面，只更新 locale.value，确保实时生效
+  locale.value = lang
+}
+
 const username = ref('')
 const password = ref('')
 const rememberMe = ref(false)
@@ -106,12 +151,12 @@ const handleLogin = async () => {
   
   // 表单验证
   if (!username.value) {
-    errors.username = '请输入用户名'
+    errors.username = t('admin.login.form_invalid')
     return
   }
   
   if (!password.value) {
-    errors.password = '请输入密码'
+    errors.password = t('admin.login.form_invalid')
     return
   }
   
@@ -126,15 +171,20 @@ const handleLogin = async () => {
       // 登录成功，保存token
       token.value = 'mock-admin-token-' + Date.now()
       
+      // 保存当前选择的语言
+      const currentLang = locale.value
+      localStorage.setItem('locale', currentLang)
+      console.log('管理员登录页面 - 保存语言设置:', currentLang)
+      
       // 登录成功后跳转到管理后台首页
       router.push('/admin/dashboard')
     } else {
       // 登录失败
-      errors.password = '用户名或密码错误'
+      errors.password = t('admin.login.invalid_credentials')
     }
   } catch (error) {
     console.error('登录失败:', error)
-    errors.password = '登录失败，请重试'
+    errors.password = t('admin.login.login_error')
   } finally {
     isSubmitting.value = false
   }
