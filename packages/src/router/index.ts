@@ -25,6 +25,12 @@ const router = createRouter({
       component: () => import('../pages/portal/about/index.vue'),
       meta: { requiresAuth: false, layout: 'portal' }
     },
+    // API文档页面
+    {
+      path: '/doc',
+      component: () => import('../pages/doc/index.vue'),
+      meta: { requiresAuth: false, layout: 'doc' }
+    },
     
     // 商户后台页面
     {
