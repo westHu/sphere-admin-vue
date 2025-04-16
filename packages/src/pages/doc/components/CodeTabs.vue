@@ -246,17 +246,20 @@ for (const tab of props.tabs) {
   margin: 1.5rem 0;
   border-radius: 0.5rem;
   overflow: hidden;
-  border: 1px solid #334155;
-  background-color: #1e293b;
+  border: 1px solid #475569;
+  background-color: #1e293b !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  -webkit-font-smoothing: auto !important;
+  -moz-osx-font-smoothing: auto !important;
 }
 
 .code-tabs-header {
   display: flex;
-  background-color: #0f172a;
+  background-color: #0f172a !important;
   overflow-x: auto;
   scrollbar-width: none; /* Firefox */
   justify-content: space-between;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #475569;
 }
 
 .code-tabs-header::-webkit-scrollbar {
@@ -270,19 +273,21 @@ for (const tab of props.tabs) {
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #94a3b8;
+  color: #cbd5e1 !important;
   transition: color 0.2s, background-color 0.2s;
   white-space: nowrap;
+  text-rendering: optimizeLegibility;
 }
 
 .tab-button:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9 !important;
 }
 
 .tab-button.active {
-  color: #38bdf8;
+  color: #60a5fa !important;
   font-weight: 600;
-  border-bottom: 2px solid #38bdf8;
+  border-bottom: 2px solid #60a5fa;
   margin-bottom: -1px;
 }
 
@@ -295,7 +300,7 @@ for (const tab of props.tabs) {
 .action-button {
   background: none;
   border: none;
-  color: #94a3b8;
+  color: #cbd5e1 !important;
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 0.25rem;
@@ -306,8 +311,8 @@ for (const tab of props.tabs) {
 }
 
 .action-button:hover {
-  color: #e2e8f0;
-  background-color: rgba(255, 255, 255, 0.05);
+  color: #f1f5f9 !important;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .copied-tooltip {
@@ -315,13 +320,14 @@ for (const tab of props.tabs) {
   bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #334155;
-  color: #e2e8f0;
+  background-color: #475569;
+  color: #f1f5f9 !important;
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   white-space: nowrap;
   z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .code-tabs-content {

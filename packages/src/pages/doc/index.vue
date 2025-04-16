@@ -471,23 +471,27 @@ const scrollToSection = (sectionId: string) => {
   background-color: var(--color-code-bg);
   padding: 0.2em 0.4em;
   border-radius: 3px;
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
   font-size: 0.85em;
+  -webkit-font-smoothing: auto !important;
+  -moz-osx-font-smoothing: auto !important;
 }
 
 :deep(pre) {
-  background-color: var(--color-code-block-bg);
+  background-color: #1e293b !important;
   border-radius: 6px;
   padding: 1rem;
   overflow-x: auto;
   margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 :deep(pre code) {
-  background-color: transparent;
+  background-color: transparent !important;
   padding: 0;
   font-size: 0.85rem;
   line-height: 1.5;
+  color: #f8fafc !important;
 }
 
 /* 适配深色/浅色模式的CSS变量 */
@@ -499,22 +503,26 @@ const scrollToSection = (sectionId: string) => {
   --color-text-muted: #6b7280;
   --color-border: #e5e7eb;
   --color-card: #ffffff;
-  --color-code-bg: #f3f4f6;
-  --color-code-block-bg: #f9fafb;
+  --color-code-bg: #f1f5f9;
+  --color-code-block-bg: #1e293b;
+  --color-primary: #3b82f6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #111827;
-    --color-background-muted: #1f2937;
-    --color-background-hover: #374151;
-    --color-text: #f9fafb;
-    --color-text-muted: #9ca3af;
-    --color-border: #374151;
-    --color-card: #1f2937;
-    --color-code-bg: #374151;
-    --color-code-block-bg: #1f2937;
-  }
+/* 强制使用深色模式 */
+.doc-container {
+  --color-background: #0f172a;
+  --color-background-muted: #1e293b;
+  --color-background-hover: #334155;
+  --color-text: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-border: #475569;
+  --color-card: #1e293b;
+  --color-code-bg: #334155;
+  --color-code-block-bg: #1e293b;
+  --color-primary: #60a5fa;
+  
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 /* 响应式调整 */

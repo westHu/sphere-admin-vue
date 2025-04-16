@@ -15,64 +15,68 @@ const props = defineProps({
 
 <style scoped>
 pre {
-  background-color: #1e293b;
+  background-color: #1e293b !important;
   border-radius: 6px;
   padding: 1rem;
   overflow-x: auto;
   margin: 1rem 0;
   position: relative;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  -webkit-font-smoothing: auto !important;
+  -moz-osx-font-smoothing: auto !important;
 }
 
 code {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-  font-size: 0.85rem;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace !important;
+  font-size: 14px !important;
   line-height: 1.6;
-  color: #e2e8f0;
+  color: #f8fafc !important;
   tab-size: 2;
+  text-rendering: optimizeLegibility;
+  font-weight: normal !important;
 }
 
-/* 深色主题语法高亮 */
+/* 深色主题语法高亮 - 更清晰的颜色 */
 :deep(.language-json .string),
 :deep(.language-javascript .string),
 :deep(.language-typescript .string),
 :deep(.language-python .string),
-:deep(.language-php .string) { color: #4ade80; }
+:deep(.language-php .string) { color: #86efac !important; }
 
 :deep(.language-json .number),
 :deep(.language-javascript .number),
 :deep(.language-typescript .number),
-:deep(.language-python .number) { color: #60a5fa; }
+:deep(.language-python .number) { color: #93c5fd !important; }
 
 :deep(.language-json .boolean),
 :deep(.language-javascript .boolean),
 :deep(.language-typescript .boolean),
-:deep(.language-python .boolean) { color: #c084fc; }
+:deep(.language-python .boolean) { color: #d8b4fe !important; }
 
-:deep(.language-json .null) { color: #c084fc; }
+:deep(.language-json .null) { color: #d8b4fe !important; }
 
 :deep(.language-json .punctuation),
 :deep(.language-javascript .punctuation),
 :deep(.language-typescript .punctuation),
-:deep(.language-python .punctuation) { color: #94a3b8; }
+:deep(.language-python .punctuation) { color: #cbd5e1 !important; }
 
 :deep(.language-javascript .keyword),
 :deep(.language-typescript .keyword),
 :deep(.language-python .keyword),
 :deep(.language-java .keyword),
-:deep(.language-php .keyword) { color: #f87171; }
+:deep(.language-php .keyword) { color: #fb7185 !important; }
 
 :deep(.language-javascript .function),
 :deep(.language-typescript .function),
-:deep(.language-python .function) { color: #93c5fd; }
+:deep(.language-python .function) { color: #93c5fd !important; }
 
 :deep(.language-javascript .comment),
 :deep(.language-typescript .comment),
 :deep(.language-python .comment),
-:deep(.language-json .comment) { color: #a3e635; font-style: italic; }
+:deep(.language-json .comment) { color: #a3e635 !important; font-style: italic; }
 
-:deep(.language-curl .parameter) { color: #38bdf8; }
-:deep(.language-curl .option) { color: #f87171; }
+:deep(.language-curl .parameter) { color: #38bdf8 !important; }
+:deep(.language-curl .option) { color: #fb7185 !important; }
 
 /* 代码行高亮 */
 :deep(code .line) {
@@ -81,12 +85,12 @@ code {
 }
 
 :deep(code .line:hover) {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* 特殊代码片段高亮 */
 :deep(.code-dark-theme .keyword:first-child) {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 0.1rem 0.2rem;
   border-radius: 2px;
   margin: -0.1rem 0;
