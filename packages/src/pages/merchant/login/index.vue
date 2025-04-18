@@ -11,25 +11,29 @@
     <!-- 左侧图片区域 - 在小屏幕上隐藏 -->
     <div class="hidden lg:flex lg:w-1/2 relative z-10 flex-col justify-center items-center bg-gradient-to-br from-primary/90 to-primary-dark rounded-r-3xl shadow-2xl overflow-hidden">
       <!-- 背景装饰图形 -->
-      <div class="absolute inset-0 z-0 opacity-20">
-        <!-- 圆形装饰 -->
-        <div class="absolute top-10 right-10 w-32 h-32 rounded-full border-4 border-white/30"></div>
-        <div class="absolute bottom-20 left-10 w-24 h-24 rounded-full border-4 border-white/20"></div>
-        
-        <!-- 波浪形状 -->
-        <svg class="absolute bottom-0 left-0 w-full" 
-          viewBox="0 0 1200 120" 
-          preserveAspectRatio="none"
-          fill="white"
-          opacity="0.05"
-        >
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-        </svg>
-        
-        <!-- 点阵图案 -->
-        <div class="absolute inset-0 grid grid-cols-12 gap-4 p-8">
-          <div v-for="n in 96" :key="n" class="w-1 h-1 rounded-full bg-white/10"></div>
+      <div class="absolute inset-0 z-0">
+        <!-- 波浪形动态背景 -->
+        <div class="absolute inset-0 opacity-20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="absolute bottom-0 left-0 w-full">
+            <path fill="#ffffff" fill-opacity="0.2" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,213.3C672,203,768,149,864,144C960,139,1056,181,1152,186.7C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="absolute top-0 left-0 w-full rotate-180">
+            <path fill="#ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,213.3C672,203,768,149,864,144C960,139,1056,181,1152,186.7C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
         </div>
+        
+        <!-- 粒子效果 -->
+        <div class="absolute inset-0 grid grid-cols-12 gap-4 p-10">
+          <div v-for="n in 50" :key="n" class="h-1 w-1 rounded-full bg-white/30" :style="{
+            'margin-top': Math.floor(Math.random() * 100) + '%',
+            'margin-left': Math.floor(Math.random() * 100) + '%'
+          }"></div>
+        </div>
+        
+        <!-- 光晕效果 -->
+        <div class="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-yellow-400/10 filter blur-3xl"></div>
+        <div class="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-blue-400/10 filter blur-3xl"></div>
       </div>
       
       <div class="p-8 flex flex-col items-center justify-center space-y-8 z-10">
@@ -38,72 +42,35 @@
           <span class="text-3xl font-bold text-primary">S</span>
         </div>
         
-        <!-- 标语 -->
-        <h1 class="text-4xl font-bold text-white text-center">Sphere</h1>
-        <p class="text-xl text-white/90 text-center max-w-md">
-          {{ t('merchant.login.welcome_message') || '欢迎使用Sphere商户管理平台' }}
-        </p>
-        
-        <!-- 图片 - 使用更美观的插画 -->
-        <div class="w-full max-w-md h-64 relative overflow-hidden rounded-xl shadow-lg bg-white/10 flex items-center justify-center">
-          <!-- 商务办公场景插画 -->
-          <svg viewBox="0 0 500 500" class="w-full h-full p-4" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- 背景图形 -->
-            <circle cx="250" cy="250" r="200" fill="#ffffff" fill-opacity="0.1" />
-            
-            <!-- 办公桌 -->
-            <rect x="100" y="320" width="300" height="20" rx="2" fill="white" fill-opacity="0.8" />
-            <rect x="120" y="340" width="260" height="10" rx="2" fill="white" fill-opacity="0.6" />
-            
-            <!-- 电脑显示器 -->
-            <rect x="180" y="220" width="140" height="90" rx="4" fill="white" fill-opacity="0.9" />
-            <rect x="185" y="225" width="130" height="80" rx="2" fill="#2563EB" fill-opacity="0.5" />
-            <rect x="220" y="310" width="60" height="10" rx="2" fill="white" fill-opacity="0.8" />
-            <rect x="235" y="320" width="30" height="3" rx="1" fill="white" fill-opacity="0.6" />
-            
-            <!-- 键盘 -->
-            <rect x="200" y="260" width="100" height="30" rx="4" fill="white" fill-opacity="0.5" />
-            <rect x="205" y="265" width="90" height="20" rx="2" fill="white" fill-opacity="0.3" />
-            
-            <!-- 人物形象 -->
-            <circle cx="250" cy="180" r="25" fill="white" fill-opacity="0.9" />
-            <path d="M230 220C230 209.5 239 200 250 200C261 200 270 209.5 270 220V250H230V220Z" fill="white" fill-opacity="0.9" />
-            
-            <!-- 装饰元素 -->
-            <circle cx="150" cy="250" r="10" fill="white" fill-opacity="0.4" />
-            <circle cx="350" cy="250" r="10" fill="white" fill-opacity="0.4" />
-            <rect x="330" y="270" width="40" height="40" rx="4" fill="white" fill-opacity="0.3" />
-            <rect x="130" y="270" width="40" height="40" rx="4" fill="white" fill-opacity="0.3" />
-          </svg>
+        <!-- 中央支付图片 -->
+        <div class="w-full max-w-sm relative overflow-hidden">
+          <img 
+            :src="paymentImages[currentPaymentImageIndex]" 
+            alt="支付插图"
+            class="w-full object-contain rounded-xl shadow-lg"
+            @error="handlePaymentImageError"
+          />
+          
+          <!-- 支付图片加载失败时的备用显示 -->
+          <div v-if="paymentImageLoadError" class="flex flex-col items-center justify-center py-10 bg-white/10 rounded-xl shadow-lg">
+            <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+              <line x1="6" y1="15" x2="6" y2="15.01" />
+              <line x1="10" y1="15" x2="10" y2="15.01" />
+              <line x1="14" y1="15" x2="14" y2="15.01" />
+              <line x1="18" y1="15" x2="18" y2="15.01" />
+            </svg>
+            <div class="text-white/80 text-center mt-4">
+              <p class="text-lg font-semibold">安全支付</p>
+              <p class="text-sm">快捷、安全的交易体验</p>
+            </div>
+          </div>
         </div>
         
-        <!-- 特性列表 -->
-        <ul class="text-white/90 space-y-3 z-10">
-          <li class="flex items-center bg-white/10 p-2 rounded-lg transition-all hover:bg-white/20">
-            <svg class="h-6 w-6 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span>{{ t('merchant.login.feature_one') || '高效的商户管理工具' }}</span>
-          </li>
-          <li class="flex items-center bg-white/10 p-2 rounded-lg transition-all hover:bg-white/20">
-            <svg class="h-6 w-6 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span>{{ t('merchant.login.feature_two') || '安全可靠的数据保障' }}</span>
-          </li>
-          <li class="flex items-center bg-white/10 p-2 rounded-lg transition-all hover:bg-white/20">
-            <svg class="h-6 w-6 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span>{{ t('merchant.login.feature_three') || '便捷的多语言支持' }}</span>
-          </li>
-        </ul>
-        
-        <!-- 动态形状 -->
-        <div class="absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4">
-          <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-10">
-            <circle cx="150" cy="150" r="150" fill="white" />
-          </svg>
+        <!-- 底部分隔线 -->
+        <div class="w-full max-w-xs mx-auto mt-auto">
+          <div class="h-0.5 w-full bg-white/20 rounded-full"></div>
         </div>
       </div>
     </div>
@@ -261,6 +228,64 @@ const { t, locale } = useI18n()
 const router = useRouter()
 const route = useRoute()
 const isDark = usePreferredDark()
+
+// 图片URL列表
+const imageSources = [
+  'https://img.freepik.com/free-vector/futuristic-banking-background-technology_23-2150102840.jpg',
+  'https://img.freepik.com/free-vector/blue-technology-digital-wave-background_53876-116487.jpg',
+  'https://img.freepik.com/free-vector/blue-abstract-technology-background-digital-wave_53876-117606.jpg',
+  'https://img.freepik.com/free-vector/global-business-background-blue-with-digital-technology_53876-117397.jpg',
+  'https://img.freepik.com/free-vector/cyber-security-concept_23-2148539599.jpg'
+]
+
+// 图片加载状态
+const imageLoadError = ref(false)
+const currentImageSrc = ref(imageSources[0])
+
+// 处理图片加载错误
+let currentImageIndex = 0;
+const handleImageError = () => {
+  console.log('登录页面 - 图片加载失败')
+  currentImageIndex++
+  
+  // 尝试加载下一张备选图片
+  if (currentImageIndex < imageSources.length) {
+    currentImageSrc.value = imageSources[currentImageIndex]
+    console.log('登录页面 - 尝试加载备用图片:', currentImageSrc.value)
+  } else {
+    // 所有图片都加载失败
+    imageLoadError.value = true
+    console.log('登录页面 - 所有图片均加载失败，显示备用内容')
+  }
+}
+
+// 支付图片URL列表
+const paymentImages = [
+  'https://img.freepik.com/free-vector/online-payment-concept-illustration_114360-1382.jpg',
+  'https://img.freepik.com/free-vector/digital-wallet-abstract-concept-illustration_335657-3896.jpg',
+  'https://img.freepik.com/free-vector/tiny-people-analysts-with-credit-card-payment-flat-vector-illustration-cartoon-character-analyzing-statistics-financial-information-digital-money-transaction-finance-audit-concept_74855-10120.jpg',
+  'https://img.freepik.com/free-vector/payment-information-concept-illustration_114360-2766.jpg',
+  'https://img.freepik.com/free-vector/mobile-payment-abstract-concept-vector-illustration-mobile-payment-cashless-payment-online-shopping-transfer-money-digital-wallet-bank-account-credit-card-abstract-metaphor_335657-1631.jpg'
+]
+
+// 支付图片加载状态
+const paymentImageLoadError = ref(false)
+const currentPaymentImageIndex = ref(0)
+
+// 处理支付图片加载错误
+const handlePaymentImageError = () => {
+  console.log('登录页面 - 支付图片加载失败')
+  currentPaymentImageIndex.value++
+  
+  // 尝试加载下一张备选图片
+  if (currentPaymentImageIndex.value < paymentImages.length) {
+    console.log('登录页面 - 尝试加载备用支付图片:', paymentImages[currentPaymentImageIndex.value])
+  } else {
+    // 所有支付图片都加载失败
+    paymentImageLoadError.value = true
+    console.log('登录页面 - 所有支付图片均加载失败，显示备用内容')
+  }
+}
 
 // 支持的语言列表
 const languages = [
