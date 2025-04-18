@@ -5,6 +5,12 @@ import router from './router'
 import i18n, { localeManager, supportedLocales } from './i18n'
 import './style.css'
 
+// 导入Element Plus
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+// 导入中文语言包
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+
 // 输出调试信息
 console.log('[main.ts] 应用启动')
 console.log('[main.ts] 当前语言:', localeManager.currentLocale)
@@ -12,6 +18,11 @@ console.log('[main.ts] i18n当前语言:', i18n.global.locale.value)
 
 // 创建应用
 const app = createApp(App)
+
+// 注册 Element Plus
+app.use(ElementPlus, {
+  locale: zhCn,
+})
 
 // 全局路由切换处理
 router.beforeEach((to, from, next) => {

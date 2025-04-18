@@ -3,92 +3,181 @@
     <h1 class="text-2xl font-semibold mb-8">{{ t('merchant.nav.orders_receive') }}</h1>
     <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
       <div class="mb-6">
-        <div class="flex justify-between items-center mb-4">
-          <div class="flex space-x-2">
-            <div class="relative">
-              <input type="text" class="pl-8 pr-4 py-2 border rounded-md w-64 focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="搜索交易号...">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-2 top-2.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-            <select class="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
-              <option value="">所有状态</option>
-              <option value="completed">已完成</option>
-              <option value="processing">处理中</option>
-              <option value="pending">待处理</option>
-              <option value="failed">已失败</option>
-            </select>
-            <select class="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
-              <option value="">所有渠道</option>
-              <option value="alipay">支付宝</option>
-              <option value="wechat">微信支付</option>
-              <option value="unionpay">银联</option>
-              <option value="visa">Visa</option>
-              <option value="mastercard">Mastercard</option>
-            </select>
+        <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-4">
+          <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-2">
+            <!-- 搜索框 -->
+            <el-input
+              v-model="searchQuery"
+              placeholder="搜索交易号..."
+              :prefix-icon="Search"
+              clearable
+              class="w-full sm:w-64"
+            />
+            
+            <!-- 状态选择框 -->
+            <el-select
+              v-model="statusFilter"
+              placeholder="所有状态"
+              class="w-full sm:w-40"
+              clearable
+            >
+              <el-option
+                v-for="item in statusOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+            
+            <!-- 渠道选择框 -->
+            <el-select
+              v-model="channelFilter"
+              placeholder="所有渠道"
+              class="w-full sm:w-40"
+              clearable
+            >
+              <el-option
+                v-for="item in channelOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+            
+            <!-- 日期选择器 -->
+            <el-date-picker
+              v-model="dateFilter"
+              type="date"
+              placeholder="选择日期"
+              format="YYYY-MM-DD"
+              class="w-full sm:w-40"
+              clearable
+            />
           </div>
-          <button class="bg-primary text-white rounded-md px-4 py-2 hover:bg-primary/90">导出数据</button>
+          
+          <!-- 导出按钮 -->
+          <el-button 
+            type="primary"
+            :icon="Download"
+            @click="exportData"
+          >
+            导出数据
+          </el-button>
         </div>
 
-        <div class="overflow-x-auto">
-          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-            <thead class="bg-gray-50 dark:bg-gray-900/50">
-              <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">交易ID</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">商户订单号</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">金额</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">渠道</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">状态</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">创建时间</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">操作</th>
-              </tr>
-            </thead>
-            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-              <tr v-for="(item, index) in transactionData" :key="index" class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ item.id }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">{{ item.merchantOrderId }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">${{ item.amount.toFixed(2) }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                  <span :class="getChannelClass(item.channel)" class="px-2 py-1 text-xs rounded-full">
-                    {{ item.channel }}
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span :class="getStatusClass(item.status)" class="px-2 py-1 text-xs rounded-full">
-                    {{ item.status }}
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">{{ item.createdAt }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                  <button class="text-primary hover:text-primary/80 mr-3">详情</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- 表格 -->
+        <el-table
+          :data="transactionData"
+          style="width: 100%"
+          :border="false"
+          stripe
+          highlight-current-row
+          :header-cell-style="{ background: 'var(--el-fill-color-light)' }"
+          v-loading="loading"
+        >
+          <el-table-column prop="id" label="交易ID" min-width="120" />
+          <el-table-column prop="merchantOrderId" label="商户订单号" min-width="120" />
+          <el-table-column label="金额" min-width="100" align="right">
+            <template #default="scope">
+              <span>¥{{ formatAmount(scope.row.amount) }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="渠道" min-width="120">
+            <template #default="scope">
+              <el-tag
+                :type="getChannelTagType(scope.row.channel)"
+                effect="light"
+                size="small"
+                round
+              >
+                {{ scope.row.channel }}
+              </el-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="状态" min-width="100" align="center">
+            <template #default="scope">
+              <el-tag
+                :type="getStatusTagType(scope.row.status)"
+                effect="light"
+                size="small"
+                round
+              >
+                {{ scope.row.status }}
+              </el-tag>
+            </template>
+          </el-table-column>
+          <el-table-column prop="createdAt" label="创建时间" min-width="180" />
+          <el-table-column label="操作" width="120" fixed="right">
+            <template #default="scope">
+              <el-button 
+                type="primary" 
+                link
+                @click="viewDetails(scope.row.id)"
+              >
+                详情
+              </el-button>
+            </template>
+          </el-table-column>
+        </el-table>
       </div>
 
+      <!-- 分页 -->
       <div class="flex justify-between items-center mt-4">
         <div class="text-sm text-gray-500 dark:text-gray-300">
-          显示 1 - 10 条，共 {{ transactionData.length }} 条
+          显示 {{ (pagination.currentPage - 1) * pagination.pageSize + 1 }} - {{ Math.min(pagination.currentPage * pagination.pageSize, transactionData.length) }} 条，共 {{ transactionData.length }} 条
         </div>
-        <div class="flex space-x-2">
-          <button class="px-3 py-1 border rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">上一页</button>
-          <button class="px-3 py-1 bg-primary text-white rounded-md">1</button>
-          <button class="px-3 py-1 border rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">2</button>
-          <button class="px-3 py-1 border rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">3</button>
-          <button class="px-3 py-1 border rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">下一页</button>
-        </div>
+        <el-pagination
+          v-model:current-page="pagination.currentPage"
+          v-model:page-size="pagination.pageSize"
+          :page-sizes="[10, 20, 50, 100]"
+          layout="sizes, prev, pager, next, jumper"
+          :total="transactionData.length"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { Search, Download } from '@element-plus/icons-vue'
 
 const { t } = useI18n()
+
+// 加载状态
+const loading = ref(false)
+
+// 筛选条件
+const searchQuery = ref('')
+const statusFilter = ref('')
+const channelFilter = ref('')
+const dateFilter = ref('')
+
+// 分页设置
+const pagination = reactive({
+  currentPage: 1,
+  pageSize: 10,
+})
+
+// 状态选项
+const statusOptions = [
+  { value: 'completed', label: '已完成' },
+  { value: 'processing', label: '处理中' },
+  { value: 'pending', label: '待处理' },
+  { value: 'failed', label: '已失败' },
+]
+
+// 渠道选项
+const channelOptions = [
+  { value: 'alipay', label: '支付宝' },
+  { value: 'wechat', label: '微信支付' },
+  { value: 'unionpay', label: '银联' },
+  { value: 'visa', label: 'Visa' },
+  { value: 'mastercard', label: 'Mastercard' },
+]
 
 // 模拟数据
 const transactionData = ref([
@@ -134,37 +223,99 @@ const transactionData = ref([
   }
 ])
 
-// 获取渠道样式
-const getChannelClass = (channel: string) => {
+// 获取渠道标签类型
+const getChannelTagType = (channel: string): '' | 'success' | 'warning' | 'info' | 'danger' => {
   switch (channel) {
-    case '支付宝':
-      return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
-    case '微信支付':
-      return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
-    case '银联':
-      return 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
-    case 'Visa':
-      return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300'
-    case 'Mastercard':
-      return 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300'
-    default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300'
+    case '支付宝': return 'primary'
+    case '微信支付': return 'success'
+    case '银联': return 'warning'
+    case 'Visa': return 'info'
+    case 'Mastercard': return 'danger'
+    default: return ''
   }
 }
 
-// 获取状态样式
-const getStatusClass = (status: string) => {
+// 获取状态标签类型
+const getStatusTagType = (status: string): '' | 'success' | 'warning' | 'info' | 'danger' => {
   switch (status) {
-    case '已完成':
-      return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
-    case '处理中':
-      return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300'
-    case '待处理':
-      return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
-    case '已失败':
-      return 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300'
-    default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300'
+    case '已完成': return 'success'
+    case '处理中': return 'warning'
+    case '待处理': return 'info'
+    case '已失败': return 'danger'
+    default: return ''
   }
 }
-</script> 
+
+// 格式化金额
+const formatAmount = (amount: number): string => {
+  return amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
+// 查看详情
+const viewDetails = (id: string) => {
+  console.log('查看交易详情:', id)
+}
+
+// 导出数据
+const exportData = () => {
+  console.log('导出数据')
+}
+
+// 处理页码变化
+const handleCurrentChange = (val: number) => {
+  pagination.currentPage = val
+}
+
+// 处理每页显示数量变化
+const handleSizeChange = (val: number) => {
+  pagination.pageSize = val
+}
+</script>
+
+<style>
+/* 自定义 Element Plus 样式，使其更好地融入当前设计 */
+:deep(.el-input__wrapper),
+:deep(.el-select .el-input__wrapper),
+:deep(.el-date-editor.el-input__wrapper) {
+  box-shadow: 0 0 0 1px var(--el-border-color) inset;
+}
+
+:deep(.el-input__wrapper:hover),
+:deep(.el-select .el-input__wrapper:hover),
+:deep(.el-date-editor.el-input__wrapper:hover) {
+  box-shadow: 0 0 0 1px var(--el-color-primary) inset;
+}
+
+:deep(.el-select-dropdown__item.selected) {
+  color: var(--el-color-primary);
+}
+
+:deep(.el-pagination) {
+  justify-content: flex-end;
+}
+
+/* 适配暗黑模式 */
+.dark {
+  --el-bg-color: #1e293b;
+  --el-fill-color-light: rgba(30, 41, 59, 0.5);
+  --el-border-color: rgba(255, 255, 255, 0.1);
+  --el-text-color-primary: rgba(255, 255, 255, 0.85);
+  --el-text-color-regular: rgba(255, 255, 255, 0.65);
+  --el-text-color-secondary: rgba(255, 255, 255, 0.45);
+}
+
+html.dark :deep(.el-table) {
+  --el-table-border-color: rgba(255, 255, 255, 0.1);
+  --el-table-header-bg-color: rgba(30, 41, 59, 0.8);
+  --el-table-tr-bg-color: #1e293b;
+  --el-table-row-hover-bg-color: rgba(255, 255, 255, 0.03);
+  --el-table-fixed-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  background-color: #1e293b;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+html.dark :deep(.el-pagination button),
+html.dark :deep(.el-pagination span:not([class*=suffix])) {
+  color: rgba(255, 255, 255, 0.65);
+}
+</style> 
