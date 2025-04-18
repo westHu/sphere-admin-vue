@@ -98,6 +98,11 @@ const router = createRouter({
           }
         },
         {
+          path: 'finance',
+          component: () => import('../pages/merchant/finance/index.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
           path: 'customers',
           component: () => import('../pages/merchant/customers/index.vue'),
           meta: { requiresAuth: true, layout: 'merchant' }

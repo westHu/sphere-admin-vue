@@ -612,6 +612,7 @@
       "orders_withdraw": "Withdrawal Orders",
       "orders_other": "Other Orders",
       "products": "Payment Methods",
+      "finance": "Financial Management",
       "customers": "Customer Management",
       "settings": "System Settings"
     },
