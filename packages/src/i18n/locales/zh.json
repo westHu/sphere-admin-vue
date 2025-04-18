@@ -502,7 +502,7 @@
       "orders_transfer": "转账订单",
       "orders_withdraw": "提现订单",
       "orders_other": "其他订单",
-      "products": "商品管理",
+      "products": "支付方式",
       "customers": "客户管理",
       "settings": "系统设置"
     },
@@ -579,6 +579,74 @@
       "transfer_desc": "管理账户转账订单",
       "withdraw_desc": "管理账户提现订单",
       "other_desc": "管理其他类型订单"
+    },
+    "payment": {
+      "payment_methods": "支付方式",
+      "available_methods": "已开通支付方式",
+      "unavailable_methods": "未开通支付方式",
+      "apply_now": "立即申请",
+      "status": "状态",
+      "method": "支付方式",
+      "fee_rate": "手续费率",
+      "settlement_cycle": "结算周期",
+      "settlement_time": "结算时间",
+      "daily_limit": "日交易限额",
+      "monthly_limit": "月交易限额",
+      "currency": "币种",
+      "status_active": "已开通",
+      "status_inactive": "未开通",
+      "status_pending": "审核中",
+      "detail": "详情",
+      "apply": "申请开通",
+      "update": "修改",
+      "cancel": "取消",
+      "view_transactions": "查看交易",
+      "activate": "激活",
+      "deactivate": "停用",
+      "methods": {
+        "alipay": "支付宝",
+        "wechat": "微信支付",
+        "unionpay": "银联",
+        "visa": "Visa",
+        "mastercard": "Mastercard",
+        "jcb": "JCB",
+        "amex": "美国运通",
+        "apple_pay": "Apple Pay",
+        "google_pay": "Google Pay",
+        "paypal": "PayPal",
+        "bank_transfer": "银行转账"
+      },
+      "cycles": {
+        "t_plus_1": "T+1",
+        "t_plus_2": "T+2",
+        "t_plus_3": "T+3",
+        "t_plus_7": "T+7",
+        "monthly": "月结",
+        "custom": "自定义"
+      },
+      "times": {
+        "workday_10": "工作日10:00前",
+        "workday_16": "工作日16:00前",
+        "everyday_10": "每日10:00前",
+        "everyday_24": "每日24:00前",
+        "custom": "自定义"
+      },
+      "apply_form": {
+        "title": "申请开通支付方式",
+        "description": "请填写以下信息申请开通新的支付方式",
+        "business_license": "营业执照",
+        "legal_representative": "法定代表人",
+        "contact_name": "联系人姓名",
+        "contact_phone": "联系人电话",
+        "contact_email": "联系人邮箱",
+        "payment_method": "支付方式",
+        "expected_monthly_volume": "预计月交易量",
+        "business_category": "业务类别",
+        "website_url": "网站地址",
+        "app_download_url": "应用下载地址",
+        "submit": "提交申请",
+        "cancel": "取消"
+      }
     }
   },
   "admin": {

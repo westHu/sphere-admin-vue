@@ -184,8 +184,8 @@ const navItems = [
     href: '/solutions',
   },
   {
-    key: 'cases',
-    href: '/cases',
+    key: 'pricing',
+    href: '/pricing',
   },
   {
     key: 'about',

@@ -2,7 +2,7 @@
   "common": {
     "home": "Beranda",
     "solutions": "Solusi",
-    "cases": "Studi Kasus",
+    "pricing": "Harga",
     "about": "Tentang Kami",
     "login": "Masuk",
     "register": "Daftar",
@@ -20,6 +20,8 @@
     "hero": {
       "title": "Solusi Pembayaran Generasi Berikutnya",
       "description": "Menyediakan solusi pembayaran yang aman, efisien, dan cerdas untuk bisnis Anda. Teknologi kami membuat pembayaran lebih sederhana, cepat, dan andal.",
+      "badge": "Solusi Pembayaran Global",
+      "trusted_by": "Dipercaya oleh Mitra Global",
       "cta": {
         "learn_more": "Pelajari Lebih Lanjut",
         "contact_us": "Hubungi Kami"
@@ -33,7 +35,16 @@
         "description": "Ketersediaan Sistem"
       }
     },
+    "stats": {
+      "currencies": "Dukungan Multi-mata Uang",
+      "transactions": "Transaksi Harian",
+      "countries": "Negara Tercakup",
+      "success_rate": "Tingkat Keberhasilan"
+    },
     "features": {
+      "title": "Dukungan Komprehensif untuk Bisnis Anda",
+      "subtitle": "Solusi kami mencakup semua aspek pemrosesan pembayaran perusahaan, membantu Anda berkembang secara global dengan mudah",
+      "more": "Pelajari Lebih Banyak Fitur",
       "fast": {
         "title": "Pembayaran Kilat",
         "description": "Pemrosesan transaksi tingkat milidetik untuk pembayaran lebih cepat"
@@ -84,60 +95,251 @@
       "finance": "Layanan Keuangan",
       "travel": "Travel & Perhotelan",
       "enterprise": "Layanan Perusahaan"
-    }
+    },
+    "integrated": {
+      "title": "Solusi & Kisah Sukses",
+      "subtitle": "Jelajahi solusi industri kami dan kisah sukses pelanggan dunia nyata"
+    },
+    "viewDetails": "Lihat Detail",
+    "sections": {
+      "solutions": "Solusi",
+      "cases": "Studi Kasus"
+    },
+    "viewMore": "Pelajari Lebih Lanjut"
   },
-  "cases": {
-    "title": "Kisah Sukses",
-    "subtitle": "Jelajahi Kisah Sukses Pelanggan Kami"
+  "pricing": {
+    "title": "Harga Transparan",
+    "subtitle": "Solusi pembayaran fleksibel untuk setiap kebutuhan bisnis",
+    "monthly": "Bulanan",
+    "annually": "Tahunan",
+    "save": "Hemat",
+    "most_popular": "Paling Populer",
+    "currency": "USD",
+    "plans": {
+      "basic": {
+        "name": "Dasar",
+        "description": "Pemrosesan pembayaran penting untuk bisnis kecil",
+        "price": "49",
+        "period": "bulan",
+        "features": [
+          "Hingga 1.000 transaksi per bulan",
+          "2,9% + $0,30 per transaksi",
+          "Dukungan email 24/7",
+          "Perlindungan penipuan dasar",
+          "Dasbor analitik pembayaran"
+        ],
+        "cta": "Mulai"
+      },
+      "business": {
+        "name": "Bisnis",
+        "description": "Solusi pembayaran canggih untuk bisnis berkembang",
+        "price": "149",
+        "period": "bulan",
+        "features": [
+          "Hingga 10.000 transaksi per bulan",
+          "2,5% + $0,25 per transaksi",
+          "Dukungan prioritas 24/7",
+          "Perlindungan penipuan canggih",
+          "Analitik dan laporan detail",
+          "Pembayaran berulang",
+          "Beberapa akun pengguna"
+        ],
+        "cta": "Mulai"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Solusi pembayaran yang disesuaikan untuk organisasi besar",
+        "price": "499",
+        "period": "bulan",
+        "features": [
+          "Transaksi tak terbatas",
+          "Harga khusus untuk volume tinggi",
+          "Manajer akun khusus",
+          "Perlindungan penipuan premium",
+          "Integrasi API canggih",
+          "Pelaporan kustom",
+          "Dukungan multi-mata uang",
+          "Metode pembayaran global"
+        ],
+        "cta": "Hubungi Penjualan"
+      }
+    },
+    "page": {
+      "header": {
+        "title": "Harga Solusi Pembayaran",
+        "subtitle": "Solusi pembayaran fleksibel untuk bisnis dari semua ukuran, dikenakan biaya berdasarkan volume transaksi dan metode pembayaran",
+        "tag": "Harga Transparan · Opsi Fleksibel"
+      },
+      "volume_title": "Berbasis Volume Transaksi",
+      "payment_type_title": "Tarif Metode Pembayaran",
+      "packages": {
+        "standard": {
+          "name": "Standar",
+          "description": "Untuk pedagang kecil dan startup",
+          "price": "2,9% + $0,30",
+          "price_unit": "/transaksi",
+          "volume": "Volume Bulanan: ≤ 10.000 transaksi",
+          "features": [
+            "Metode pembayaran dasar",
+            "Perlindungan keamanan standar",
+            "Siklus penyelesaian 7 hari",
+            "Dukungan email"
+          ],
+          "cta": "Mulai"
+        },
+        "business": {
+          "name": "Bisnis",
+          "description": "Untuk bisnis yang berkembang",
+          "price": "2,5% + $0,20",
+          "price_unit": "/transaksi",
+          "volume": "Volume Bulanan: 10.001 - 100.000 transaksi",
+          "features": [
+            "Semua metode pembayaran",
+            "Perlindungan keamanan canggih",
+            "Siklus penyelesaian 3 hari",
+            "Dukungan telepon dan email prioritas",
+            "Analitik data transaksi"
+          ],
+          "cta": "Mulai",
+          "badge": "Paling Populer"
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "description": "Untuk bisnis besar dan pedagang volume tinggi",
+          "price": "Kustom",
+          "price_unit": "harga",
+          "volume": "Volume Bulanan: > 100.000 transaksi",
+          "features": [
+            "Rencana harga khusus",
+            "Dukungan integrasi khusus",
+            "Penyelesaian T+1",
+            "Manajer akun khusus",
+            "Akses API penuh"
+          ],
+          "cta": "Hubungi Penjualan"
+        }
+      },
+      "payment_methods": {
+        "credit_card": "Pembayaran Kartu Kredit",
+        "wechat": "WeChat Pay",
+        "alipay": "Alipay",
+        "unionpay": "UnionPay QuickPass",
+        "international": "Kartu Kredit Internasional"
+      },
+      "faq": {
+        "title": "Pertanyaan Umum",
+        "subtitle": "Menjawab pertanyaan Anda",
+        "items": [
+          {
+            "question": "Bagaimana biaya transaksi dihitung?",
+            "answer": "Biaya transaksi terdiri dari dua bagian: tarif persentase dan biaya tetap. Misalnya, 2,9% + $0,30 berarti Anda membayar 2,9% dari jumlah transaksi ditambah biaya tetap $0,30 per transaksi. Untuk transaksi $100, Anda akan membayar $2,90 dalam biaya persentase dan $0,30 dalam biaya tetap, total $3,20."
+          },
+          {
+            "question": "Mengapa metode pembayaran yang berbeda memiliki tarif berbeda?",
+            "answer": "Metode pembayaran yang berbeda memiliki tarif yang berbeda yang mencerminkan struktur biaya, tingkat risiko, dan kompleksitas pemrosesan berbagai saluran pembayaran. Misalnya, kartu kredit internasional biasanya memiliki tarif lebih tinggi karena melibatkan pemrosesan lintas batas dan konversi mata uang, sementara metode pembayaran lokal sering memiliki tarif lebih rendah."
+          },
+          {
+            "question": "Bagaimana cara kerja siklus penyelesaian?",
+            "answer": "Siklus penyelesaian mengacu pada waktu yang diperlukan agar dana mencapai rekening bank Anda setelah transaksi berhasil. Paket Standar memiliki siklus penyelesaian 7 hari, paket Bisnis menawarkan siklus 3 hari, dan paket Enterprise menyediakan penyelesaian T+1 (hari kerja berikutnya setelah transaksi). Siklus penyelesaian yang lebih pendek membantu Anda mengakses dana Anda lebih cepat."
+          },
+          {
+            "question": "Apakah ada biaya bulanan minimum atau biaya pengaturan?",
+            "answer": "Kami tidak mengenakan biaya bulanan minimum atau biaya pengaturan. Anda hanya membayar untuk transaksi yang Anda proses. Jika Anda tidak memiliki transaksi, Anda tidak membayar biaya apa pun, membuat layanan kami sangat cocok untuk bisnis musiman atau pedagang dengan volume transaksi yang berfluktuasi."
+          },
+          {
+            "question": "Bagaimana cara mendapatkan harga khusus untuk paket Enterprise?",
+            "answer": "Jika volume transaksi bulanan Anda melebihi 100.000 transaksi atau Anda memiliki persyaratan bisnis tertentu, silakan hubungi tim penjualan kami. Kami akan memberikan rencana harga khusus berdasarkan volume transaksi, jenis industri, dan kebutuhan spesifik Anda. Pelanggan paket Enterprise juga menerima manajer akun khusus dan layanan dukungan prioritas."
+          }
+        ]
+      },
+      "custom": {
+        "title": "Butuh Solusi Khusus?",
+        "description": "Tim kami akan bekerja dengan Anda untuk membuat solusi pembayaran yang disesuaikan berdasarkan skala bisnis dan persyaratan spesifik Anda.",
+        "cta": "Hubungi Penjualan"
+      }
+    },
+    "faq": {
+      "title": "Pertanyaan Umum",
+      "items": [
+        {
+          "question": "Metode pembayaran apa yang didukung?",
+          "answer": "Kami mendukung semua kartu kredit utama, termasuk Visa, Mastercard, American Express, dan JCB. Kami juga menawarkan dukungan untuk dompet digital seperti Apple Pay, Google Pay, dan PayPal, serta metode pembayaran lokal di berbagai negara."
+        },
+        {
+          "question": "Apakah ada biaya pengaturan?",
+          "answer": "Tidak, tidak ada biaya pengaturan untuk paket apa pun. Anda hanya membayar biaya langganan bulanan dan biaya transaksi untuk pembayaran yang Anda proses."
+        },
+        {
+          "question": "Bisakah saya beralih antara paket?",
+          "answer": "Ya, Anda dapat meningkatkan atau menurunkan paket Anda kapan saja. Jika Anda meningkatkan, Anda akan dikenakan biaya prorata untuk sisa siklus penagihan Anda. Jika Anda menurunkan, tarif baru akan berlaku pada awal siklus penagihan berikutnya."
+        },
+        {
+          "question": "Apakah ada kontrak atau komitmen?",
+          "answer": "Tidak, semua paket kami adalah bulanan tanpa kontrak jangka panjang. Anda dapat membatalkan kapan saja."
+        },
+        {
+          "question": "Apa yang terjadi jika saya melebihi batas transaksi bulanan?",
+          "answer": "Jika Anda melebihi batas transaksi bulanan, Anda akan dikenakan tarif standar untuk setiap transaksi tambahan. Kami juga akan memberi tahu Anda dan menyarankan untuk meningkatkan ke paket yang lebih sesuai jika diperlukan."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Butuh solusi kustom?",
+      "description": "Tim kami akan bekerja dengan Anda untuk membuat solusi pembayaran yang disesuaikan dengan kebutuhan bisnis unik Anda.",
+      "cta": "Hubungi Penjualan"
+    }
   },
   "about": {
     "title": "Tentang Kami",
-    "subtitle": "Membangun Masa Depan Pembayaran Global",
-    "description": "Kami berdedikasi untuk menyediakan solusi pembayaran yang aman, efisien, dan nyaman bagi bisnis global, membantu mereka mencapai pertumbuhan internasional.",
+    "description": "Solusi pembayaran global yang aman dan efisien untuk ekspansi bisnis internasional.",
     "mission": {
       "title": "Misi Kami",
-      "description": "Melalui teknologi pembayaran inovatif, kami mendobrak hambatan pembayaran global, membuat transaksi lintas batas menjadi sederhana, aman, dan efisien. Kami berkomitmen untuk menyediakan solusi pembayaran komprehensif bagi bisnis untuk mencapai perkembangan global."
+      "description": "Menghilangkan hambatan pembayaran global dengan teknologi inovatif untuk transaksi lintas batas yang mudah dan aman."
     },
     "vision": {
       "title": "Visi Kami",
-      "description": "Menjadi penyedia solusi pembayaran global terkemuka, memungkinkan bisnis di seluruh dunia untuk menikmati pengalaman pembayaran yang nyaman, aman, dan efisien melalui inovasi teknologi dan layanan berkualitas."
+      "description": "Menjadi penyedia solusi pembayaran terdepan dengan layanan global yang lancar."
     },
     "values": {
       "title": "Nilai Inti",
-      "innovation": {
-        "title": "Inovasi",
-        "description": "Inovasi berkelanjutan adalah daya saing inti kami. Kami terus mengeksplorasi teknologi baru untuk memberikan pengalaman pembayaran yang lebih baik bagi pelanggan kami."
-      },
-      "professional": {
-        "title": "Profesionalisme",
-        "description": "Kami memiliki tim profesional dengan pengalaman luas di industri pembayaran, menyediakan solusi ahli bagi pelanggan kami."
-      },
-      "responsibility": {
-        "title": "Tanggung Jawab",
-        "description": "Kami selalu mengutamakan pelanggan, bertanggung jawab kepada pelanggan dan masyarakat, berkomitmen untuk menciptakan nilai yang lebih besar."
+      "items": {
+        "innovation": {
+          "title": "Inovasi",
+          "description": "Mengembangkan teknologi baru untuk meningkatkan pengalaman pembayaran."
+        },
+        "professional": {
+          "title": "Profesional",
+          "description": "Tim ahli dengan pengalaman mendalam di industri pembayaran."
+        },
+        "responsibility": {
+          "title": "Tanggung Jawab",
+          "description": "Pendekatan yang mengutamakan pelanggan dan menciptakan nilai bersama."
+        }
       }
     },
     "team": {
       "title": "Tim Kami",
-      "member1": {
-        "name": "John Smith",
-        "position": "Chief Executive Officer",
-        "description": "Dengan pengalaman 15 tahun di industri pembayaran, John telah memegang posisi eksekutif di beberapa perusahaan pembayaran terkenal."
-      },
-      "member2": {
-        "name": "Michael Johnson",
-        "position": "Direktur Teknis",
-        "description": "Fokus pada pengembangan teknologi pembayaran, Michael telah memimpin tim untuk mengembangkan beberapa solusi pembayaran inovatif."
-      },
-      "member3": {
-        "name": "Emily Williams",
-        "position": "Direktur Produk",
-        "description": "Terlibat dalam desain produk pembayaran, Emily berdedikasi untuk memberikan pengalaman pengguna terbaik."
+      "members": {
+        "member1": {
+          "name": "John Smith",
+          "position": "Chief Executive Officer",
+          "description": "15+ tahun keahlian industri pembayaran di berbagai perusahaan besar."
+        },
+        "member2": {
+          "name": "Michael Johnson",
+          "position": "Direktur Teknis",
+          "description": "Memimpin pengembangan teknologi pembayaran inovatif."
+        },
+        "member3": {
+          "name": "Emily Williams",
+          "position": "Direktur Produk",
+          "description": "Spesialis dalam menciptakan pengalaman pengguna pembayaran optimal."
+        }
       }
     },
     "contact": {
       "title": "Hubungi Kami",
-      "description": "Apakah Anda memiliki pertanyaan atau kebutuhan, tim kami selalu siap memberikan dukungan dan layanan profesional. Pilih cara yang paling sesuai untuk menghubungi kami.",
+      "description": "Tim kami siap memberikan dukungan profesional untuk semua kebutuhan Anda.",
       "phone": {
         "title": "Dukungan Telepon",
         "hours": "Senin hingga Jumat 9:00-18:00",
@@ -150,7 +352,7 @@
       },
       "address": {
         "title": "Alamat Perusahaan",
-        "welcome": "Selamat berkunjung",
+        "welcome": "Kunjungi kami di",
         "location": "Lujiazui Financial Trade Zone, Pudong New Area, Shanghai"
       },
       "form": {
@@ -295,5 +497,83 @@
       "view_reports": "Lihat Laporan",
       "view_transactions": "Lihat Transaksi Terbaru"
     }
+  },
+  "cases": {
+    "filters": {
+      "all": "Semua Industri",
+      "ecommerce": "E-Commerce",
+      "finance": "Layanan Keuangan",
+      "travel": "Travel & Perhotelan",
+      "enterprise": "Perusahaan"
+    },
+    "items": {
+      "globalEcommerce": {
+        "title": "Platform E-commerce Global",
+        "industry": "E-Commerce",
+        "description": "Sebuah platform e-commerce global terkemuka menerapkan solusi pembayaran lintas batas kami untuk ekspansi ke pasar internasional baru.",
+        "results": {
+          "0": "Peningkatan penjualan internasional sebesar 35%",
+          "1": "Pengurangan waktu pemrosesan pembayaran sebesar 68%",
+          "2": "Mendukung 25+ metode pembayaran lokal",
+          "3": "Penurunan biaya transaksi sebesar 12%"
+        }
+      },
+      "internationalBank": {
+        "title": "Institusi Perbankan Internasional",
+        "industry": "Layanan Keuangan",
+        "description": "Sebuah bank multinasional mengintegrasikan platform kami untuk menyederhanakan transfer kawat internasional dan memberikan layanan lebih baik kepada klien global.",
+        "results": {
+          "0": "Memproses $2,5 miliar dalam transaksi lintas batas bulanan",
+          "1": "Mengurangi waktu transfer dari hari menjadi menit",
+          "2": "Meningkatkan kepatuhan terhadap regulasi di 30+ negara",
+          "3": "Memotong biaya operasional sebesar 22%"
+        }
+      },
+      "hotelChain": {
+        "title": "Jaringan Hotel Mewah",
+        "industry": "Travel & Perhotelan",
+        "description": "Sebuah jaringan hotel bintang lima dengan properti di seluruh Asia dan Eropa menerapkan sistem pembayaran multi-mata uang kami untuk meningkatkan pengalaman tamu.",
+        "results": {
+          "0": "Pengalaman pembayaran mulus dalam 15+ mata uang",
+          "1": "Proses check-out 45% lebih cepat untuk tamu",
+          "2": "Terintegrasi dengan sistem manajemen properti yang ada",
+          "3": "Meningkatkan efisiensi rekonsiliasi dan pelaporan sebesar 60%"
+        }
+      },
+      "multinational": {
+        "title": "Perusahaan Multinasional",
+        "industry": "Perusahaan",
+        "description": "Sebuah perusahaan Fortune 500 menerapkan solusi pembayaran B2B kami untuk mengelola pembayaran vendor di seluruh operasi global dan anak perusahaan.",
+        "results": {
+          "0": "Konsolidasi pembayaran di 24 negara",
+          "1": "Otomatisasi 85% alur kerja persetujuan pembayaran",
+          "2": "Penyederhanaan manajemen dan lindung nilai mata uang",
+          "3": "Peningkatan skor kepuasan pemasok sebesar 40%"
+        }
+      },
+      "crossBorderEcommerce": {
+        "title": "Pasar Ritel Lintas Batas",
+        "industry": "E-Commerce",
+        "description": "Sebuah pasar baru yang menghubungkan penjual internasional dengan pembeli lokal menerapkan solusi pembayaran kami untuk membangun kepercayaan dan memfasilitasi transaksi.",
+        "results": {
+          "0": "Memungkinkan transaksi antara penjual dan pembeli di 35+ negara",
+          "1": "Menyediakan opsi pembayaran lokal di setiap pasar",
+          "2": "Mengurangi perselisihan pembayaran sebesar 28%",
+          "3": "Meningkatkan onboarding penjual sebesar 56%"
+        }
+      },
+      "travelAgency": {
+        "title": "Agen Perjalanan Global",
+        "industry": "Travel & Perhotelan",
+        "description": "Sebuah agen perjalanan online terkemuka menerapkan solusi kami untuk memproses pemesanan dan pembayaran untuk penerbangan, hotel, dan pengalaman di seluruh dunia.",
+        "results": {
+          "0": "Pemrosesan mulus lebih dari 100.000 pemesanan harian",
+          "1": "Dukungan untuk 40+ mata uang dan metode pembayaran",
+          "2": "Pengurangan 90% dalam kesalahan pemrosesan pembayaran",
+          "3": "Peningkatan tingkat penyelesaian pemesanan sebesar 23%"
+        }
+      }
+    },
+    "viewDetails": "Lihat Detail"
   }
 } 

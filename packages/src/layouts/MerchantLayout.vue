@@ -488,7 +488,7 @@ const navItems = computed(() => [
   },
   {
     name: t('merchant.nav.products'),
-    path: '/merchant/products',
+    path: '/merchant/payment',
     icon: Package
   },
   {

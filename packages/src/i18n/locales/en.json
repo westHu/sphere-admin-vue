@@ -611,7 +611,7 @@
       "orders_transfer": "Transfer Orders",
       "orders_withdraw": "Withdrawal Orders",
       "orders_other": "Other Orders",
-      "products": "Product Management",
+      "products": "Payment Methods",
       "customers": "Customer Management",
       "settings": "System Settings"
     },
@@ -688,6 +688,74 @@
       "transfer_desc": "Manage account transfer orders",
       "withdraw_desc": "Manage account withdrawal orders",
       "other_desc": "Manage other types of orders"
+    },
+    "payment": {
+      "payment_methods": "Payment Methods",
+      "available_methods": "Available Methods",
+      "unavailable_methods": "Unavailable Methods",
+      "apply_now": "Apply Now",
+      "status": "Status",
+      "method": "Method",
+      "fee_rate": "Fee Rate",
+      "settlement_cycle": "Settlement Cycle",
+      "settlement_time": "Settlement Time",
+      "daily_limit": "Daily Limit",
+      "monthly_limit": "Monthly Limit",
+      "currency": "Currency",
+      "status_active": "Active",
+      "status_inactive": "Inactive",
+      "status_pending": "Pending",
+      "detail": "Details",
+      "apply": "Apply",
+      "update": "Update",
+      "cancel": "Cancel",
+      "view_transactions": "View Transactions",
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "methods": {
+        "alipay": "Alipay",
+        "wechat": "WeChat Pay",
+        "unionpay": "UnionPay",
+        "visa": "Visa",
+        "mastercard": "Mastercard",
+        "jcb": "JCB",
+        "amex": "American Express",
+        "apple_pay": "Apple Pay",
+        "google_pay": "Google Pay",
+        "paypal": "PayPal",
+        "bank_transfer": "Bank Transfer"
+      },
+      "cycles": {
+        "t_plus_1": "T+1",
+        "t_plus_2": "T+2",
+        "t_plus_3": "T+3",
+        "t_plus_7": "T+7",
+        "monthly": "Monthly",
+        "custom": "Custom"
+      },
+      "times": {
+        "workday_10": "Workdays before 10:00",
+        "workday_16": "Workdays before 16:00",
+        "everyday_10": "Daily before 10:00",
+        "everyday_24": "Daily before 24:00",
+        "custom": "Custom"
+      },
+      "apply_form": {
+        "title": "Apply for Payment Method",
+        "description": "Please fill in the information below to apply for a new payment method",
+        "business_license": "Business License",
+        "legal_representative": "Legal Representative",
+        "contact_name": "Contact Name",
+        "contact_phone": "Contact Phone",
+        "contact_email": "Contact Email",
+        "payment_method": "Payment Method",
+        "expected_monthly_volume": "Expected Monthly Volume",
+        "business_category": "Business Category",
+        "website_url": "Website URL",
+        "app_download_url": "App Download URL",
+        "submit": "Submit Application",
+        "cancel": "Cancel"
+      }
     }
   },
   "cases": {

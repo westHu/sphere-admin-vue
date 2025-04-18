@@ -384,11 +384,13 @@ const handleLogin = async () => {
     localStorage.setItem('locale', currentLang)
     console.log('登录页面 - 保存语言设置:', currentLang)
     
-    // 跳转到商户仪表盘
-    router.push('/merchant/dashboard')
+    // 使用window.location直接跳转，避免Vue Router懒加载问题
+    console.log('登录成功，准备跳转到仪表盘页面')
+    window.location.href = '/merchant/dashboard'
   } catch (error) {
-    // 处理错误 (实际上不会进入这个分支，但保留以防将来需要)
+    // 处理错误
     console.error('登录过程中发生错误:', error)
+    errorMessage.value = t('merchant.login.error') || '登录失败，请稍后再试'
   } finally {
     loading.value = false
   }

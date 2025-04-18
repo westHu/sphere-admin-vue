@@ -81,9 +81,9 @@
               <div class="p-2 rounded-md bg-primary/10 text-primary">
                 <component :is="value.icon" class="size-5" />
               </div>
-              <h3 class="text-xl font-semibold">{{ t(`about.values.${key}.title`) }}</h3>
+              <h3 class="text-xl font-semibold">{{ t(`about.values.items.${key}.title`) }}</h3>
             </div>
-            <p class="text-muted-foreground">{{ t(`about.values.${key}.description`) }}</p>
+            <p class="text-muted-foreground">{{ t(`about.values.items.${key}.description`) }}</p>
           </div>
         </div>
       </div>
@@ -101,14 +101,14 @@
           <div class="aspect-square overflow-hidden">
             <img
               :src="member.image"
-              :alt="t(`about.team.${key}.name`)"
+              :alt="t(`about.team.members.${key}.name`)"
               class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-semibold">{{ t(`about.team.${key}.name`) }}</h3>
-            <p class="text-sm text-muted-foreground mb-4">{{ t(`about.team.${key}.position`) }}</p>
-            <p class="text-muted-foreground">{{ t(`about.team.${key}.description`) }}</p>
+            <h3 class="text-xl font-semibold">{{ t(`about.team.members.${key}.name`) }}</h3>
+            <p class="text-sm text-muted-foreground mb-4">{{ t(`about.team.members.${key}.position`) }}</p>
+            <p class="text-muted-foreground">{{ t(`about.team.members.${key}.description`) }}</p>
           </div>
         </div>
       </div>
