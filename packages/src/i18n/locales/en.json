@@ -2,7 +2,7 @@
   "common": {
     "home": "Home",
     "solutions": "Solutions",
-    "cases": "Case Studies",
+    "pricing": "Pricing",
     "about": "About Us",
     "login": "Login",
     "register": "Register",
@@ -12,7 +12,15 @@
       "rights": "© 2024 Sphere. All Rights Reserved.",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
-    }
+    },
+    "logout": "Logout",
+    "settings": "Settings",
+    "open_sidebar": "Open Sidebar",
+    "close_sidebar": "Close Sidebar",
+    "collapse_sidebar": "Collapse Sidebar",
+    "expand_sidebar": "Expand Sidebar",
+    "view_notifications": "View Notifications",
+    "open_user_menu": "Open User Menu"
   },
   "home": {
     "title": "Global Payment Solutions",
@@ -20,6 +28,8 @@
     "hero": {
       "title": "Next Generation Payment Solutions",
       "description": "Providing secure, efficient, and intelligent payment solutions for your business. Our technology makes payments simpler, faster, and more reliable.",
+      "badge": "Global Payment Solutions",
+      "trusted_by": "Trusted by Global Partners",
       "cta": {
         "learn_more": "Learn More",
         "contact_us": "Contact Us"
@@ -33,7 +43,16 @@
         "description": "System Availability"
       }
     },
+    "stats": {
+      "currencies": "Multi-currency Support",
+      "transactions": "Daily Transactions",
+      "countries": "Countries Covered",
+      "success_rate": "Success Rate"
+    },
     "features": {
+      "title": "Comprehensive Support for Your Business",
+      "subtitle": "Our solutions cover all aspects of enterprise payment processing, helping you expand globally with ease",
+      "more": "Learn More Features",
       "fast": {
         "title": "Lightning Fast",
         "description": "Millisecond transaction processing for faster payments"
@@ -151,117 +170,225 @@
       "title": "Need a customized solution?",
       "description": "Our professional team will provide you with the most suitable payment solution to help your business grow.",
       "cta": "Contact Us"
-    }
-  },
-  "cases": {
-    "title": "Success Stories",
-    "subtitle": "Explore how our customers achieved business growth through Sphere payment solutions",
-    "filters": {
-      "all": "All Cases",
-      "ecommerce": "E-Commerce",
-      "finance": "Financial Services",
-      "travel": "Travel & Hospitality",
-      "enterprise": "Enterprise Services"
     },
-    "items": {
-      "globalEcommerce": {
-        "title": "Global E-Commerce Platform",
-        "description": "Achieved 300% growth in cross-border transaction volume through our payment solutions",
-        "industry": "E-Commerce",
-        "results": [
-          "Payment success rate increased to 98%",
-          "Support for local payment methods in 50+ countries",
-          "Monthly transaction volume exceeding $100 million",
-          "Customer satisfaction increased by 40%"
-        ]
+    "integrated": {
+      "title": "Solutions & Success Stories",
+      "subtitle": "Explore our industry solutions and real-world customer success stories"
+    },
+    "viewDetails": "View Details",
+    "sections": {
+      "solutions": "Solutions",
+      "cases": "Case Studies"
+    },
+    "viewMore": "View More"
+  },
+  "pricing": {
+    "title": "Transparent Pricing",
+    "subtitle": "Flexible payment solutions for every business need",
+    "monthly": "Monthly",
+    "annually": "Annually",
+    "save": "Save",
+    "most_popular": "Most Popular",
+    "currency": "USD",
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "description": "Essential payment processing for small businesses",
+        "price": "49",
+        "period": "month",
+        "features": [
+          "Up to 1,000 transactions per month",
+          "2.9% + $0.30 per transaction",
+          "24/7 email support",
+          "Basic fraud protection",
+          "Payment analytics dashboard"
+        ],
+        "cta": "Get Started"
       },
-      "internationalBank": {
-        "title": "International Bank",
-        "description": "Successfully deployed cross-border payment system, improving customer experience and operational efficiency",
-        "industry": "Financial Services",
-        "results": [
-          "Cross-border payment processing time reduced by 70%",
-          "System availability reached 99.99%",
-          "Customer complaint rate reduced by 60%",
-          "Operating costs reduced by 30%"
-        ]
+      "business": {
+        "name": "Business",
+        "description": "Advanced payment solutions for growing businesses",
+        "price": "149",
+        "period": "month",
+        "features": [
+          "Up to 10,000 transactions per month",
+          "2.5% + $0.25 per transaction",
+          "24/7 priority support",
+          "Advanced fraud protection",
+          "Detailed analytics and reports",
+          "Recurring payments",
+          "Multiple user accounts"
+        ],
+        "cta": "Get Started"
       },
-      "hotelChain": {
-        "title": "Hotel Chain",
-        "description": "Integrated global payment system, enhancing booking experience and revenue",
-        "industry": "Travel & Hospitality",
-        "results": [
-          "Booking conversion rate increased by 45%",
-          "Support for settlement in 20+ currencies",
-          "Customer satisfaction increased by 35%",
-          "Revenue increased by 25%"
-        ]
-      },
-      "multinational": {
-        "title": "Multinational Enterprise",
-        "description": "Achieved global fund management and payment automation",
-        "industry": "Enterprise Services",
-        "results": [
-          "Payment processing efficiency increased by 80%",
-          "Operating costs reduced by 40%",
-          "Fund turnover rate increased by 50%",
-          "Compliance risk reduced by 60%"
-        ]
-      },
-      "crossBorderEcommerce": {
-        "title": "Cross-border E-commerce Platform",
-        "description": "Expanded into emerging markets through localized payment solutions",
-        "industry": "E-Commerce",
-        "results": [
-          "Revenue in emerging markets increased by 200%",
-          "Local payment methods coverage reached 95%",
-          "Customer satisfaction increased by 50%",
-          "Payment failure rate reduced by 70%"
-        ]
-      },
-      "travelAgency": {
-        "title": "International Travel Agency",
-        "description": "Integrated multi-currency payment system, enhancing booking experience",
-        "industry": "Travel & Hospitality",
-        "results": [
-          "Booking conversion rate increased by 60%",
-          "Support for settlement in 30+ currencies",
-          "Customer satisfaction increased by 45%",
-          "Revenue increased by 35%"
-        ]
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Customized payment solution for large organizations",
+        "price": "499",
+        "period": "month",
+        "features": [
+          "Unlimited transactions",
+          "Custom pricing for high volumes",
+          "Dedicated account manager",
+          "Premium fraud protection",
+          "Advanced API integrations",
+          "Custom reporting",
+          "Multi-currency support",
+          "Global payment methods"
+        ],
+        "cta": "Contact Sales"
       }
     },
+    "page": {
+      "header": {
+        "title": "Payment Solution Pricing",
+        "subtitle": "Flexible payment solutions for businesses of all sizes, charged by transaction volume and payment method",
+        "tag": "Transparent Pricing · Flexible Options"
+      },
+      "volume_title": "Transaction Volume Based",
+      "payment_type_title": "Payment Method Rates",
+      "packages": {
+        "standard": {
+          "name": "Standard",
+          "description": "For small merchants and startups",
+          "price": "2.9% + $0.30",
+          "price_unit": "/transaction",
+          "volume": "Monthly Volume: ≤ 10,000 transactions",
+          "features": [
+            "Basic payment methods",
+            "Standard security protection",
+            "7-day settlement cycle",
+            "Email support"
+          ],
+          "cta": "Get Started"
+        },
+        "business": {
+          "name": "Business",
+          "description": "For growing businesses",
+          "price": "2.5% + $0.20",
+          "price_unit": "/transaction",
+          "volume": "Monthly Volume: 10,001 - 100,000 transactions",
+          "features": [
+            "All payment methods",
+            "Advanced security protection",
+            "3-day settlement cycle",
+            "Priority phone and email support",
+            "Transaction data analytics"
+          ],
+          "cta": "Get Started",
+          "badge": "Most Popular"
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "description": "For large businesses and high-volume merchants",
+          "price": "Custom",
+          "price_unit": "pricing",
+          "volume": "Monthly Volume: > 100,000 transactions",
+          "features": [
+            "Custom pricing plan",
+            "Dedicated integration support",
+            "T+1 settlement",
+            "Dedicated account manager",
+            "Full API access"
+          ],
+          "cta": "Contact Sales"
+        }
+      },
+      "payment_methods": {
+        "credit_card": "Credit Card Payment",
+        "wechat": "WeChat Pay",
+        "alipay": "Alipay",
+        "unionpay": "UnionPay QuickPass",
+        "international": "International Credit Cards"
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Answering your queries",
+        "items": [
+          {
+            "question": "How are transaction fees calculated?",
+            "answer": "Transaction fees consist of two parts: a percentage rate and a fixed fee. For example, 2.9% + $0.30 means you pay 2.9% of the transaction amount plus a fixed fee of $0.30 per transaction. For a $100 transaction, you would pay $2.90 in percentage fees and $0.30 in fixed fees, totaling $3.20."
+          },
+          {
+            "question": "Why do different payment methods have different rates?",
+            "answer": "Different payment methods have different rates that reflect the cost structure, risk level, and processing complexity of various payment channels. For example, international credit cards typically have higher rates because they involve cross-border processing and currency conversion, while local payment methods often have lower rates."
+          },
+          {
+            "question": "How does the settlement cycle work?",
+            "answer": "The settlement cycle refers to the time it takes for funds to reach your bank account after a successful transaction. The Standard package has a 7-day settlement cycle, the Business package offers a 3-day cycle, and the Enterprise package provides T+1 settlement (next business day after the transaction). Shorter settlement cycles help you access your funds faster."
+          },
+          {
+            "question": "Are there minimum monthly fees or setup fees?",
+            "answer": "We do not charge minimum monthly fees or setup fees. You only pay for the transactions you process. If you don't have any transactions, you don't pay any fees, making our service particularly friendly for seasonal businesses or merchants with fluctuating transaction volumes."
+          },
+          {
+            "question": "How do I get custom pricing for the Enterprise package?",
+            "answer": "If your monthly transaction volume exceeds 100,000 transactions or you have specific business requirements, please contact our sales team. We'll provide a custom pricing plan based on your transaction volume, industry type, and specific needs. Enterprise package customers also receive a dedicated account manager and priority support services."
+          }
+        ]
+      },
+      "custom": {
+        "title": "Need a Custom Solution?",
+        "description": "Our team will work with you to create a tailored payment solution based on your business scale and specific requirements.",
+        "cta": "Contact Sales"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What payment methods are supported?",
+          "answer": "We support all major credit cards, including Visa, Mastercard, American Express, and JCB. We also offer support for digital wallets such as Apple Pay, Google Pay, and PayPal, as well as local payment methods in various countries."
+        },
+        {
+          "question": "Are there any setup fees?",
+          "answer": "No, there are no setup fees for any of our plans. You only pay the monthly subscription fee and the transaction fees for the payments you process."
+        },
+        {
+          "question": "Can I switch between plans?",
+          "answer": "Yes, you can upgrade or downgrade your plan at any time. If you upgrade, you'll be charged the prorated amount for the remainder of your billing cycle. If you downgrade, the new rate will take effect at the beginning of your next billing cycle."
+        },
+        {
+          "question": "Is there a contract or commitment?",
+          "answer": "No, all our plans are month-to-month with no long-term contracts. You can cancel at any time."
+        },
+        {
+          "question": "What happens if I exceed my monthly transaction limit?",
+          "answer": "If you exceed your monthly transaction limit, you'll be charged the standard rate for each additional transaction. We'll also notify you and suggest upgrading to a more suitable plan if appropriate."
+        }
+      ]
+    },
     "contact": {
-      "title": "Ready to start your success story?",
-      "description": "Our team is ready to help you achieve your business growth goals. Contact us now to learn how we can tailor payment solutions for your business.",
-      "button": "Contact Us"
+      "title": "Need a custom solution?",
+      "description": "Our team will work with you to create a tailored payment solution that meets your unique business requirements.",
+      "cta": "Contact Sales"
     }
   },
   "about": {
     "title": "About Sphere",
-    "description": "We are committed to providing secure, efficient, and convenient payment solutions for global enterprises, helping them achieve global development.",
+    "description": "Secure, efficient global payment solutions helping businesses expand worldwide.",
     "mission": {
       "title": "Our Mission",
-      "description": "Breaking down global payment barriers through innovative payment technology, making cross-border transactions simple, secure, and efficient. We are committed to providing comprehensive payment solutions for enterprises to help them achieve global development."
+      "description": "Breaking payment barriers with innovative technology for simple, secure cross-border transactions."
     },
     "vision": {
       "title": "Our Vision",
-      "description": "To become a global leading payment solution provider, allowing enterprises worldwide to enjoy convenient, secure, and efficient payment experiences through technological innovation and quality service."
+      "description": "To be the leading payment solution provider delivering seamless global transactions."
     },
     "values": {
       "title": "Core Values",
       "items": {
         "innovation": {
           "title": "Innovation",
-          "description": "Continuous innovation is our core competitiveness. We constantly explore new technologies to provide better payment experiences for our customers."
+          "description": "Exploring new technologies to enhance payment experiences."
         },
         "professional": {
           "title": "Professional",
-          "description": "We have a professional team with rich experience in the payment industry, providing professional solutions for our customers."
+          "description": "Expert team with deep payment industry experience."
         },
         "responsibility": {
           "title": "Responsibility",
-          "description": "We always put our customers first, being responsible to our customers and society, committed to creating greater value."
+          "description": "Customer-focused approach creating greater value for all."
         }
       }
     },
@@ -271,23 +398,23 @@
         "member1": {
           "name": "John Doe",
           "position": "Chief Executive Officer",
-          "description": "15 years of experience in the payment industry, has held executive positions in several well-known payment companies."
+          "description": "15+ years payment industry expertise across major companies."
         },
         "member2": {
           "name": "Jane Smith",
           "position": "Chief Technology Officer",
-          "description": "Focused on payment technology development, leading the team to develop multiple innovative payment solutions."
+          "description": "Leading innovative payment technology development."
         },
         "member3": {
           "name": "David Johnson",
           "position": "Product Director",
-          "description": "Deeply engaged in payment product design, committed to providing the best user experience."
+          "description": "Specialized in creating optimal payment user experiences."
         }
       }
     },
     "contact": {
       "title": "Contact Us",
-      "description": "No matter what questions or needs you have, our team is ready to provide professional support and services. Choose the way that suits you best to get in touch with us.",
+      "description": "Our team is ready to provide professional support for all your needs.",
       "phone": {
         "title": "Phone Support",
         "hours": "Monday to Friday 9:00-18:00",
@@ -300,7 +427,7 @@
       },
       "address": {
         "title": "Company Address",
-        "welcome": "Welcome to visit",
+        "welcome": "Visit us at",
         "location": "Lujiazui Financial Trade Zone, Pudong New Area, Shanghai"
       },
       "form": {
@@ -361,6 +488,8 @@
       "settings": "Settings",
       "open_sidebar": "Open Sidebar",
       "close_sidebar": "Close Sidebar",
+      "collapse_sidebar": "Collapse Sidebar",
+      "expand_sidebar": "Expand Sidebar",
       "view_notifications": "View Notifications",
       "open_user_menu": "Open User Menu"
     },
@@ -476,6 +605,12 @@
     "nav": {
       "dashboard": "Dashboard",
       "orders": "Order Management",
+      "orders_receive": "Receiving Orders",
+      "orders_payout": "Payout Orders",
+      "orders_recharge": "Recharge Orders",
+      "orders_transfer": "Transfer Orders",
+      "orders_withdraw": "Withdrawal Orders",
+      "orders_other": "Other Orders",
       "products": "Product Management",
       "customers": "Customer Management",
       "settings": "System Settings"
@@ -495,39 +630,142 @@
     },
     "dashboard": {
       "title": "Dashboard",
-      "welcome_back": "Welcome back, view the latest data and performance of your store.",
+      "welcome_back": "Welcome back, view the latest data and performance of your payment platform.",
+      "transaction_volume": "Transaction Volume",
+      "transactions_count": "Transaction Count",
+      "success_rate": "Success Rate",
+      "active_merchants": "Active Merchants",
+      "transaction_status": "Transaction Status",
+      "new_transactions": "New Transactions",
+      "processing": "Processing",
+      "pending_verification": "Pending Verification",
+      "declined": "Declined",
+      "completed": "Completed",
+      "today": "Today",
+      "transaction_trend": "Transaction Trend",
+      "last_6_months": "Transaction data for the last 6 months",
+      "quick_actions": "Quick Actions",
+      "new_payment_link": "New Payment Link",
+      "payout_request": "Payout Request",
+      "payment_methods": "Payment Methods",
+      "transaction_reports": "Transaction Reports",
+      "recent_transactions": "Recent Transactions",
+      "view_payment_history": "View payment history",
+      "view_all": "View All",
+      "transaction_id": "Transaction ID",
+      "method": "Payment Method",
+      "date": "Date",
+      "amount": "Amount",
+      "status": "Status",
+      "status_completed": "Completed",
+      "status_processing": "Processing",
+      "status_declined": "Declined",
+      "order_id": "Order ID",
+      "customer": "Customer",
       "total_orders": "Total Orders",
       "revenue": "Revenue",
       "customers": "Total Customers",
       "products": "Total Products",
       "increased_by": "Increased by",
       "recent_orders": "Recent Orders",
-      "view_all": "View All",
-      "order_id": "Order ID",
-      "customer": "Customer",
-      "date": "Date",
-      "amount": "Amount",
-      "status": "Status",
-      "status_completed": "Completed",
-      "status_processing": "Processing",
-      "status_cancelled": "Cancelled",
-      "status_pending": "Pending",
       "order_status": "Order Status",
       "new_orders": "New Orders",
-      "processing": "Processing",
       "packaged": "Packaged",
       "shipping": "Shipping",
-      "completed": "Completed",
-      "today": "Today",
       "sales_trend": "Sales Trend",
-      "last_6_months": "Sales data for the last 6 months",
       "monthly": "Monthly",
-      "quick_actions": "Quick Actions",
       "add_product": "Add Product",
       "create_order": "Create Order",
       "manage_customers": "Manage Customers",
       "view_reports": "View Reports",
       "view_transactions": "View Recent Transactions"
+    },
+    "orders": {
+      "quick_access": "Quick Access",
+      "receive_desc": "Manage payment receiving orders",
+      "payout_desc": "Manage payment disbursement orders",
+      "recharge_desc": "Manage account recharge orders",
+      "transfer_desc": "Manage account transfer orders",
+      "withdraw_desc": "Manage account withdrawal orders",
+      "other_desc": "Manage other types of orders"
     }
+  },
+  "cases": {
+    "filters": {
+      "all": "All Industries",
+      "ecommerce": "E-Commerce",
+      "finance": "Financial Services",
+      "travel": "Travel & Hospitality",
+      "enterprise": "Enterprise"
+    },
+    "items": {
+      "globalEcommerce": {
+        "title": "Global E-commerce Platform",
+        "industry": "E-Commerce",
+        "description": "A leading global e-commerce platform implemented our cross-border payment solution to expand into new international markets.",
+        "results": {
+          "0": "Increased international sales by 35%",
+          "1": "Reduced payment processing time by 68%",
+          "2": "Supported 25+ local payment methods",
+          "3": "Lowered transaction fees by 12%"
+        }
+      },
+      "internationalBank": {
+        "title": "International Banking Institution",
+        "industry": "Financial Services",
+        "description": "A multinational bank integrated our platform to streamline international wire transfers and provide better service to global clients.",
+        "results": {
+          "0": "Processed $2.5B in cross-border transactions monthly",
+          "1": "Reduced transfer times from days to minutes",
+          "2": "Improved compliance with regulations in 30+ countries",
+          "3": "Cut operational costs by 22%"
+        }
+      },
+      "hotelChain": {
+        "title": "Luxury Hotel Chain",
+        "industry": "Travel & Hospitality",
+        "description": "A five-star hotel chain with properties across Asia and Europe implemented our multi-currency payment system to enhance guest experience.",
+        "results": {
+          "0": "Seamless payment experience in 15+ currencies",
+          "1": "45% faster checkout process for guests",
+          "2": "Integrated with existing property management system",
+          "3": "Improved reconciliation and reporting efficiency by 60%"
+        }
+      },
+      "multinational": {
+        "title": "Multinational Corporation",
+        "industry": "Enterprise",
+        "description": "A Fortune 500 company deployed our B2B payment solution to manage vendor payments across global operations and subsidiaries.",
+        "results": {
+          "0": "Consolidated payments across 24 countries",
+          "1": "Automated 85% of payment approval workflows",
+          "2": "Simplified currency management and hedging",
+          "3": "Improved supplier satisfaction scores by 40%"
+        }
+      },
+      "crossBorderEcommerce": {
+        "title": "Cross-Border Retail Marketplace",
+        "industry": "E-Commerce",
+        "description": "An emerging marketplace connecting international sellers with local buyers implemented our payment solution to build trust and facilitate transactions.",
+        "results": {
+          "0": "Enabled transactions between sellers and buyers in 35+ countries",
+          "1": "Provided localized payment options in each market",
+          "2": "Reduced payment disputes by 28%",
+          "3": "Increased seller onboarding by 56%"
+        }
+      },
+      "travelAgency": {
+        "title": "Global Travel Agency",
+        "industry": "Travel & Hospitality",
+        "description": "A leading online travel agency implemented our solution to process bookings and payments for flights, hotels, and experiences worldwide.",
+        "results": {
+          "0": "Seamless processing of 100,000+ daily bookings",
+          "1": "Support for 40+ currencies and payment methods",
+          "2": "90% reduction in payment processing errors",
+          "3": "Increased booking completion rate by 23%"
+        }
+      }
+    },
+    "viewDetails": "View Details"
   }
 } 

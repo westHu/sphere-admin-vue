@@ -16,8 +16,8 @@ const router = createRouter({
       meta: { requiresAuth: false, layout: 'portal' }
     },
     {
-      path: '/cases',
-      component: () => import('../pages/portal/cases/index.vue'),
+      path: '/pricing',
+      component: () => import('../pages/portal/pricing/index.vue'),
       meta: { requiresAuth: false, layout: 'portal' }
     },
     {
@@ -56,6 +56,36 @@ const router = createRouter({
         {
           path: 'orders',
           component: () => import('../pages/merchant/orders/index.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
+          path: 'orders/receive',
+          component: () => import('../pages/merchant/orders/receive.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
+          path: 'orders/payout',
+          component: () => import('../pages/merchant/orders/payout.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
+          path: 'orders/recharge',
+          component: () => import('../pages/merchant/orders/recharge.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
+          path: 'orders/transfer',
+          component: () => import('../pages/merchant/orders/transfer.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
+          path: 'orders/withdraw',
+          component: () => import('../pages/merchant/orders/withdraw.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
+          path: 'orders/other',
+          component: () => import('../pages/merchant/orders/other.vue'),
           meta: { requiresAuth: true, layout: 'merchant' }
         },
         {
