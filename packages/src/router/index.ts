@@ -7,23 +7,30 @@ const router = createRouter({
     // 官网页面
     {
       path: '/',
-      component: () => import('../pages/portal/home/index.vue'),
-      meta: { requiresAuth: false, layout: 'portal' }
-    },
-    {
-      path: '/solutions',
-      component: () => import('../pages/portal/solutions/index.vue'),
-      meta: { requiresAuth: false, layout: 'portal' }
-    },
-    {
-      path: '/pricing',
-      component: () => import('../pages/portal/pricing/index.vue'),
-      meta: { requiresAuth: false, layout: 'portal' }
-    },
-    {
-      path: '/about',
-      component: () => import('../pages/portal/about/index.vue'),
-      meta: { requiresAuth: false, layout: 'portal' }
+      component: () => import('../layouts/PortalLayout.vue'),
+      meta: { requiresAuth: false, layout: 'portal' },
+      children: [
+        {
+          path: '',
+          component: () => import('../pages/portal/home/index.vue'),
+          meta: { requiresAuth: false, layout: 'portal' }
+        },
+        {
+          path: 'solutions',
+          component: () => import('../pages/portal/solutions/index.vue'),
+          meta: { requiresAuth: false, layout: 'portal' }
+        },
+        {
+          path: 'pricing',
+          component: () => import('../pages/portal/pricing/index.vue'),
+          meta: { requiresAuth: false, layout: 'portal' }
+        },
+        {
+          path: 'about',
+          component: () => import('../pages/portal/about/index.vue'),
+          meta: { requiresAuth: false, layout: 'portal' }
+        },
+      ]
     },
     // API文档页面
     {
@@ -100,6 +107,21 @@ const router = createRouter({
         {
           path: 'finance',
           component: () => import('../pages/merchant/finance/index.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
+          path: 'finance/balance',
+          component: () => import('../pages/merchant/finance/balance.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
+          path: 'finance/transactions',
+          component: () => import('../pages/merchant/finance/transactions.vue'),
+          meta: { requiresAuth: true, layout: 'merchant' }
+        },
+        {
+          path: 'finance/settlement',
+          component: () => import('../pages/merchant/finance/settlement.vue'),
           meta: { requiresAuth: true, layout: 'merchant' }
         },
         {
@@ -182,6 +204,14 @@ router.beforeEach((to, from, next) => {
   // 设置布局类型，便于CSS选择器使用
   const layout = to.meta.layout as string || (to.path.startsWith('/merchant') ? 'merchant' : to.path.startsWith('/admin') ? 'admin' : 'portal')
   document.body.dataset.layout = layout
+  
+  // 平滑滚动到顶部（而不是瞬间跳转）
+  if (from.path !== to.path) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
   
   // 路由权限检查
   if (to.meta.requiresAuth && !isAuthenticated) {

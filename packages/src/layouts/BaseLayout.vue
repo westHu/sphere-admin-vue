@@ -12,7 +12,7 @@
           <div class="flex flex-col items-center justify-between gap-6 py-8 md:h-24 md:flex-row">
             <div class="flex flex-col items-center gap-4 md:flex-row md:gap-6">
               <p class="text-center text-sm leading-loose text-muted-foreground md:text-left">
-                {{ t('common.footer.rights') }}
+                {{ tFunc('common.footer.rights') }}
               </p>
               <div class="flex items-center gap-4">
                 <a
@@ -27,13 +27,13 @@
                   href="/privacy"
                   class="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {{ t('common.footer.privacy') }}
+                  {{ tFunc('common.footer.privacy') }}
                 </a>
                 <a
                   href="/terms"
                   class="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {{ t('common.footer.terms') }}
+                  {{ tFunc('common.footer.terms') }}
                 </a>
               </div>
             </div>
@@ -71,8 +71,9 @@
 </template>
 
 <script setup lang="ts">
-import Navbar from '@/components/Navbar.vue'
+import Navbar from '../components/Navbar.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const tFunc = t as any
 </script> 
